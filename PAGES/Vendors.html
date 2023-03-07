@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="VendorList">
+      <button onclick="AddToVendor();">Add</button>
+    </div>
+    <div>
+      <form onsubmit="newVendor(event)">
+        <div style="display: flex; flex-direction: row; justify-content: center; align-items: center; gap: 0.5rem">
+          <div style="display: flex; flex-direction: column; justify-content: center; align-items: end">
+            <div style="display: flex; flex-direction: row; gap: 0.5rem"><label>Vendor Name</label><input id="Name" type="text" /></div>
+            <div style="display: flex; flex-direction: row; gap: 0.5rem"><label>Vendor POC</label><input id="POC" type="text" /></div>
+            <div style="display: flex; flex-direction: row; gap: 0.5rem"><label>Address</label><input id="Address" type="text" /></div>
+            <div style="display: flex; flex-direction: row; gap: 0.5rem"><label>City</label><input id="City" type="text" /></div>
+            <div style="display: flex; flex-direction: row; gap: 0.5rem"><label>State</label><input id="State" type="text" /></div>
+            <div style="display: flex; flex-direction: row; gap: 0.5rem"><label>Zip</label><input id="Zip" type="text" /></div>
+            <div style="display: flex; flex-direction: row; gap: 0.5rem"><label>Phone</label><input id="Phone" type="text" /></div>
+          </div>
+          <div style="display: flex; flex-direction: column; justify-content: center; align-items: end">
+            <div style="display: flex; flex-direction: row; gap: 0.5rem"><label>Web</label><input id="Web" type="text" value="https://" /></div>
+            <div style="display: flex; flex-direction: row; gap: 0.5rem"><label>UP</label><input id="UP" type="text" /></div>
+            <div style="display: flex; flex-direction: row; gap: 0.5rem"><label>QT</label><input id="QT" type="text" /></div>
+            <div style="display: flex; flex-direction: row; gap: 0.5rem"><label>UI</label><input id="UI" type="text" /></div>
+            <div style="display: flex; flex-direction: row; gap: 0.5rem"><label>Total</label><input id="Total" type="text" /></div>
+            <div style="display: flex; flex-direction: row; gap: 0.5rem"><label>Description</label><textarea id="Description" type="text" cols="16" rows="3"></textarea></div>
+          </div>
+          <div style="display: flex; flex-direction: column; justify-content: center; align-items: end">
+            <div style="display: flex; flex-direction: row; gap: 0.5rem"><label>Justification</label><textarea id="Justification" type="text" cols="16" rows="4"></textarea></div>
+            <div style="display: flex; flex-direction: row; gap: 0.5rem"><label>RPN</label><input type="radio" id="RPN" /> <input type="submit" /></div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <script defer>
+      let array = [];
+
+      function newVendor(e) {
+        // e.preventDefault();
+        let currentVendors = JSON.parse(localStorage.getItem("Vendors")) || [];
+
+        let Web = document.getElementById("Web").value;
+
+        let newVendor = {
+          "ID": generateUUID(),
+          "Name": document.getElementById("Name").value,
+          "POC": document.getElementById("POC").value,
+          "Address": document.getElementById("Address").value,
+          "City": document.getElementById("City").value,
+          "State": document.getElementById("State").value,
+          "Zip": document.getElementById("Zip").value,
+          "Phone": document.getElementById("Phone").value,
+          "Web": Web,
+          "UP": document.getElementById("UP").value,
+          "QT": document.getElementById("QT").value,
+          "UI": document.getElementById("UI").value,
+          "Total": document.getElementById("Total").value,
+          "Description": document.getElementById("Description").value,
+          "Justification": document.getElementById("Justification").value,
+          "RPN": document.getElementById("RPN").value,
+        };
+        currentVendors.push(newVendor);
+        localStorage.setItem("Vendors", JSON.stringify(currentVendors));
+      }
+      function UpdateItem(event) {
+        let ID = event.target.getAttribute("dataID");
+        console.log(ID);
+        let currentVendors = JSON.parse(localStorage.getItem("Vendors")) || [];
+        console.log(currentVendors);
+
+        for (let index = 0; index < currentVendors.length; index++) {
+          if (currentVendors[index].ID === ID) {
+            currentVendors[index] = {
+              "ID": ID,
+              "Name": document.getElementById(`Name` + ID).value,
+              "POC": document.getElementById("POC" + ID).value,
+              "Address": document.getElementById("Address" + ID).value,
+              "City": document.getElementById("City" + ID).value,
+              "State": document.getElementById("State" + ID).value,
+              "Zip": document.getElementById("Zip" + ID).value,
+              "Phone": document.getElementById("Phone" + ID).value,
+              "Web": document.getElementById("Web" + ID).value,
+              "UP": document.getElementById("UP" + ID).value,
+              "QT": document.getElementById("QT" + ID).value,
+              "UI": document.getElementById("UI" + ID).value,
+              "Total": document.getElementById("Total" + ID).value,
+              "Description": document.getElementById("Description" + ID).value,
+              "Justification": document.getElementById("Justification" + ID).value,
+              "RPN": document.getElementById("RPN" + ID).value,
+            };
+          }
+        }
+        localStorage.setItem("Vendors", JSON.stringify(currentVendors));
+      }
+
+      function ListVendor(html) {
+        const template = document.createElement("template");
+        template.innerHTML = html.trim();
+        return template.content.firstElementChild;
+      }
+
+      // <form onsubmit="UpdateItem(event, ${ID})">
+      function AddToVendor(data, index) {
+        let text = `
+        <form onsubmit="UpdateItem(event)" dataID="${data.ID}">
+        <div style="display: flex; flex-direction: row; justify-content: center; align-items: center; gap: 0.5rem">
+          <div style="display: flex; flex-direction: column; justify-content: center; align-items: end">
+            <div style="display: flex; flex-direction: row; gap: 0.5rem"><label>Vendor Name</label><input id="Name${data.ID}" type="text" value=${data.Name} /></div>
+            <div style="display: flex; flex-direction: row; gap: 0.5rem"><label>Vendor POC</label><input id="POC${data.ID}" type="text" value=${data.POC}  /></div>
+            <div style="display: flex; flex-direction: row; gap: 0.5rem"><label>Address</label><input id="Address${data.ID}" type="text" value=${data.Address} /></div>
+            <div style="display: flex; flex-direction: row; gap: 0.5rem"><label>City</label><input id="City${data.ID}" type="text" value=${data.City} /></div>
+            <div style="display: flex; flex-direction: row; gap: 0.5rem"><label>State</label><input id="State${data.ID}" type="text" value=${data.State} /></div>
+            <div style="display: flex; flex-direction: row; gap: 0.5rem"><label>Zip</label><input id="Zip${data.ID}" type="text" value=${data.Zip} /></div>
+            <div style="display: flex; flex-direction: row; gap: 0.5rem"><label>Phone</label><input id="Phone${data.ID}" type="text" value=${data.Phone} /></div>
+          </div>
+          <div style="display: flex; flex-direction: column; justify-content: center; align-items: end">
+            <div style="display: flex; flex-direction: row; gap: 0.5rem"><label>Web</label><input id="Web${data.ID}" type="text" value=${data.Web} /></div>
+            <div style="display: flex; flex-direction: row; gap: 0.5rem"><label>UP</label><input id="UP${data.ID}" type="text" value=${data.UP} /></div>
+            <div style="display: flex; flex-direction: row; gap: 0.5rem"><label>QT</label><input id="QT${data.ID}" type="text" value=${data.QT} /></div>
+            <div style="display: flex; flex-direction: row; gap: 0.5rem"><label>UI</label><input id="UI${data.ID}" type="text" value=${data.UI} /></div>
+            <div style="display: flex; flex-direction: row; gap: 0.5rem"><label>Total</label><input id="Total${data.ID}" type="text" value=${data.Total} /></div>
+            <div style="display: flex; flex-direction: row; gap: 0.5rem"><label>Description</label><textarea id="Description${data.ID}" type="text" cols="16" rows="3">${data.Description}</textarea></div>
+          </div>
+          <div style="display: flex; flex-direction: column; justify-content: center; align-items: end">
+            <div style="display: flex; flex-direction: row; gap: 0.5rem"><label>Justification</label><textarea id="Justification${data.ID}" type="text" cols="16" rows="4">${data.Justification}</textarea></div>
+            <div style="display: flex; flex-direction: row; gap: 0.5rem"><label>RPN</label><input type="radio" id="RPN${data.ID}"  /> <input type="submit" /></div>
+          </div>
+        </div>
+    </form>
+      `;
+
+        let vendor = ListVendor(text);
+        document.getElementById("VendorList").appendChild(vendor);
+      }
+
+      function generateUUID() {
+        var d = new Date().getTime();
+        var d2 = (typeof performance !== "undefined" && performance.now && performance.now() * 1000) || 0;
+        return "xxx4xxxyx".replace(/[xy]/g, function (c) {
+          var r = Math.random() * 16;
+          if (d > 0) {
+            r = (d + r) % 16 | 0;
+            d = Math.floor(d / 16);
+          } else {
+            r = (d2 + r) % 16 | 0;
+            d2 = Math.floor(d2 / 16);
+          }
+          return (c === "x" ? r : (r & 0x3) | 0x8).toString(16);
+        });
+      }
+
+      JSON.parse(localStorage.getItem("Vendors")).map((item, index) => {
+        AddToVendor(item, index);
+      });
+    </script>
+  </body>
+</html>

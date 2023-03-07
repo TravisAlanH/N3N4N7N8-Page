@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="../CSS/Command.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="CommandPage">
+      <div>
+        <form onsubmit="SubCommand()" class="CommandList">
+            <div>
+          <label>Name</label>
+          <input id="Name" type="text" />
+        </div>
+        <div>
+          <label>Address</label>
+          <input id="Address" type="text" />
+        </div>
+        <div>
+          <label>City</label>
+          <input id="City" type="text" />
+        </div>
+        <div>
+          <label>State</label>
+          <input id="State" type="text" />
+        </div>
+        <div>
+          <label>Zip</label>
+          <input id="Zip" type="text" />
+        </div>
+        <div>
+          <label>Phone</label>
+          <input id="Phone" type="text" />
+        </div>
+        <div>
+            <label>POC</label>
+            <input id="POC" type="text" />
+          </div>
+        <div>
+            <div>
+                <input type="submit" value="sub">
+            </div>
+        </form>
+      </div>
+    </div>
+    
+    <script>
+        document.getElementById("Name").value = JSON.parse(localStorage.getItem("Command")).Name || ""
+        document.getElementById("Address").value = JSON.parse(localStorage.getItem("Command")).Address || ""
+        document.getElementById("City").value = JSON.parse(localStorage.getItem("Command")).City || ""
+        document.getElementById("State").value = JSON.parse(localStorage.getItem("Command")).State || ""
+        document.getElementById("Zip").value = JSON.parse(localStorage.getItem("Command")).Zip || ""
+        document.getElementById("Phone").value = JSON.parse(localStorage.getItem("Command")).Phone || ""
+        document.getElementById("POC").value = JSON.parse(localStorage.getItem("Command")).POC || ""
+
+
+        function SubCommand() {
+            let Command = {
+            "Name": (document.getElementById("Name").value),
+            "Address": (document.getElementById("Address").value),
+            "City" :(document.getElementById("City").value),
+            "State" :(document.getElementById("State").value),
+            "Zip":(document.getElementById("Zip").value),
+            "Phone":(document.getElementById("Phone").value),
+            "POC": (document.getElementById("POC").value)
+            }
+            localStorage.setItem("Command", JSON.stringify(Command))
+        }
+    </script>
+  </body>
+</html>

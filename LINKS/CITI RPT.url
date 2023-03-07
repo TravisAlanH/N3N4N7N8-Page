@@ -1,0 +1,10 @@
+[DEFAULT]
+BASEURL=https://www.msn.com/spartan/ientp?locale=en-US&market=US&enableregulatorypsm=0&NTLogo=1&IsFRE=0
+[{000214A0-0000-0000-C000-000000000046}]
+Prop3=19,9
+[InternetShortcut]
+IDList=
+URL=file:///E:/N3_N7/REPORTS/CITI%20REPORTS
+IconFile=https://www.msn.com/content/images/icons/Favicon_EdgeStart.ico
+IconIndex=1
+HotKey=0

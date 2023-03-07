@@ -1,0 +1,372 @@
+<HTML>
+<head>
+<title>RPN TOOL</title>
+</head>
+<style>
+div.trans {
+   background: RGBA (255, 255, 255, 0);
+   position: absolute;
+}
+div.trans p {
+   color: black;
+   font-size: 12px;
+}
+div.container {
+ position: relative;
+ text-align: left;
+}
+
+@media print 
+{
+	.no-print, .no-print *
+	{
+		display: none !important;
+	}
+}
+
+td.left {
+   width: 200px;
+}
+
+
+table {
+   font-size: 12;
+   border:1px solid red
+   border-collapse:collapse
+}
+
+tr {
+   border:1px solid red
+}
+t {
+   border:1px solid red
+}
+
+
+   
+</style>
+
+<script>
+function Command() {
+    var x = document.getElementById("Command").value;
+    document.getElementById("CommandSelected").innerHTML = x;
+}
+function Vendor() {
+    var x = document.getElementById("Vendor").value;
+    document.getElementById("VendorSelect").innerHTML = x;
+}
+
+function Ext() {
+    var x = document.getElementById("GRAND").value;
+    document.getElementById("Ext Line").innerHTML = x;
+}
+function pageTotalFun() {
+    var x = document.getElementById("GRAND").value;
+    document.getElementById("pageTotalDiv").innerHTML = x;
+}
+function amountTotalFun() {
+    var x = document.getElementById("GRAND").value;
+    document.getElementById("amountTotalDiv").innerHTML = x;
+}
+function lineTotalFun() {
+    var x = document.getElementById("GRAND").value;
+    document.getElementById("lineTotalDiv").innerHTML = x;
+}
+
+function datetwo() {
+    var x = document.getElementById("date").value;
+    document.getElementById("date Line").innerHTML = x;
+}
+function dateone() {
+    var x = document.getElementById("date").value;
+    document.getElementById("date Line Top").innerHTML = x;
+}
+function dateOptarFun() {
+    var x = document.getElementById("dateOptar").value;
+    document.getElementById("dateOptarDiv").innerHTML = x;
+}
+
+function QT() {
+    var x = document.getElementById("QT").value;
+    document.getElementById("QT Line").innerHTML = x;
+}
+function UP() {
+    var x = document.getElementById("UP").value;
+    document.getElementById("UP Line").innerHTML = x;
+}
+
+function SHIP() {
+    var x = document.getElementById("SHIP").value;
+    document.getElementById("SHIP Line").innerHTML = x;
+}
+
+function GRAND() {
+    var x = document.getElementById("GRAND").value;
+    document.getElementById("GRAND Line").innerHTML = x;
+}
+
+</script>
+
+
+<body>
+<div class="noprint">
+<table>
+
+
+<td class="left">
+<div class="no-print">
+
+
+<div class="hideoverflow">
+<select id="Command"  size="4" onchange="Command()">
+  <option value="" selected="selected">            Terms:         </option>
+  <option value="
+	<table>
+		<tr>
+			<td>&nbsp&nbsp <br/>&nbsp&nbsp</td>
+		</tr>
+		<tr>
+			<td><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/></td>
+		</tr>
+
+		<tr>
+			<td>   GCPC</td>
+		</tr>
+		<tr>
+			<td>Credit Card</td>
+		</tr>
+		<tr>
+			<td>Heidelberger, Travis </td>
+		</tr>
+	</table>">
+	NOSC Soiux Falls          
+  </option>
+</select>
+
+<br/>
+
+<select id="Vendor" size="10" onchange="Vendor()">
+  <option value="" selected>           Vendor:            </option>
+
+<option value="
+	<table>
+		<tr>
+			<td>&nbsp&nbspMeals for Drilling Reservists (Lunch) through: </td>
+		</tr>
+		<tr>
+			<td><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/></td>
+		</tr>
+
+		<tr>
+			<td>   &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+				Crack'd Pot
+					&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+					&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+					&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 
+				Store Manager</td>
+		</tr>
+		<tr>
+			<td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+				1430 N Minnesota Ave <br/>    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+				Sioux Falls &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 
+				SD </td>
+		</tr>
+		<tr>
+			<td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+				57104 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 
+				605-338-9713 </td>
+		</tr>
+		
+	</table>">
+	Crack'd Pot
+</option>
+
+
+<option value="
+	<table>
+		<tr>
+			<td>&nbsp&nbspMeals for Drilling Reservists (Lunch) through: </td>
+		</tr>
+		<tr>
+			<td><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/></td>
+		</tr>
+
+		<tr>
+			<td>   &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+				Alliance Center
+					&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+					&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+					&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 
+				Store Manager</td>
+		</tr>
+		<tr>
+			<td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+				1600 W Russell St <br/>    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+				Sioux Falls &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 
+				SD </td>
+		</tr>
+		<tr>
+			<td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+				57104 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 
+				605-271-1582 </td>
+		</tr>
+		
+	</table>">
+	Alliance Lunch
+</option>
+
+<option value="
+	<table>
+		<tr>
+			<td>&nbsp&nbspMeals for Drilling Reservists (Dinner) through: </td>
+		</tr>
+		<tr>
+			<td><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/></td>
+		</tr>
+
+		<tr>
+			<td>   &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+				Alliance Center
+					&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+					&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+					&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 
+				Store Manager</td>
+		</tr>
+		<tr>
+			<td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+				1600 W Russell St <br/>    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+				Sioux Falls &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+				SD </td>
+		</tr>
+		<tr>
+			<td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+				57104 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 
+				605-271-1582 </td>
+		</tr>
+		
+	</table>">
+	Alliance Dinner
+</option>
+
+
+
+
+
+
+
+</select>
+<br>
+</div>
+<br/>
+<!--Ext Price <input type="text" id="Ext" onkeyup="Ext()" value="$"><br/>-->
+Quantity <input type="text" id="QT" onkeyup="QT()" value=""><br/>
+Unit Price <input type="text" id="UP" onkeyup="UP()" value="$"><br/>
+Total Price <input type="text" id="GRAND" onkeyup="GRAND();Ext();pageTotalFun();amountTotalFun();lineTotalFun()" value="$"><br/>
+Last Day of Month <input type="date" id="date" onchange="dateone();datetwo();"><br/>
+Next Month Optar Date <input type="date" id="dateOptar" onchange="dateOptarFun()"><br/>
+Prior Total <input type="text" id="SHIP" onkeyup="SHIP()" value="N/A"><br/>
+
+
+
+
+
+</div>
+</td>
+
+</div>
+<td>
+<div class="container">
+ <img src="..\IMG\RPN.jpeg" style="width:808px;">
+
+<div class="trans" style="left:310px; top:268px;">
+     <p id="CommandSelected"></p>
+</div>
+
+<div class="trans" style="left:120px; top:327px;">
+     <p id="VendorSelect"></p>
+</div>
+
+<div class="trans" style="left:370px; top:330px;">
+     <p id="date Line"></p>
+</div>
+<div class="trans" style="left:200px; top:100px;">
+     <p id="date Line Top"></p>
+</div>
+<div class="trans" style="left:200px; top:82px;">
+     <p id="dateOptarDiv"></p>
+</div>
+
+<div class="trans" style="left:50px; top:115px;">
+     <p id="Description Line"></p>
+</div>
+
+<div class="trans" style="left:58px; top:160px;">
+     <p>AA&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+	17&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+	21/21&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+	1405&nbsp&nbsp&nbsp
+	7210&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+	1170&nbsp&nbsp&nbsp&nbsp&nbsp
+	00721&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+	0&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+	056521&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+	2D&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+	D73602&nbsp&nbsp&nbsp&nbsp
+	62068973602Q</p>
+</div>
+
+<div class="trans" style="left:640px; top:777px;">
+     <p id="Ext Line"></p>
+</div>
+
+
+<div class="trans" style="left:640px; top:760px;">
+     <p id="GRAND Line">$</p>
+</div>
+
+<div class="trans" style="left:640px; top:180px;">
+     <p id="SHIP Line">N/A</p>
+</div>
+
+<div class="trans" style="left:560px; top:330px;">
+     <p id="UP Line"></p>
+</div>
+
+<div class="trans" style="left:462px; top:330px;">
+     <p id="UI Line">EA</p>
+</div>
+
+<div class="trans" style="left:510px; top:330px;">
+     <p id="QT Line"></p>
+</div>
+
+<div class="trans" style="left:640px; top:725px;">
+     <p id="pageTotalDiv">$</p>
+</div>
+<div class="trans" style="left:640px; top:160px;">
+     <p id="amountTotalDiv">$</p>
+</div>
+<div class="trans" style="left:640px; top:330px;">
+     <p id="lineTotalDiv">$</p>
+</div>
+
+
+
+
+
+
+
+</div>
+</td>
+</table>
+
+</body>
+</HTML>
+
+
+
+
+
+
+
+

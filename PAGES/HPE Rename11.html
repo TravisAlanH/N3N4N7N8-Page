@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <script src="/scripts/snippet-javascript-console.min.js?v=1"></script>
+</head>
+
+
+<style>
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.hideoverflow {
+	display: inline-block;
+	vertical-align: top;
+	overflow: hidden;
+	border: solid #DCDFE3 1 px;
+		}
+.hideoverflow select {
+	padding: 4px;
+	margin: -5x -20px -5px -5px;
+		}
+
+h {
+font-size: 102px;
+color: red;
+}
+
+
+</style>
+
+
+
+<body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<h></h>
+<form>
+<div class="hideoverflow">
+<table style="border: 1px solid black;">
+<tr>
+  <td>
+      <label for="select1">FY</label><br>
+      <select name="select2" id="select1" size="25" style=""  onchange="line()">
+  <option value="" selected>           --            </option>
+  <option value="FY20_">            FY20         </option>
+  <option value="FY19_">            FY19      </option>
+  <option value="FY17_">            FY17             </option>
+  <option value="FY16_">            FY16           </option> 
+      </select>
+  </td>
+
+  <td>
+-
+  </td>
+  <td>
+      <label for="select2">MBR Name</label><br>
+      <select name="select2" id="select12" size="25" style="" onchange="line()">
+  <option value="" selected>    -- </option>
+  <option value="HeidelbergerTravis6099_">    Heidelberger </option>
+  <option value="EmmertDaniel6634_">    Emmert </option>
+  <option value="SuedekumJustin2349_">    Suedekum </option>
+      </select>
+  </td>
+  </td>
+
+
+  <td>
+      <label for="select2">Doc Type</label><br>
+      <select name="select2" id="select2" size="25" style=""  onchange="line()">
+  <option value="" selected>           --            </option>
+  <option value="N6206820CC">          N6206820CC          </option>
+  <option value="N6206819CC">          N6206819CC          </option>
+  <option value="N6206818CC">          N6206818CC          </option>
+  <option value="N6206817CC">          N6206817CC          </option>
+  <option value="N0072R20CCG2068">           RPN20          </option>
+  <option value="N0072R19CCG2068">           RPN19          </option>
+  <option value="N0072R18CCG2068">           RPN18          </option>
+  <option value="N0072R17CCG2068">           RPN17          </option>
+  <option value="KYLOC Not Received Over 10">           KYLOC Not Received Over 10          </option>
+  <option value="KYLOC Backorder Detail">               KYLOC Backorder Detail             </option>
+  <option value="KYLOC Deffered Turn-In">               KYLOC Deffered Turn-In      </option>
+  <option value="KYLOC Exspired EAOS">                  KYLOC Exspired EAOS   </option>
+  <option value="Manual RPN DSL">                       Manual RPN DSL    </option>
+  <option value="Manual RPN SOF">                       Manual RPN SOF    </option>
+  <option value="Status Of Funds">                      Status Of Funds   </option>
+  <option value="Document Status Log">                  Document Status Log     </option>
+  <option value="RIMS-FM Credit Card Exspensing">       RIMS-FM Credit Card Exspensing         </option>
+  <option value="Follow-Up PD 01-03">                   Follow-Up PD 01-03  </option>
+  <option value="Follow-Up PD 04-08">                   Follow-Up PD 04-08  </option>
+  <option value="Follow-Up PD 09-15">                   Follow-Up PD 09-15  </option>
+  <option value="Berthing Audit">                       Berthing Audit     </option>
+  <option value="Messing Audit">                        Messing Audit      </option>
+  <option value="DSL Dispurement Review">               DSL Dispurement Review      </option>
+  <option value="Insight On Demand (IOD)">              Insight On Demand (IOD)       </option>
+  <option value="Internal MOV">                         Internal MOV       </option>
+  <option value="External MOV">                         External MOV       </option>
+  <option value="Motor Equipment Utilization">          Motor Equipment Utilization           </option>
+  <option value="Route and Distance Statment">          Route and Distance Statment           </option>
+  <option value="RESFORTAC Missing Signature">          RESFORTAC Missing Signature           </option>
+  <option value="RESFORTAC Annual Inventory">           RESFORTAC Annual Inventory          </option>
+  <option value="DPAS Quarterly Inventory">             DPAS Quarterly Inventory        </option>
+  <option value="DPAS Annual Inventory">                DPAS Annual Inventory        </option>
+  <option value="Annual Market Survey for Berthing">    Market Survey Berthing                 </option>
+  <option value="Annual Market Survey for Messing">     Market Survey Messing                </option>
+  <option value="Budget Call">                          Budget Call        </option>
+  <option value="Mid-Year Review">                      Mid-Year Review     </option>
+  <option value="Simi-Annual Review">                   Simi-Annual Review  </option>
+  <option value="Berthing Utilization Record">          Berthing Utilization Record           </option>
+  <option value="Meal Signature Record">                Meal Signature Record     </option>
+  <option value="Resource Authorization Record">        Resource Authorization Record             </option>
+
+      </select>
+  </td>
+
+  <td>
+      <label for="select2">Training</label><br>
+      <select name="select2" id="select13" size="25" style=""  onchange="line()">
+  <option value="" selected>    -- </option>
+  <option value="Letter Of APT">    1 Letter Of APT </option>
+  <option value="IOP Review">       2 IOP Review </option>
+  <option value="DON Cert">         3 DON Cert</option>
+  <option value="CLG 001">          4 CLG 001</option>
+  <option value="CLG 006">          5 CLG 006 </option>
+  <option value="Ethics">           6 Ethics </option>
+  <option value="CON 237">          7 CON 237 </option>
+  <option value="SF 1402">          8 SF 1402  </option>
+  <option value="OGE 450">          9 OGE 450 </option>
+  <option value="DD 577">           10 DD 577 </option>
+  <option value="FAC 047">          11 FAC 047 </option>
+      </select>
+  </td>
+
+
+  <td>
+      <label for="select2">1st</label><br>
+      <select name="select2" id="select3" size="25" style="text-align: center; width:40px"  onchange="line()">
+  <option value="" selected>    -- </option>
+  <option value="0">    0 </option>
+  <option value="1">    1 </option>
+  <option value="2">    2 </option>
+  <option value="3">    3 </option>
+  <option value="4">    4 </option>
+  <option value="5">    5 </option>
+  <option value="6">    6 </option>
+  <option value="7">    7 </option>
+  <option value="8">    8 </option>
+  <option value="9">    9 </option>
+      </select>
+  </td>
+
+  <td>
+      <label for="select2">2nd</label><br>
+      <select name="select2" id="select4" size="25" style="text-align: center; width:40px"  onchange="line()">
+  <option value="" selected>    -- </option>
+  <option value="0">    0 </option>
+  <option value="1">    1 </option>
+  <option value="2">    2 </option>
+  <option value="3">    3 </option>
+  <option value="4">    4 </option>
+  <option value="5">    5 </option>
+  <option value="6">    6 </option>
+  <option value="7">    7 </option>
+  <option value="8">    8 </option>
+  <option value="9">    9 </option>
+      </select>
+  </td>
+
+  <td>
+      <label for="select2">3rd</label><br>
+      <select name="select2" id="select5" size="25" style="text-align: center; width:40px"  onchange="line()">
+  <option value="" selected>    -- </option>
+  <option value="0">    0 </option>
+  <option value="1">    1 </option>
+  <option value="2">    2 </option>
+  <option value="3">    3 </option>
+  <option value="4">    4 </option>
+  <option value="5">    5 </option>
+  <option value="6">    6 </option>
+  <option value="7">    7 </option>
+  <option value="8">    8 </option>
+  <option value="9">    9 </option>
+      </select>
+  </td>
+
+  <td>
+      <label for="select2">PA</label><br>
+      <select name="select2" id="select6" size="25" style="text-align: center; width:45px" onchange="line()">
+  <option value="" selected>    -- </option>
+  <option value="PC_">    PC </option>
+  <option value="00_">    00 </option>
+      </select>
+  </td>
+  <td>
+-
+  <td>
+      <label for="select2">Frequency</label><br>
+      <select name="select2" id="select11" size="25" style=""  onchange="line()">
+  <option value="" selected>    --  </option>
+  <option value="_1st & 15th">      1st & 15th  </option>
+  <option value="_Weekly">          Weekly  </option>
+  <option value="_Monthly">         Monthly  </option>
+  <option value="_Quarterly">       Quarterly  </option>
+  <option value="_Annually">        Annually  </option>
+  <option value="_Biannually">      Biannually  </option>
+  <option value="_As Required">     As Required  </option>
+      </select> 
+  </td>
+-
+  </td>
+  <td>
+      <label for="select2">Vendor</label><br>
+      <select name="select2" id="select7" size="25" style="" onchange="line()">
+  <option value="" selected>    -- </option>
+  <option value="BJ Stamps">       BJ Stamps </option>
+  <option value="BSC Source">      BSC Source </option>
+  <option value="Dish Network">    Dish Network </option>
+  <option value="DLA">             DLA </option>
+  <option value="FedEx">           FedEx </option>
+  <option value="IOS Group">       ISO Group </option>
+  <option value="Quality Inn">     Quality Inn </option>
+  <option value="Roll N Pin">      Roll N Pin </option>
+  <option value="Sheraton">        Sheraton </option>
+  <option value="Verizon">         Verizon </option>
+      </select>
+  </td>
+  <td>
+-
+  </td>
+  <td>
+      <label for="select2">dd</label><br>
+      <select name="select2" id="select8" size="25" style="width:60px" onchange="line()">
+  <option value="" selected>   -- </option> 
+  <option value="_01">    1 </option>
+  <option value="_02">    2 </option>
+  <option value="_03">    3 </option>
+  <option value="_04">    4 </option>
+  <option value="_05">    5 </option>
+  <option value="_06">    6 </option>
+  <option value="_07">    7 </option>
+  <option value="_08">    8 </option>
+  <option value="_09">    9 </option>
+  <option value="_10">   10 </option>
+  <option value="_11">   11 </option>
+  <option value="_12">   12 </option>
+  <option value="_13">   13 </option>
+  <option value="_14">   14 </option>
+  <option value="_15">   15 </option>
+  <option value="_16">   16 </option>
+  <option value="_17">   17 </option>
+  <option value="_18">   18 </option>
+  <option value="_19">   19 </option>
+  <option value="_20">   20 </option>
+  <option value="_21">   21 </option>
+  <option value="_22">   22 </option>
+  <option value="_23">   23 </option>
+  <option value="_24">   24 </option>
+  <option value="_25">   25 </option>
+  <option value="_26">   26 </option>
+  <option value="_27">   27 </option>
+  <option value="_28">   28 </option>
+  <option value="_29">   29 </option>
+  <option value="_30">   30 </option>
+  <option value="_31">   31 </option> 
+      </select>
+  </td>
+
+  <td>
+      <label for="select2">MMM</label><br>
+      <select name="select2" id="select9" size="25" style="" onchange="line()">
+  <option value="" selected>   -- </option> 
+  <option value="JAN">         JAN  </option>
+  <option value="FEB">         FEB  </option>
+  <option value="MAR">         MAR  </option>
+  <option value="APR">         APR  </option>
+  <option value="MAY">         MAY  </option>
+  <option value="JUN">         JUN  </option>
+  <option value="JUL">         JUL  </option>
+  <option value="AUG">         AUG  </option>
+  <option value="SEP">         SEP  </option>
+  <option value="OCT">         OCT  </option>
+  <option value="NOV">         NOV  </option>
+  <option value="DEC">         DEC  </option>
+      </select>
+  </td>
+
+  <td>
+      <label for="select2">yyyy</label><br>
+      <select name="select2" id="select10" size="25" style=""  onchange="line()">
+  <option value="" selected>   -- </option> 
+  <option value="2020">    2020  </option>
+  <option value="2019">    2019  </option>
+  <option value="2018">    2018  </option>
+  <option value="2017">    2017  </option>
+  <option value="FY20">    FY20  </option>
+  <option value="FY19">    FY19  </option>
+  <option value="FY18">    FY18  </option>
+  <option value="FY17">    FY17  </option>
+  <option value="FY16">    FY16  </option>
+  <option value="FY15">    FY15  </option>
+  <option value="FY14">    FY14  </option>
+      </select>
+  </td>
+
+</tr>
+</table>
+<table>
+<tr>
+  <td>
+<input type="reset" value="Reset All Above" /  style="color:blue; width:300px">
+  </td>  
+</tr>
+</table>
+</div>
+
+</form>
+
+<table>
+<tr>
+<td>
+
+<input type="text" class="form-control" placeholder="Combination Here" name="combination" id="combination" style="color:blue; width:500px">
+<button onclick="myFunction()">Copy text</button>
+</td>
+</tr>
+</table>
+
+
+
+
+
+    <script type="text/javascript">
+
+function myFunction() {
+  var copyText = document.getElementById("combination");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999)
+  document.execCommand("copy");
+}
+
+
+function line() {
+    var sel1 = $('#select1 option:selected').val();
+    var sel2 = $('#select2 option:selected').val();
+    var sel3 = $('#select3 option:selected').val();
+    var sel4 = $('#select4 option:selected').val();
+    var sel5 = $('#select5 option:selected').val();
+    var sel6 = $('#select6 option:selected').val();
+    var sel7 = $('#select7 option:selected').val();
+    var sel8 = $('#select8 option:selected').val();
+    var sel9 = $('#select9 option:selected').val();
+    var sel10 = $('#select10 option:selected').val();
+    var sel11 = $('#select11 option:selected').val();
+    var sel12 = $('#select12 option:selected').val();
+    var sel13 = $('#select13 option:selected').val();
+    $('#combination').val(sel1+sel12+sel2+sel13+sel3+sel4+sel5+sel6+sel11+sel7+sel8+sel9+sel10)
+}
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

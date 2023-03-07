@@ -1,0 +1,17 @@
+* {
+    outline: 1px solid black;
+    padding: 0;
+    margin: 0;
+}
+
+.CommandPage {
+    width: 100%;
+    background-color: #a78282;
+}
+
+.CommandList {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

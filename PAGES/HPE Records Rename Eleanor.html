@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <script src="/scripts/snippet-javascript-console.min.js?v=1"></script>
+</head>
+
+
+<style>
+
+
+
+.hideoverflow {
+	display: inline-block;
+	vertical-align: top;
+	overflow: hidden;
+	border: solid #DCDFE3 1 px;
+		}
+.hideoverflow select {
+	padding: 4px;
+	margin: -5x -20px -5px -5px;
+		}
+
+
+
+
+</style>
+
+
+
+<body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<form>
+<div class="hideoverflow">
+<table>
+  <td>
+      <label for="select1">Type of Document</label><br>
+      <select class="form-control" name="select2" id="select1" size="25" style="overflow:hidden" onchange="line()">
+  <option value="" selected> -- </option>
+  <option value="CARD HOLDER REFRESHER CERT COURSE_">         (CH) REFRESHER CERT  </option>
+  <option value="NAVPERS 1070-613 GTCC_">                     NAVPERS 1070-613 GTCC  </option>
+  <option value="AT Waiver_">     AT Waiver  </option>
+  <option value="IDT History Report_">     IDT History Report  </option>
+  <option value="IDT Detail Report_">      IDT Detail Report  </option>
+  <option value="IDTORDERS_">              IDTORDERS  </option>
+  <option value="ATORDERS_">               AT ORDERS  </option>
+  <option value="ADTORDERS_">              ADT ORDERS  </option>
+  <option value="DD FORM 2058_SOLR_">      DD FORM 2058 SOLR  </option>
+  <option value="IDTTTORDERS_">            IDTT ORDERS  </option>
+  <option value="NAVRES 1570-2_">          NAVRES 1570-2  </option>
+  <option value="NAVRES 1780-1_">          NAVRES 1780-1  </option>
+  <option value="NAVRES 1570-22_IPR_">     NAVRES 1570-22 IPR  </option>
+  <option value="NAVPERS 1070-613_">       NAVPERS 1070-613  </option>
+  <option value="NAVPERS 1070-602_">       NAVPERS 1070-602  </option>
+  <option value="DD Form 2384-1_NOBE_">    DD Form 2384-1 NOBE  </option>
+  <option value="SF 1199A_DDS_">           SF 1199A DDS  </option>
+  <option value="W4_">                     W4  </option>
+  <option value="SGLV_">                   SGLV  </option>
+  <option value="DIRECT DEPOSIT_">         DIRECT DEPOSIT  </option>
+      </select>
+  </td>
+
+  <td>
+-
+  </td>
+
+
+  <td>
+      <label for="select2">Member</label><br>
+      <select class="form-control" name="select2" id="select2" size="25" onchange="line()">
+  <option value="" selected> -- </option>
+  <option value="AdeyiAbayomi8080">         ADEYI            </option>
+  <option value="AdkinsDrayden2499">        ADKINS           </option>
+  <option value="AndolsekTravis1633">       ANDOLSEK         </option>
+  <option value="BillsRobert449">           BILLS            </option>
+  <option value="BlackBrandon7197">         BLACKB           </option>
+  <option value="BlackCorey8528">           BLACKc           </option>
+  <option value="BlackburnTimothy8223">     BLACKBURN        </option>
+  <option value="BlaineNathan3948">         BLAINE           </option>
+  <option value="BowenShane3645">           BOWEN            </option>
+  <option value="BraleyBrian3498">          BRALEY           </option>
+  <option value="BremerNicholas0120">       BREMER           </option>
+  <option value="BrownMarco9875">           BROWN            </option>
+  <option value="CallebsAnn5543">           CALLEBS          </option>
+  <option value="CampbellBenjamin6816">     CAMPBELL         </option>
+  <option value="CarrierRichard7905">       CARRIER          </option>
+  <option value="CassidyKaty2270">          CASSIDY          </option>
+  <option value="ChildersIris4633">         CHILDERS         </option>
+  <option value="CooperTamara8315">         COOPER           </option>
+  <option value="CochranMatthew1458">       COCHRAN          </option>
+  <option value="CovelliMichael5936">       COVELLI          </option>
+  <option value="CoxPaul4758">              COXP             </option>
+  <option value="CutlipKristopher0038">     CUTLIP           </option>
+  <option value="DaltonBrian5563">          DALTON           </option>
+  <option value="DechDana9337">             DECH             </option>
+  <option value="DobsonDomonique5001">      DOBSON           </option>
+  <option value="DoganChristianna0881">     DOGAN            </option>
+  <option value="EstepColton2133">          ESTEP            </option>
+  <option value="EvansKeraston8231">        EVANS            </option>
+  <option value="FeltyTeras2359">           FELTY            </option>
+  <option value="FlorilloMarcello0167">     FLORILLO         </option>
+  <option value="FullenJohn1792">           FULLEN           </option>
+  <option value="GeorgiLaura0489">          GEORGI           </option> 
+  <option value="GradyValerie8579">         GRADY            </option>
+  <option value="HallJacob3211">            HALL             </option>
+  <option value="HeidelbergerTravis6099">   HEIDELBERGER     </option>
+  <option value="HeaphyMichael6630">        HEAPHY           </option>
+  <option value="HenryAnthony2002">         HENRY            </option>
+  <option value="HudginsGregory5215">       HUDGINS          </option>
+  <option value="JacobsJoseph2915">         JACOBS           </option>
+  <option value="JenkinsChante7101">        JENKINS          </option>
+  <option value="JordanDane4721">           JORDAN           </option> 
+  <option value="JumperDana8423">           JUMPER          </option>
+  <option value="KellyCharles9376">         KELLY C          </option>
+  <option value="KincadeJoshua2691">        KINCAID          </option>
+  <option value="LaneJames9435">            LANE             </option>
+  <option value="LingerAnthony6109">        LINGER           </option>
+  <option value="NeffAmanda0774">           NEFF             </option>
+  <option value="MaloneJacob3195">          MALONE           </option>
+  <option value="MaxwellDale8164">          MAXWELL          </option>
+  <option value="MeadorsIanandrew0404">     MEADORS          </option>
+  <option value="MillerAdam5571">           MILLERA          </option>
+  <option value="MillerJohn1241">           MILLERJ          </option>
+  <option value="MurphyAaron1445">          MURPHY           </option>
+  <option value="NesterJonathan6277">       NESTER          </option>
+  <option value="NowlinWilliam3097">        NOWLIN           </option>
+  <option value="PatnersonCorey2646">       PATTERSON        </option>
+  <option value="RiffleJerid5245">          RIFFLE           </option>
+  <option value="RonenLeon4654">            RONEN            </option>
+  <option value="SanchezRoland5563">        SANCHEZ          </option>
+  <option value="SextonJames4646">          SEXTON           </option>
+  <option value="ShrewsburyJason4316">      SHREWSBURY       </option>
+  <option value="SmithMichael9519">         SMITHM           </option>
+  <option value="SmithPatrick8459">         SMITHP           </option>
+  <option value="StamandRose7524">          STAMAND          </option>
+  <option value="StewertJoseph5987">        STEWART          </option>
+  <option value="ThongYeong9648">           THONG            </option>
+  <option value="TolliverBrandan2540">      TOLLIVER         </option>
+  <option value="ViaDaniel5709">            VIA              </option>
+  <option value="WallsKathleen2757">        WALLS            </option>
+  <option value="WangJack9189">             WANG             </option>
+  <option value="WareRobert1134">           WARE             </option>
+  <option value="WellsRoy9501">             WELLS            </option>
+  <option value="WhiteTodd">                WHITE            </option>
+  <option value="WhittEric8696">            WHITT            </option>
+  <option value="WollaberJared4285">        WOLLABER         </option>
+  <option value="WinklerJoshua2399">        WINKLER          </option>
+  <option value="WoottenLucas6528">         WOOTTEN          </option>
+  <option value="YatesConan7297">           YATES            </option>
+  <option value="ZagumnyMichelle">          ZAGUMNY          </option>
+      </select>
+  </td>
+  <td>
+-
+  </td>
+  <td>
+      <label for="select2">dd</label><br>
+      <select class="form-control" name="select2" id="select8" size="25" style="width:60px" onchange="line()">
+  <option value="" selected> -- </option>
+  <option value="01">    1 </option>
+  <option value="02">    2 </option>
+  <option value="03">    3 </option>
+  <option value="04">    4 </option>
+  <option value="05">    5 </option>
+  <option value="06">    6 </option>
+  <option value="07">    7 </option>
+  <option value="08">    8 </option>
+  <option value="09">    9 </option>
+  <option value="10">   10 </option>
+  <option value="11">   11 </option>
+  <option value="12">   12 </option>
+  <option value="13">   13 </option>
+  <option value="14">   14 </option>
+  <option value="15">   15 </option>
+  <option value="16">   16 </option>
+  <option value="17">   17 </option>
+  <option value="18">   18 </option>
+  <option value="19">   19 </option>
+  <option value="20">   20 </option>
+  <option value="21">   21 </option>
+  <option value="22">   22 </option>
+  <option value="23">   23 </option>
+  <option value="24">   24 </option>
+  <option value="25">   25 </option>
+  <option value="26">   26 </option>
+  <option value="27">   27 </option>
+  <option value="28">   28 </option>
+  <option value="29">   29 </option>
+  <option value="30">   30 </option>
+  <option value="31">   31 </option> 
+      </select>
+  </td>
+
+  <td>
+      <label for="select2">MMM</label><br>
+      <select class="form-control" name="select2" id="select9" size="25" style="overflow:hidden" onchange="line()">
+  <option value="" selected> -- </option>
+  <option value="JAN">         JAN  </option>
+  <option value="FEB">         FEB  </option>
+  <option value="MAR">         MAR  </option>
+  <option value="APR">         APR  </option>
+  <option value="MAY">         MAY  </option>
+  <option value="JUN">         JUN  </option>
+  <option value="JUL">         JUL  </option>
+  <option value="AUG">         AUG  </option>
+  <option value="SEP">         SEP  </option>
+  <option value="OCT">         OCT  </option>
+  <option value="NOV">         NOV  </option>
+  <option value="DEC">         DEC  </option>
+      </select>
+  </td>
+
+  <td>
+      <label for="select2">yyyy</label><br>
+      <select class="form-control" name="select2" id="select10" size="25" onchange="line()">
+  <option value="" selected> -- </option>
+  <option value="2021">    2021  </option>
+  <option value="2020">    2020  </option>
+  <option value="2019">    2019  </option>
+  <option value="2018">    2018  </option>
+  <option value="2017">    2017  </option>
+  <option value="2016">    2016  </option>
+  <option value="2015">    2015  </option>
+  <option value="2014">    2014  </option>
+  <option value="2013">    2013  </option>
+  <option value="2012">    2012  </option>
+  <option value="2011">    2011  </option>
+  <option value="2010">    2010  </option>
+  <option value="2009">    2009  </option>
+  <option value="FY20">    FY20  </option>
+  <option value="FY19">    FY19  </option>
+  <option value="FY18">    FY18  </option>
+  <option value="FY17">    FY17  </option>
+  <option value="FY16">    FY16  </option>
+  <option value="FY15">    FY15  </option>
+  <option value="FY14">    FY14  </option>
+  <option value="FY13">    FY13  </option>
+  <option value="FY12">    FY12  </option>
+  <option value="FY11">    FY11  </option>
+  <option value="FY10">    FY10  </option>
+  <option value="FY09">    FY09  </option>
+      </select>
+  </td>
+</table>
+<table>
+<tr>
+  <td>
+<input type="reset" value="Reset All Above" /  style="color:blue; width:300px">
+  </td>  
+</tr>
+</table>
+</div>
+
+</form>
+
+<table>
+<tr>
+<td>
+<input type="text" class="form-control" placeholder="Combination Here" name="combination" id="combination" style="color:blue; width:500px">
+<button onclick="myFunction()">Copy text</button>
+</td>
+</tr>
+</table>
+
+
+
+
+
+    <script type="text/javascript">
+
+function myFunction() {
+  var copyText = document.getElementById("combination");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999)
+  document.execCommand("copy");
+}
+
+
+function line(){
+    var sel1 = $('#select1 option:selected').val();
+    var sel2 = $('#select2 option:selected').val();
+    var sel8 = $('#select8 option:selected').val();
+    var sel9 = $('#select9 option:selected').val();
+    var sel10 = $('#select10 option:selected').val();
+    $('#combination').val(sel1+sel2+' - '+sel8+sel9+sel10)
+}
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

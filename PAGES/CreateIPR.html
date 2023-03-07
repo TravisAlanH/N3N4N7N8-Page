@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="../CSS/IPR.css" />
+
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div class="noPrint">
+      <select id="VenderSelection" onchange="VenderSelected()">
+        <option>Select A Vendor</option>
+        <option style="display: none" id="VendorList"></option>
+      </select>
+    </div>
+    <div class="IPRPrintArea" id="IPR">
+      <div class="GridLayout">
+        <div class="Department">
+          <b>Department: {Department}</b>
+        </div>
+        <div class="Priority">
+          <b>Priority: {Priority}</b>
+        </div>
+        <div class="RDD">
+          <b>Required Delivery Date: {Date}</b>
+        </div>
+        <div class="Description">
+          <b>Complete Description:</b>
+        </div>
+        <div class="Doc">
+          <b>Doc # (MILSTRIP ONLY):</b>
+        </div>
+        <div class="NSN">
+          <b>NSN/Part Number:</b>
+        </div>
+        <div class="QTY">
+          <b>QTY</b>
+        </div>
+        <div class="UI">
+          <b>U/I</b>
+        </div>
+        <div class="UP">
+          <b>U/P</b>
+        </div>
+        <div class="EXT">
+          <b>EXT</b>
+        </div>
+        <div class="Data11">{Description}</div>
+        <div class="Data12"></div>
+        <div class="Data13"></div>
+        <div class="Data14">{Qty}</div>
+        <div class="Data15">{UP}</div>
+        <div class="Data16">{UI}</div>
+        <div class="Data17">${(parseFloat(UP) * parseFloat(Qty)).toFixed(2)}</div>
+        <div class="Data21"></div>
+        <div class="Data22"></div>
+        <div class="Data23"></div>
+        <div class="Data24"></div>
+        <div class="Data25"></div>
+        <div class="Data26"></div>
+        <div class="Data27"></div>
+        <div class="Data31"></div>
+        <div class="Data32"></div>
+        <div class="Data33"></div>
+        <div class="Data34"></div>
+        <div class="Data35"></div>
+        <div class="Data36"></div>
+        <div class="Data37"></div>
+        <div class="Data41"></div>
+        <div class="Data42"></div>
+        <div class="Data43"></div>
+        <div class="Data44"></div>
+        <div class="Data45"></div>
+        <div class="Data46"></div>
+        <div class="Data47"></div>
+        <div class="ShippingCharges">
+          <b>Shipping Charges:</b>
+        </div>
+        <div class="ShippingTotal">$0.00</div>
+        <div class="Grand">
+          <b>Grand Total:</b>
+        </div>
+        <div class="GrandTotal">${(parseFloat(UP) * parseFloat(Qty)).toFixed(2)}</div>
+        <div class="SourceTo"><b>Source To:</b> <b id="Company"></b></div>
+        <div class="ShipTo">
+          <b>Ship To: {Command.Command}</b>
+        </div>
+        <div class="POC">POC:</div>
+        <div class="POCData">{POC}</div>
+        <div class="Name">Name:</div>
+        <div class="NameData">{Command.POC}</div>
+        <div class="Address">Address:</div>
+        <div class="AddressData">{Address}, {Address2}, {State}, {Zip}</div>
+        <div class="ToAddress">Address:</div>
+        <div class="ToAddressData">{Command.Address}, {Command.State}, {Command.Zip}</div>
+        <div class="Phone">Phone #:</div>
+        <div class="PhoneData">{Phone}</div>
+        <div class="ToPhone">Phone #:</div>
+        <div class="ToPhoneData">{Command.Phone}</div>
+        <div class="RequestJustification">
+          <b>REQUEST MUST HAVE VALID JUSTIFICATION</b>
+        </div>
+        <div class="JustificationData">{Date} : {Just}</div>
+        <div class="Supplies">
+          <b>SUPPLIES</b>
+        </div>
+        <div class="SuppliesRadio">
+          <input type="radio" name="IPRRadio" defaultChecked />
+        </div>
+        <div class="Or">
+          <b>OR</b>
+        </div>
+        <div class="Services">
+          <b>SERVICES</b>
+        </div>
+        <div class="ServicesRadio">
+          <input type="radio" name="IPRRadio" />
+        </div>
+        <div class="Blank"></div>
+        <div class="RequestSuper">
+          <b>REQUESTOR: (PRINT AND SIGN NAME)</b>
+        </div>
+        <div class="RequestSuperPhone">
+          <b>Phone #:</b>
+        </div>
+        <div class="RequestSuperDate">
+          <b>Date:</b>
+        </div>
+        <div class="RequestSuperData"></div>
+        <div class="RequestSuperPhoneData"></div>
+        <div class="RequestSuperDateData"></div>
+        <div class="RequestSuper">
+          <b>SUPERVISOR: (PRINT AND SIGN NAME)</b>
+        </div>
+        <div class="RequestSuperPhone">
+          <b>Phone #:</b>
+        </div>
+        <div class="RequestSuperDate">
+          <b>Date:</b>
+        </div>
+        <div class="RequestSuperData"></div>
+        <div class="RequestSuperPhoneData"></div>
+        <div class="RequestSuperDateData"></div>
+        <div class="BelowHeader">
+          <b>BELOW INFORMATION TO BE COMPLETED BY SUPPLY DEPT ONLY</b>
+        </div>
+        <div class="ScreenedFor">
+          <b>SCREENED FOR AVAILABILITY FROM MANDATORY SOURCES (FAR PARA 8.001)</b>
+        </div>
+        <div class="ScreeningSection2 FlexRowCenterCenter">
+          <b>Mandatory Sources of Supply</b>
+        </div>
+        <div class="ScreeningSection3 FlexRowCenterCenter">
+          <b>Websites for Screening</b>
+        </div>
+        <div class="ScreeningSection4 FlexRowCenterCenter">
+          <b>Status</b>
+        </div>
+        <div class="ScreeningSection2">Office Supplies: AbilityOne Office Supplies from FEDMALL or a local Servmart</div>
+        <div class="ScreeningSection3 FlexRowCenterCenter">
+          <a href=" "> https://www.restricted.fedmall.mil/webapp/wcs/stores/servlet/en/fśŕ </a>
+        </div>
+        <div class="ScreeningSection4">{OF}</div>
+        <div class="ScreeningSection2">Incidental Janitorial and Sanitation Supplies: AbilityOne Office Supplies from FEDMALL</div>
+        <div class="ScreeningSection3 FlexRowCenterCenter">
+          <a href=" "> https://www.restricted.fedmall.mil/webapp/wcs/stores/servlet/en/fśŕ </a>
+        </div>
+        <div class="ScreeningSection4">{IJS}</div>
+        <div class="ScreeningSection2">Wireless Services: NAVSUP FLC ‐ San Diego (DON Wireless Contract)</div>
+        <div class="ScreeningSection3 FlexRowCenterCenter">
+          <a href=" "> https://my.navsup.navy.mil/webcenter/portal/nss/page15/page1573417?_afrLoop=8752295544268910&_adf.ctrl-state=2g0041y7j_110#!%40%40%3Fwc.contextURL%3D%2Fspaces%2Fnss%26_adf.ctrl-state%3D2g0041y7j_114 </a>
+        </div>
+        <div class="ScreeningSection4">{WS}</div>
+        <div class="ScreeningSection2">Furniture: NAVSUP FLC ‐ Norfolk BPA</div>
+        <div class="ScreeningSection3 FlexRowCenterCenter">
+          <a href=" "> https://my.navsup.navy.mil/webcenter/portal/nss/page15/page1573417?_afrLoop=8752295544268910&_adf.ctrl-state=2g0041y7j_110#!%40%40%3Fwc.contextURL%3D%2Fspaces%2Fnss%26_adf.ctrl-state%3D2g0041y7j_114 </a>
+        </div>
+        <div class="ScreeningSection4">{F}</div>
+        <div class="ScreeningSection2">Printing Services: DLA Document Services</div>
+        <div class="ScreeningSection3 FlexRowCenterCenter">
+          <a href=" "> https://dso.dla.mil/DSF/storefront.aspx </a>
+        </div>
+        <div class="ScreeningSection4">{PS}</div>
+        <div class="ScreeningSection22">Federal Supply Schedules (FSS) Contract #</div>
+        <div class="ScreeningSection12">{FFS}</div>
+        <div class="Hazmat">
+          <b>HAZMAT:</b>
+        </div>
+        <div class="HazmatBlank">{HAZ}</div>
+        <div class="ItemOnAUL">
+          <b>Item on AUL:</b>
+        </div>
+        <div class="ItemOnAULBlank">{AUL}</div>
+        <div class="HazmatPO">
+          <b>HAZMAT PO Approver Signature</b>
+        </div>
+        <div class="HazmatPOBlank"></div>
+        <div class="DocN">
+          <b>DOC # (GCPC Only):</b>
+        </div>
+        <div class="DocNBlank"></div>
+        <div class="JON">
+          <b>Job Order Number (JON):</b>
+        </div>
+        <div class="JONBlank"></div>
+        <div class="Optar">
+          <b>OPTAR Holder Signature:</b>
+        </div>
+        <div class="OptarBlank"></div>
+        <div class="AOCHPrintSign">
+          <b>Approving Official ONLY: (PRINT AND SIGN NAME)</b>
+        </div>
+        <div class="AOCHDate">
+          <b>Date:</b>
+        </div>
+        <div class="AOCHPrintSignBlank"></div>
+        <div class="AOCHDateBlank"></div>
+        <div class="AOCHPrintSign">
+          <b>Cardholder/Requisitioner: (PRINT AND SIGN NAME)</b>
+        </div>
+        <div class="AOCHDate">
+          <b>Date of Order:</b>
+        </div>
+        <div class="AOCHPrintSignBlank"></div>
+        <div class="AOCHDateBlank"></div>
+        <div class="BottomHeader">
+          <b>FORM SHOULD BE TYPED FOR PROPER IDENTIFICATION OF ITEMS REQUESTED</b>
+        </div>
+      </div>
+    </div>
+
+    <script defer>
+      let Command = JSON.parse(localStorage.getItem("Command"));
+      let Vendors = JSON.parse(localStorage.getItem("Vendors")) || [];
+
+      Vendors.map((item) => {
+        document.getElementById("VendorList").insertAdjacentHTML("afterend", "<option value=" + item.ID + ">" + item.Name + "</option>");
+      });
+
+      function VenderSelected() {
+        var selection = document.getElementById("VenderSelection").value;
+        console.log(selection);
+        Vendors.map((items) => {
+          if (items.ID === selection) {
+            document.getElementById("Company").innerHTML = items.Name;
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

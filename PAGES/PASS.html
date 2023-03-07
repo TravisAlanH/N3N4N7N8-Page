@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <script src="/scripts/snippet-javascript-console.min.js?v=1"></script>
+</head>
+
+
+<style>
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.hideoverflow {
+	display: inline-block;
+	vertical-align: top;
+	overflow: hidden;
+	border: solid #DCDFE3 1 px;
+		}
+.hideoverflow select {
+	padding: 4px;
+	margin: -5x -20px -5px -5px;
+		}
+
+h {
+font-size: 102px;
+color: #e6f2ff;
+}
+
+td {
+font-size: 14px;
+}
+
+tr.name:hover {
+  background-color: #193259;
+    color: white;
+}
+
+label{
+text-align: center;
+}
+
+
+</style>
+
+
+
+<body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+
+<table>
+<tr>
+<td>US BANK
+<td>
+<input type="text" class="form-control" value="travisheidelberger" name="combination" id="usbankname" style="color:blue; width:200px">
+<button id="copy1" onclick="usbankname()">User Name</button>
+<input type="text" class="form-control" value="DECember171988!!!!11!" name="combination" id="usbankpass" style="color:blue; width:200px">
+<button id="copy1" onclick="usbankpass()">Password</button>
+</td>
+</tr>
+<tr>
+<td>FEDEX
+<td>
+<input type="text" class="form-control" value="noscsiouxfalls" name="combination" id="fedexname" style="color:blue; width:200px">
+<button id="copy1" onclick="fedexname()">User Name</button>
+<input type="text" class="form-control" value="Cornfarmer1" name="combination" id="fedexpass" style="color:blue; width:200px">
+<button id="copy1" onclick="fedexpass()">Password</button>
+</td>
+</tr>
+<tr>
+<td>NAVY FORMS
+<td>
+<input type="text" class="form-control" value="TH259242" name="combination" id="navyformsname" style="color:blue; width:200px">
+<button id="copy1" onclick="navyformsname()">User Name</button>
+<input type="text" class="form-control" value="DECember171988!" name="combination" id="navyformspass" style="color:blue; width:200px">
+<button id="copy1" onclick="navyformspass()">Password</button>
+</td>
+</tr>
+<tr>
+<td>VERIZON
+<td>
+<input type="text" class="form-control" value="NOSC_SIOUXFALLS" name="combination" id="verizonname" style="color:blue; width:200px">
+<button id="copy1" onclick="verizonname()">User Name</button>
+<input type="text" class="form-control" value="Cornfarmer1" name="combination" id="verizonpass" style="color:blue; width:200px">
+<button id="copy1" onclick="verizonpass()">Password</button>
+</td>
+</tr>
+<tr>
+<td>DISH
+<td>
+<input type="text" class="form-control" value="NOSC Sioux Falls" name="combination" id="dishname" style="color:blue; width:200px">
+<button id="copy1" onclick="dishname()">User Name</button>
+<input type="text" class="form-control" value="Cornfarmer1" name="combination" id="dishpass" style="color:blue; width:200px">
+<button id="copy1" onclick="dishpass()">Password</button>
+</td>
+</tr>
+<tr>
+<td>BSC
+<td>
+<input type="text" class="form-control" value="NOSCSiouxFallsHeidelberger" name="combination" id="bscname" style="color:blue; width:200px">
+<button id="copy1" onclick="bscname()">User Name</button>
+<input type="text" class="form-control" value="DECember171988" name="combination" id="bscpass" style="color:blue; width:200px">
+<button id="copy1" onclick="bscpass()">Password</button>
+</td>
+</tr>
+<tr>
+<td>PITNEY BOWES
+<td>
+<input type="text" class="form-control" value="Travis.Heidelberyer@navy.mil" name="combination" id="pitneyname" style="color:blue; width:200px">
+<button id="copy1" onclick="pitneyname()">User Name</button>
+<input type="text" class="form-control" value="DECember171988!!" name="combination" id="pitneypass" style="color:blue; width:200px">
+<button id="copy1" onclick="pitneypass()">Password</button>
+</td>
+</tr>
+<tr>
+<td>MIL ONE S
+<td>
+<input type="text" class="form-control" value="Travis.Heidelberyer@navy.mil" name="combination" id="milonename" style="color:blue; width:200px">
+<button id="copy1" onclick="milonename()">User Name</button>
+<input type="text" class="form-control" value="DECember171988!" name="combination" id="milonepass" style="color:blue; width:200px">
+<button id="copy1" onclick="milonepass()">Password</button>
+</td>
+</tr>
+<tr>
+<td>MCKESSON
+<td>
+<input type="text" class="form-control" value="NOSCSiouxFalls" name="combination" id="mckessonname" style="color:blue; width:200px">
+<button id="copy1" onclick="mckessonname()">User Name</button>
+<input type="text" class="form-control" value="NavyNOSC1" name="combination" id="mckessonpass" style="color:blue; width:200px">
+<button id="copy1" onclick="mckessonpass()">Password</button>
+</td>
+</tr>
+<tr>
+<td>DLA
+<td>
+<input type="text" class="form-control" value="NOSC Sioux Falls" name="combination" id="dlaname" style="color:blue; width:200px">
+<button id="copy1" onclick="dlaname()">User Name</button>
+<input type="text" class="form-control" value="NOSCSiouxFalls12!@" name="combination" id="dlapass" style="color:blue; width:200px">
+<button id="copy1" onclick="dlapass()">Password</button>
+</td>
+</tr>
+</table>
+
+
+
+
+
+
+
+
+
+    <script type="text/javascript">
+
+function usbankname() {
+  var copyText = document.getElementById("usbankname");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999)
+  document.execCommand("copy");
+}
+function usbankpass() {
+  var copyText = document.getElementById("usbankpass");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999)
+  document.execCommand("copy");
+}
+function fedexname() {
+  var copyText = document.getElementById("fedexname");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999)
+  document.execCommand("copy");
+}
+function fedexpass() {
+  var copyText = document.getElementById("fedexpass");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999)
+  document.execCommand("copy");
+}
+function navyformsname() {
+  var copyText = document.getElementById("navyformsname");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999)
+  document.execCommand("copy");
+}
+function navyformspass() {
+  var copyText = document.getElementById("navyformspass");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999)
+  document.execCommand("copy");
+}
+function verizonname() {
+  var copyText = document.getElementById("verizonname");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999)
+  document.execCommand("copy");
+}
+function verizonpass() {
+  var copyText = document.getElementById("verizonpass");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999)
+  document.execCommand("copy");
+}
+function dishname() {
+  var copyText = document.getElementById("dishname");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999)
+  document.execCommand("copy");
+}
+function dishpass() {
+  var copyText = document.getElementById("dishpass");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999)
+  document.execCommand("copy");
+}
+function bscname() {
+  var copyText = document.getElementById("bscname");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999)
+  document.execCommand("copy");
+}
+function bscpass() {
+  var copyText = document.getElementById("bscpass");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999)
+  document.execCommand("copy");
+}
+function pitneyname() {
+  var copyText = document.getElementById("pitneyname");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999)
+  document.execCommand("copy");
+}
+function pitneypass() {
+  var copyText = document.getElementById("pitneypass");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999)
+  document.execCommand("copy");
+}
+function milonename() {
+  var copyText = document.getElementById("milonename");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999)
+  document.execCommand("copy");
+}
+function milonepass() {
+  var copyText = document.getElementById("milonepass");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999)
+  document.execCommand("copy");
+}
+function mckessonname() {
+  var copyText = document.getElementById("mckessonname");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999)
+  document.execCommand("copy");
+}
+function mckessonpass() {
+  var copyText = document.getElementById("mckessonpass");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999)
+  document.execCommand("copy");
+}
+function dlaname() {
+  var copyText = document.getElementById("dlaname");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999)
+  document.execCommand("copy");
+}
+function dlapass() {
+  var copyText = document.getElementById("dlapass");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999)
+  document.execCommand("copy");
+}
+
+
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

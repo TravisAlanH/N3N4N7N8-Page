@@ -1,0 +1,149 @@
+a.nav:link, a.nav:visited, a.nav:hover, a.nav:active {
+    color: blue;
+    text-decoration: none;
+    width:190px;
+    height:25px;
+    padding: 2px 2px;
+    text-align: left;
+    text-decoration: none;
+    display: inline-block;
+}
+
+a.foot:link, a.foot:visited, a.foot:hover, a.foot:active {
+    color: blue;
+    text-decoration: none;
+    padding: 5px 5px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.navbar {
+    overflow: hidden;
+    background-color: #193259;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar a {
+    float: left;
+    font-size: 16px;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/*
+----------------------------HEAD BAR--------------------------------------------------------HEAD BAR--------------------------------------------------------HEAD BAR--------------------------------------------------------HEAD BAR----------------------------
+*/
+
+.dropdown {
+    float: left;
+    overflow: hidden;
+}
+
+
+
+.dropdown .dropbtn  {
+    font-size: 16px;    
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: #193259;
+    font-family: inherit;
+    margin: 0;
+}
+
+
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+    background-color: #277ccc;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
+/*
+----------------------------FOOT BAR--------------------------------------------------------FOOT BAR--------------------------------------------------------FOOT BAR--------------------------------------------------------FOOT BAR----------------------------
+*/
+
+.dropfoot {
+    background-color: #193259;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+}
+
+.dropup {
+    float: left;
+    position: relative;
+    display: inline-block;
+}
+
+.dropup-content {
+    text-align: left;
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 200px;
+    bottom: 50px;
+    z-index: 1;
+}
+
+.dropup-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropup-content a:hover {background-color: #ccc}
+
+.dropup:hover .dropup-content {
+    display: block;
+}
+
+.dropup:hover .dropfoot {
+    background-color: #277ccc;
+}
+
+
+
+
+
+@media print 
+{
+    * {
+        print-color-adjust: exact;
+    }
+	.noprint
+	{
+		display: none !important;
+        
+	}
+}
