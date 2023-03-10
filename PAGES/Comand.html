@@ -8,6 +8,17 @@
     <title>Document</title>
   </head>
   <body>
+    <div id="PassList">
+      <div style="display: flex; flex-direction: row; gap: 2rem">
+        <button onclick="backup()">Backup (saves to ClickBoard)</button>
+        <input type="text" id="current" />
+        <form onsubmit="restoreData()" style="display: flex; flex-direction: row; gap: 1rem">
+          <label>Restore</label>
+          <input type="text" id="restore" />
+          <input type="submit" value="Restore" />
+        </form>
+      </div>
+    </div>
     <div class="CommandPage">
       <div class="CommandInfo">
         <form onsubmit="SubCommand()" class="CommandList">
@@ -65,6 +76,20 @@
     </div>
 
     <script>
+      document.getElementById("current").value = localStorage.getItem("Command");
+      function backup() {
+        let copyText = document.getElementById("current");
+        copyText.select();
+        copyText.setSelectionRange(0, 999999);
+        document.execCommand("copy");
+      }
+
+      function restoreData() {
+        let current = document.getElementById("restore").value;
+        console.log(current);
+        localStorage.setItem("Command", current);
+      }
+
       let Command = JSON.parse(localStorage.getItem("Command"));
 
       document.getElementById("Name").value = Command.Name || "";

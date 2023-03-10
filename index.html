@@ -204,12 +204,12 @@
 -->
 
     <script>
-      let array = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-      let base = "";
-      array.map((item) => {
-        base = base.concat(`<option value="${item}">${item}</option>`);
-        console.log(base);
-      });
+      // let array = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+      // let base = "";
+      // array.map((item) => {
+      //   base = base.concat(`<option value="${item}">${item}</option>`);
+      //   console.log(base);
+      // });
       let Command = JSON.parse(localStorage.getItem("Command"));
       // https://private.navyreserve.navy.mil/RCC/NRNW/Pages/NRH_Default.aspx
       let link = `https://www.private.navyreserve.navy.mil/RCC/${Command.Region}/Pages/NRH_Default.aspx`;

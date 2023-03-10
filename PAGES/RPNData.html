@@ -7,6 +7,17 @@
     <title>Document</title>
   </head>
   <body>
+    <div id="">
+      <div style="display: flex; flex-direction: row; gap: 2rem">
+        <button onclick="backup()">Backup (saves to ClickBoard)</button>
+        <input type="text" id="current" />
+        <form onsubmit="restoreData()" style="display: flex; flex-direction: row; gap: 1rem">
+          <label>Restore</label>
+          <input type="text" id="restore" />
+          <input type="submit" value="Restore" />
+        </form>
+      </div>
+    </div>
     <div>
       <form class="FlexColCenterCenter" onSubmit="handleSubmit(event)">
         <fieldset class="IPRFieldSet">
@@ -103,6 +114,20 @@
     </div>
 
     <script defer>
+      document.getElementById("current").value = localStorage.getItem("RPN");
+      function backup() {
+        let copyText = document.getElementById("current");
+        copyText.select();
+        copyText.setSelectionRange(0, 999999);
+        document.execCommand("copy");
+      }
+
+      function restoreData() {
+        let current = document.getElementById("restore").value;
+        console.log(current);
+        localStorage.setItem("RPN", current);
+      }
+
       let data;
       if (localStorage.getItem("RPN") === null) {
         data = {
