@@ -5,27 +5,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="../CSS/IPR.css" />
+    <link rel="stylesheet" type="text/css" href="../CSS/RPN.css" />
 
     <title>Document</title>
   </head>
 
   <body>
     <div class="noPrint">
-      <select id="VenderSelection" onchange="VenderSelected()">
+      <select class="noPrint" id="VenderSelection" onchange="VenderSelected()">
         <option>Select A Vendor</option>
         <option style="display: none" id="VendorList"></option>
       </select>
+      <input class="noPrint" type="date" id="DateSelection" onchange="DateSelected()" />
+      <button class="noPrint" onclick="print()">Print</button>
     </div>
     <div class="IPRPrintArea" id="IPR">
       <div class="GridLayout">
         <div class="Department">
-          <b>Department: {Department}</b>
+          <b>Department: N1</b>
         </div>
         <div class="Priority">
-          <b>Priority: {Priority}</b>
+          <b>Priority: 15</b>
         </div>
         <div class="RDD">
-          <b>Required Delivery Date: {Date}</b>
+          <b>Required Delivery Date: <b id="DDate"></b></b>
         </div>
         <div class="Description">
           <b>Complete Description:</b>
@@ -48,13 +51,13 @@
         <div class="EXT">
           <b>EXT</b>
         </div>
-        <div class="Data11">{Description}</div>
+        <div class="Data11" id="Description"></div>
         <div class="Data12"></div>
         <div class="Data13"></div>
-        <div class="Data14">{Qty}</div>
-        <div class="Data15">{UP}</div>
-        <div class="Data16">{UI}</div>
-        <div class="Data17">${(parseFloat(UP) * parseFloat(Qty)).toFixed(2)}</div>
+        <div class="Data14" id="QT"></div>
+        <div class="Data15" id="UP"></div>
+        <div class="Data16" id="UI"></div>
+        <div class="Data17" id="Total"></div>
         <div class="Data21"></div>
         <div class="Data22"></div>
         <div class="Data23"></div>
@@ -83,27 +86,27 @@
         <div class="Grand">
           <b>Grand Total:</b>
         </div>
-        <div class="GrandTotal">${(parseFloat(UP) * parseFloat(Qty)).toFixed(2)}</div>
+        <div class="GrandTotal" id="GrandTotal"></div>
         <div class="SourceTo"><b>Source To:</b> <b id="Company"></b></div>
         <div class="ShipTo">
-          <b>Ship To: {Command.Command}</b>
+          <b>Ship To: <span id="CName"></span></b>
         </div>
         <div class="POC">POC:</div>
-        <div class="POCData">{POC}</div>
+        <div class="POCData" id="POC"></div>
         <div class="Name">Name:</div>
-        <div class="NameData">{Command.POC}</div>
+        <div class="NameData" id="CPOC"></div>
         <div class="Address">Address:</div>
-        <div class="AddressData">{Address}, {Address2}, {State}, {Zip}</div>
+        <div class="AddressData"><span id="Address"></span> <span id="City"> </span><span id="State"> </span><span id="Zip"></span></div>
         <div class="ToAddress">Address:</div>
-        <div class="ToAddressData">{Command.Address}, {Command.State}, {Command.Zip}</div>
+        <div class="ToAddressData"><span id="CAddress"></span> <span id="CCity"> </span><span id="CState"> </span><span id="CZip"></span></div>
         <div class="Phone">Phone #:</div>
-        <div class="PhoneData">{Phone}</div>
+        <div class="PhoneData" id="Phone"></div>
         <div class="ToPhone">Phone #:</div>
-        <div class="ToPhoneData">{Command.Phone}</div>
+        <div class="ToPhoneData" id="CPhone"></div>
         <div class="RequestJustification">
           <b>REQUEST MUST HAVE VALID JUSTIFICATION</b>
         </div>
-        <div class="JustificationData">{Date} : {Just}</div>
+        <div class="JustificationData"><span id="JDate"></span> : <span id="Justification"></span></div>
         <div class="Supplies">
           <b>SUPPLIES</b>
         </div>
@@ -163,37 +166,37 @@
         <div class="ScreeningSection3 FlexRowCenterCenter">
           <a href=" "> https://www.restricted.fedmall.mil/webapp/wcs/stores/servlet/en/fśŕ </a>
         </div>
-        <div class="ScreeningSection4">{OF}</div>
+        <div class="ScreeningSection4">N/A</div>
         <div class="ScreeningSection2">Incidental Janitorial and Sanitation Supplies: AbilityOne Office Supplies from FEDMALL</div>
         <div class="ScreeningSection3 FlexRowCenterCenter">
           <a href=" "> https://www.restricted.fedmall.mil/webapp/wcs/stores/servlet/en/fśŕ </a>
         </div>
-        <div class="ScreeningSection4">{IJS}</div>
+        <div class="ScreeningSection4">N/A</div>
         <div class="ScreeningSection2">Wireless Services: NAVSUP FLC ‐ San Diego (DON Wireless Contract)</div>
         <div class="ScreeningSection3 FlexRowCenterCenter">
           <a href=" "> https://my.navsup.navy.mil/webcenter/portal/nss/page15/page1573417?_afrLoop=8752295544268910&_adf.ctrl-state=2g0041y7j_110#!%40%40%3Fwc.contextURL%3D%2Fspaces%2Fnss%26_adf.ctrl-state%3D2g0041y7j_114 </a>
         </div>
-        <div class="ScreeningSection4">{WS}</div>
+        <div class="ScreeningSection4">N/A</div>
         <div class="ScreeningSection2">Furniture: NAVSUP FLC ‐ Norfolk BPA</div>
         <div class="ScreeningSection3 FlexRowCenterCenter">
           <a href=" "> https://my.navsup.navy.mil/webcenter/portal/nss/page15/page1573417?_afrLoop=8752295544268910&_adf.ctrl-state=2g0041y7j_110#!%40%40%3Fwc.contextURL%3D%2Fspaces%2Fnss%26_adf.ctrl-state%3D2g0041y7j_114 </a>
         </div>
-        <div class="ScreeningSection4">{F}</div>
+        <div class="ScreeningSection4">N/A</div>
         <div class="ScreeningSection2">Printing Services: DLA Document Services</div>
         <div class="ScreeningSection3 FlexRowCenterCenter">
           <a href=" "> https://dso.dla.mil/DSF/storefront.aspx </a>
         </div>
-        <div class="ScreeningSection4">{PS}</div>
+        <div class="ScreeningSection4">N/A</div>
         <div class="ScreeningSection22">Federal Supply Schedules (FSS) Contract #</div>
-        <div class="ScreeningSection12">{FFS}</div>
+        <div class="ScreeningSection12">N/A</div>
         <div class="Hazmat">
           <b>HAZMAT:</b>
         </div>
-        <div class="HazmatBlank">{HAZ}</div>
+        <div class="HazmatBlank">N/A</div>
         <div class="ItemOnAUL">
           <b>Item on AUL:</b>
         </div>
-        <div class="ItemOnAULBlank">{AUL}</div>
+        <div class="ItemOnAULBlank">N/A</div>
         <div class="HazmatPO">
           <b>HAZMAT PO Approver Signature</b>
         </div>
@@ -232,9 +235,348 @@
       </div>
     </div>
 
+    <div id="RPNPage" style="display: none">
+      <div class="noPrint" style="display: flex; flex-direction: row; justify-content: center; padding-top: 5rem; gap: 1rem">
+        <div>
+          <label>Prior Total?</label>
+          <input type="checkbox" id="PriorCheck" onchange="Checked()" />
+        </div>
+        <div id="PriorAmountShow" style="display: none">
+          <label>Prior Total Amount</label>
+          <input type="Text" id="PriorAmount" onchange="UpdatePriorTotal()" />
+        </div>
+      </div>
+      <!--  -->
+      <div class="RPNPrintArea" id="RPN">
+        <div class="GridLayoutRPN">
+          <div class="B1"></div>
+          <div class="DocN AlignEndBottom">Document Number:</div>
+          <div class="DocNPlace BorderBottom GrayLight"></div>
+          <div class="AmendNum BorderBottom AlignEndBottom">Amendment #:</div>
+          <div class="ZeroZeroOne AlignEndBottom GrayLight"></div>
+          <div class="MPC AlignEndBottom">MPC:</div>
+          <div class="B2 BorderBottom"></div>
+          <div class="PageOneOfOne AlignEndBottom">Page 1 of 1</div>
+          <div class="OptarLog AlignEndBottom">OPTAR Log:</div>
+          <div class="B4 BorderBottom Yellow"></div>
+          <div class="B1"></div>
+          <div class="B2 AlignEndBottom">Local Code:</div>
+          <div class="B2 BorderBottom Yellow"></div>
+          <div class="B1 AlignEndBottom">Purchase Number:</div>
+          <div class="B1 BorderBottom Yellow"></div>
+          <div class="B3 AlignEndBottom">Transaction Date:</div>
+          <div class="B4 BorderBottom Yellow"></div>
+          <div class="B7"></div>
+          <div class="B14"></div>
+          <div class="B1 BorderAll AlignCenterCenter">ACRN</div>
+          <div class="B1 BorderAll AlignCenterCenter">GA</div>
+          <div class="B1 BorderAll AlignCenterCenter">BFY/EFY</div>
+          <div class="B1 BorderAll AlignCenterCenter">APPN</div>
+          <div class="B1 BorderAll AlignCenterCenter">SBHD</div>
+          <div class="B1 BorderAll AlignCenterCenter">OBJ CLASS</div>
+          <div class="B1 BorderAll AlignCenterCenter">BCN</div>
+          <div class="B1 BorderAll AlignCenterCenter"></div>
+          <div class="B1 BorderAll AlignCenterCenter">SA</div>
+          <div class="B1 BorderAll AlignCenterCenter">AAA</div>
+          <div class="B1 BorderAll AlignCenterCenter">TT</div>
+          <div class="B1 BorderAll AlignCenterCenter">PAA</div>
+          <div class="B1 BorderAll AlignCenterCenter">COST CODE</div>
+          <div class="B1 BorderAll AlignCenterCenter">AMOUNT</div>
+          <div class="B1 BorderAll AlignCenterCenter GrayLight" id="DACRN"></div>
+          <div class="B1 BorderAll AlignCenterCenter GrayLight" id="DGA"></div>
+          <div class="B1 BorderAll AlignCenterCenter GrayLight" id="DBFYEFY"></div>
+          <div class="B1 BorderAll AlignCenterCenter GrayLight" id="DAPPN"></div>
+          <div class="B1 BorderAll AlignCenterCenter GrayLight" id="DSBHD"></div>
+          <div class="B1 BorderAll AlignCenterCenter GrayLight" id="DOBJCLASS"></div>
+          <div class="B1 BorderAll AlignCenterCenter GrayLight" id="DBCN"></div>
+          <div class="B1 BorderAll AlignCenterCenter GrayLight" id="DBLANK"></div>
+          <div class="B1 BorderAll AlignCenterCenter GrayLight" id="DSA"></div>
+          <div class="B1 BorderAll AlignCenterCenter GrayLight" id="DAAA"></div>
+          <div class="B1 BorderAll AlignCenterCenter GrayLight" id="DTT"></div>
+          <div class="B1 BorderAll AlignCenterCenter GrayLight" id="DPAA"></div>
+          <div class="B1 BorderAll AlignCenterCenter GrayLight" id="DCOSTCOST"></div>
+          <div class="B1 BorderAll AlignCenterCenter GrayLight" id="DTotal"></div>
+          <div class="B13 BorderAll AlignEndBottom GrayLight">Prior Funding Document Grand Total</div>
+          <div class="B1 BorderAll Yellow" id="DPriorTotal"></div>
+          <div class="B14 BorderAll"></div>
+          <div class="B1 BorderAll AlignCenterCenter">ACRN</div>
+          <div class="B1 BorderAll AlignCenterCenter">Item Number</div>
+          <div class="B8 BorderAll AlignCenterCenter">Line Item Decription</div>
+          <div class="B1 BorderAll AlignCenterCenter">Unit Of Issue</div>
+          <div class="B1 BorderAll AlignCenterCenter">Quantity Ordered</div>
+          <div class="B1 BorderAll AlignCenterCenter">Unit Price</div>
+          <div class="B1 BorderAll AlignCenterCenter">Line Item Total</div>
+          <div class="B1 BorderRight"></div>
+          <div class="B1 BorderRight"></div>
+          <div class="B8 AlignBottom">This Amendment is issued to Increase/Decrease funding for</div>
+          <div class="B1 BorderAll Gray"></div>
+          <div class="B1 BorderAll Gray"></div>
+          <div class="B1 BorderAll Gray"></div>
+          <div class="B1 BorderAll Gray"></div>
+          <div class="B1 BorderRight"></div>
+          <div class="B1 BorderRight"></div>
+          <div class="B8 AlignBottom">Subsistance of Drilling Reserve Personnel who are conducting</div>
+          <div class="B1 BorderAll Gray"></div>
+          <div class="B1 BorderAll Gray"></div>
+          <div class="B1 BorderAll Gray"></div>
+          <div class="B1 BorderAll Gray"></div>
+          <div class="B1 BorderRight"></div>
+          <div class="B1 BorderRight"></div>
+          <div class="B8 AlignBottom">2 four hour IDT drills on day following the Dinner Meal and on the</div>
+          <div class="B1 BorderAll Gray"></div>
+          <div class="B1 BorderAll Gray"></div>
+          <div class="B1 BorderAll Gray"></div>
+          <div class="B1 BorderAll Gray"></div>
+          <div class="B1 BorderRight"></div>
+          <div class="B1 BorderRight"></div>
+          <div class="B8 AlignBottom">day of for the breakfast/Lunch Meals dates listed below:</div>
+          <div class="B1 BorderAll Gray"></div>
+          <div class="B1 BorderAll Gray"></div>
+          <div class="B1 BorderAll Gray"></div>
+          <div class="B1 BorderAll Gray"></div>
+
+          <div class="B1 BorderRight" id="DACRN"></div>
+          <div class="B1 BorderRight">1</div>
+          <div class="B8 BorderAll Yellow"><span id="DDate2"></span> : <span id="DDescription"></span></div>
+          <div class="B1 BorderAll" id="DUI"></div>
+          <div class="B1 BorderAll Yellow" id="DQT"></div>
+          <div class="B1 BorderAll" id="DUP"></div>
+          <div class="B1 BorderAll GrayLight" id="DTotal2"></div>
+
+          <div class="B1 BorderRight"></div>
+          <div class="B1 BorderRight"></div>
+          <div class="B8 BorderAll Yellow"></div>
+          <div class="B1 BorderAll"></div>
+          <div class="B1 BorderAll Yellow"></div>
+          <div class="B1 BorderAll"></div>
+          <div class="B1 BorderAll GrayLight"></div>
+
+          <div class="B1 BorderRight"></div>
+          <div class="B1 BorderRight"></div>
+          <div class="B8 BorderAll Yellow"></div>
+          <div class="B1 BorderAll"></div>
+          <div class="B1 BorderAll Yellow"></div>
+          <div class="B1 BorderAll"></div>
+          <div class="B1 BorderAll GrayLight"></div>
+
+          <div class="B1 BorderRight"></div>
+          <div class="B1 BorderRight"></div>
+          <div class="B8 BorderAll Yellow"></div>
+          <div class="B1 BorderAll"></div>
+          <div class="B1 BorderAll Yellow"></div>
+          <div class="B1 BorderAll"></div>
+          <div class="B1 BorderAll GrayLight"></div>
+
+          <div class="B1 BorderRight"></div>
+          <div class="B1 BorderRight"></div>
+          <div class="B8 BorderAll Yellow"></div>
+          <div class="B1 BorderAll"></div>
+          <div class="B1 BorderAll Yellow"></div>
+          <div class="B1 BorderAll"></div>
+          <div class="B1 BorderAll GrayLight"></div>
+
+          <div class="B1 BorderRight"></div>
+          <div class="B1 BorderRight"></div>
+          <div class="B8 BorderAll Yellow"></div>
+          <div class="B1 BorderAll"></div>
+          <div class="B1 BorderAll Yellow"></div>
+          <div class="B1 BorderAll"></div>
+          <div class="B1 BorderAll GrayLight"></div>
+
+          <div class="B1 BorderRight"></div>
+          <div class="B1 BorderRight"></div>
+          <div class="B8 BorderAll Yellow"></div>
+          <div class="B1 BorderAll Yellow"></div>
+          <div class="B1 BorderAll Yellow"></div>
+          <div class="B1 BorderAll Yellow"></div>
+          <div class="B1 BorderAll GrayLight"></div>
+
+          <div class="B1 BorderRight"></div>
+          <div class="B1 BorderRight"></div>
+          <div class="B1 AlignEndBottom">Terms:</div>
+          <div class="B3 AlignEndBottom">1) Method of Payment:</div>
+          <div class="B5 BorderAll GrayLight">GCPC</div>
+          <div class="B1"></div>
+          <div class="B1 BorderRight"></div>
+          <div class="B1 Gray"></div>
+
+          <div class="B1 BorderRight"></div>
+          <div class="B1 BorderRight"></div>
+          <div class="B1"></div>
+          <div class="B3 AlignEndBottom">2) Transaction Type:</div>
+          <div class="B5 BorderAll Yellow">Credit Card</div>
+          <div class="B1"></div>
+          <div class="B1 BorderRight"></div>
+          <div class="B1 Gray"></div>
+
+          <div class="B1 BorderRight"></div>
+          <div class="B1 BorderRight"></div>
+          <div class="B1"></div>
+          <div class="B3 AlignEndBottom">3) Card Holder:</div>
+          <div class="B5 BorderAll Yellow" id="DCommandPOC"></div>
+          <div class="B1"></div>
+          <div class="B1 BorderRight"></div>
+          <div class="B1 Gray"></div>
+          <div class="B1 BorderRight"></div>
+          <div class="B1 BorderRight"></div>
+          <div class="B11 BorderTop BorderRight GrayLight">Source of Supply Circle One</div>
+          <div class="B1 Gray"></div>
+
+          <div class="B1 BorderRight"></div>
+          <div class="B1 BorderRight"></div>
+          <div class="B11 BorderRight GrayLight">1) FAR 8.002 Mandatory Source: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Navy Galley&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; or&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Other Service Dining Facility/Galley{" "}</div>
+          <div class="B1 Gray"></div>
+
+          <div class="B1 BorderRight"></div>
+          <div class="B1 BorderRight"></div>
+          <div class="B11 BorderRight GrayLight"></div>
+          <div class="B1 Gray"></div>
+
+          <div class="B1 BorderRight"></div>
+          <div class="B1 BorderRight"></div>
+          <div class="B11 BorderRight GrayLight">
+            2) Open Market:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Commercial Vendor&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            or&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Catering Service
+          </div>
+          <div class="B1 Gray"></div>
+
+          <div class="B1 BorderRight"></div>
+          <div class="B1 BorderRight"></div>
+          <div class="B11 BorderRight AlignCenterCenter GrayLight">Open Market "Fair and Reasonable Pricing" determined by: Circle One</div>
+          <div class="B1 Gray"></div>
+
+          <div class="B1 BorderRight"></div>
+          <div class="B1 BorderRight"></div>
+          <div class="B11 BorderRight GrayLight"></div>
+          <div class="B1 Gray"></div>
+
+          <div class="B1 BorderRight"></div>
+          <div class="B1 BorderRight"></div>
+          <div class="B11 BorderRight GrayLight">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A) Annual Market Survey &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;B) Written Price Quote
+            per IPR
+          </div>
+          <div class="B1 Gray"></div>
+
+          <div class="B1 BorderRight"></div>
+          <div class="B1 BorderRight"></div>
+          <div class="B11 BorderRight BorderBottom AlignCenterCenter GrayLight">Copies of Annual Market Survey to be forwarded to your RCC for PPMAP Records.</div>
+          <div class="B1 Gray"></div>
+
+          <div class="B1 BorderRight"></div>
+          <div class="B1 BorderRight"></div>
+          <div class="B1 AlignEndBottom">SOS:</div>
+          <div class="B6 BorderBottom Yellow" id="DName"></div>
+          <div class="B1 AlignEndBottom">POC:</div>
+          <div class="B3 BorderBottom BorderRight Yellow" id="DPOC"></div>
+          <div class="B1 Gray"></div>
+
+          <div class="B1 BorderRight"></div>
+          <div class="B1 BorderRight"></div>
+          <div class="B1 AlignEndBottom">Address:</div>
+          <div class="B6 BorderBottom Yellow" id="DAddress"></div>
+          <div class="B4 BorderRight"></div>
+          <div class="B1 Gray"></div>
+
+          <div class="B1 BorderRight"></div>
+          <div class="B1 BorderRight"></div>
+          <div class="B1 AlignEndBottom">City / State:</div>
+          <div class="B6 BorderBottom Yellow"><span id="DCity"></span> , <span id="DState"></span></div>
+          <div class="B4 BorderRight"></div>
+          <div class="B1 Gray"></div>
+
+          <div class="B1 BorderRight"></div>
+          <div class="B1 BorderRight"></div>
+          <div class="B1 AlignEndBottom">Zip:</div>
+          <div class="B2 BorderBottom Yellow" id="DZip"></div>
+          <div class="B1 AlignEndBottom">Phone:</div>
+          <div class="B3 BorderBottom" id="DPhone"></div>
+          <div class="B4 BorderRight"></div>
+          <div class="B1 Gray"></div>
+
+          <div class="B13 BorderTop BorderRight AlignEndBottom">Line Item Page Total:</div>
+          <div class="B1 GrayLight" id="DTotal3"></div>
+
+          <div class="B2 AlignEndBottom">Department Head:</div>
+          <div class="B11 BorderBottom BorderRight"></div>
+          <div class="B1"></div>
+
+          <div class="B2"></div>
+          <div class="B10 FlexRowSpaceBetween BorderRight">
+            <span>Print Name</span>
+            <span>Signature</span>
+            <span>Date</span>
+          </div>
+          <div class="B1 BorderRight AlignEndBottom">Grand Total:</div>
+          <div class="B1 GrayLight" id="DTotal4"></div>
+
+          <div class="B2 AlignEndBottom">Funds Approver:</div>
+          <div class="B10 BorderBottom BorderRight Yellow"></div>
+          <div class="B1 BorderRight"></div>
+          <div class="B1 GrayLight"></div>
+
+          <div class="B2"></div>
+          <div class="B10 FlexRowSpaceBetween BorderRight">
+            <span>Print Name</span>
+            <span>Signature</span>
+            <span>Date</span>
+          </div>
+          <div class="B1 BorderBottom BorderRight AlignEndBottom">Cumulative Total:</div>
+          <div class="B1 GrayLight" id="DTotal5"></div>
+          <div class="B14 BorderTop FlexRowCenterCenter">
+            <span>PREVIOUS EDITION IS OBSOLETE</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--  -->
+
     <script defer>
-      let Command = JSON.parse(localStorage.getItem("Command"));
+      function Checked() {
+        console.log("true");
+
+        let PriorChecked = document.getElementById("PriorCheck").checked;
+        console.log(PriorChecked);
+        if (PriorChecked === true) {
+          document.getElementById("PriorAmountShow").style.display = "block";
+        } else {
+          document.getElementById("DPriorTotal").innerHTML = "";
+          document.getElementById("PriorAmountShow").style.display = "none";
+        }
+      }
+
+      function UpdatePriorTotal() {
+        document.getElementById("DPriorTotal").innerHTML = document.getElementById("PriorAmount").value;
+      }
+
+      let Command = JSON.parse(localStorage.getItem("Command")) || [];
       let Vendors = JSON.parse(localStorage.getItem("Vendors")) || [];
+      let RPNData = JSON.parse(localStorage.getItem("RPN")) || [];
+
+      document.getElementById("DAAA").innerHTML = RPNData.AAA;
+      document.getElementById("DACRN").innerHTML = RPNData.ACRN;
+      document.getElementById("DAPPN").innerHTML = RPNData.APPN;
+      document.getElementById("DBCN").innerHTML = RPNData.BCN;
+      document.getElementById("DBFYEFY").innerHTML = RPNData.BFYEFY;
+      document.getElementById("DBLANK").innerHTML = RPNData.BLANK;
+      document.getElementById("DCOSTCOST").innerHTML = RPNData.COSTCOST;
+      document.getElementById("DGA").innerHTML = RPNData.GA;
+      document.getElementById("DOBJCLASS").innerHTML = RPNData.OBJCLASS;
+      document.getElementById("DPAA").innerHTML = RPNData.PAA;
+      document.getElementById("DSA").innerHTML = RPNData.SA;
+      document.getElementById("DSBHD").innerHTML = RPNData.SBHD;
+      document.getElementById("DTT").innerHTML = RPNData.TT;
+      document.getElementById("DCommandPOC").innerHTML = Command.POC;
+
+      document.getElementById("CName").innerHTML = Command.Name;
+      document.getElementById("CAddress").innerHTML = Command.Address;
+      document.getElementById("CPOC").innerHTML = Command.POC;
+      document.getElementById("CCity").innerHTML = Command.City;
+      document.getElementById("CState").innerHTML = Command.State;
+      document.getElementById("CZip").innerHTML = Command.Zip;
+      document.getElementById("CPhone").innerHTML = Command.Phone;
+
+      DPriorTotal;
 
       Vendors.map((item) => {
         document.getElementById("VendorList").insertAdjacentHTML("afterend", "<option value=" + item.ID + ">" + item.Name + "</option>");
@@ -245,9 +587,50 @@
         console.log(selection);
         Vendors.map((items) => {
           if (items.ID === selection) {
+            if (items.RPN === true) {
+              document.getElementById("RPNPage").style.display = "block";
+            } else {
+              document.getElementById("RPNPage").style.display = "none";
+            }
             document.getElementById("Company").innerHTML = items.Name;
+            document.getElementById("Address").innerHTML = items.Address;
+            document.getElementById("POC").innerHTML = items.POC;
+            document.getElementById("City").innerHTML = items.City;
+            document.getElementById("State").innerHTML = items.State;
+            document.getElementById("Zip").innerHTML = items.Zip;
+            document.getElementById("Phone").innerHTML = items.Phone;
+            document.getElementById("UI").innerHTML = items.UI;
+            document.getElementById("UP").innerHTML = items.UP;
+            document.getElementById("QT").innerHTML = items.QT;
+            document.getElementById("Total").innerHTML = items.Total;
+            document.getElementById("GrandTotal").innerHTML = items.Total;
+            document.getElementById("Description").innerHTML = items.Description;
+            document.getElementById("Justification").innerHTML = items.Justification;
+
+            document.getElementById("DName").innerHTML = items.Name;
+            document.getElementById("DAddress").innerHTML = items.Address;
+            document.getElementById("DPOC").innerHTML = items.POC;
+            document.getElementById("DCity").innerHTML = items.City;
+            document.getElementById("DState").innerHTML = items.State;
+            document.getElementById("DZip").innerHTML = items.Zip;
+            document.getElementById("DPhone").innerHTML = items.Phone;
+            document.getElementById("DUI").innerHTML = items.UI;
+            document.getElementById("DUP").innerHTML = items.UP;
+            document.getElementById("DQT").innerHTML = items.QT;
+            document.getElementById("DTotal").innerHTML = items.Total;
+            document.getElementById("DTotal2").innerHTML = items.Total;
+            document.getElementById("DTotal3").innerHTML = items.Total;
+            document.getElementById("DTotal4").innerHTML = items.Total;
+            document.getElementById("DTotal5").innerHTML = items.Total;
+            document.getElementById("DDescription").innerHTML = items.Description;
           }
         });
+      }
+
+      function DateSelected() {
+        document.getElementById("DDate").innerHTML = document.getElementById("DateSelection").value;
+        document.getElementById("DDate2").innerHTML = document.getElementById("DateSelection").value;
+        document.getElementById("JDate").innerHTML = document.getElementById("DateSelection").value;
       }
     </script>
   </body>

@@ -9,66 +9,96 @@
   </head>
   <body>
     <div class="CommandPage">
-      <div>
+      <div class="CommandInfo">
         <form onsubmit="SubCommand()" class="CommandList">
-            <div>
-          <label>Name</label>
-          <input id="Name" type="text" />
-        </div>
-        <div>
-          <label>Address</label>
-          <input id="Address" type="text" />
-        </div>
-        <div>
-          <label>City</label>
-          <input id="City" type="text" />
-        </div>
-        <div>
-          <label>State</label>
-          <input id="State" type="text" />
-        </div>
-        <div>
-          <label>Zip</label>
-          <input id="Zip" type="text" />
-        </div>
-        <div>
-          <label>Phone</label>
-          <input id="Phone" type="text" />
-        </div>
-        <div>
+          <div>
+            <label>Name</label>
+            <input id="Name" type="text" />
+          </div>
+          <div>
+            <label>UIC</label>
+            <input id="UIC" type="text" value="N" />
+          </div>
+          <div>
+            <label>Address</label>
+            <input id="Address" type="text" />
+          </div>
+          <div>
+            <label>City</label>
+            <input id="City" type="text" />
+          </div>
+          <div>
+            <label>State</label>
+            <input id="State" type="text" />
+          </div>
+          <div>
+            <label>Zip</label>
+            <input id="Zip" type="text" />
+          </div>
+          <div>
+            <label>Phone</label>
+            <input id="Phone" type="text" />
+          </div>
+          <div>
             <label>POC</label>
             <input id="POC" type="text" />
           </div>
-        <div>
+
+          <div>
+            <label>Region</label>
+            <select name="Region" id="Region">
+              <option value="NRMA_GL">Great Lakes</option>
+              <option value="NRMA_NFK">Norfolk</option>
+              <option value="NRNW">Everett</option>
+              <option value="NRSE_JAX">Jacksonville</option>
+              <option value="NRSW_FW">Fort Worth</option>
+              <option value="NRSW">SanDiego</option>
+            </select>
+          </div>
+          <div>
             <div>
-                <input type="submit" value="sub">
+              <input type="submit" value="Submit" />
             </div>
+          </div>
         </form>
       </div>
     </div>
-    
+
     <script>
-        document.getElementById("Name").value = JSON.parse(localStorage.getItem("Command")).Name || ""
-        document.getElementById("Address").value = JSON.parse(localStorage.getItem("Command")).Address || ""
-        document.getElementById("City").value = JSON.parse(localStorage.getItem("Command")).City || ""
-        document.getElementById("State").value = JSON.parse(localStorage.getItem("Command")).State || ""
-        document.getElementById("Zip").value = JSON.parse(localStorage.getItem("Command")).Zip || ""
-        document.getElementById("Phone").value = JSON.parse(localStorage.getItem("Command")).Phone || ""
-        document.getElementById("POC").value = JSON.parse(localStorage.getItem("Command")).POC || ""
+      let Command = JSON.parse(localStorage.getItem("Command"));
 
+      document.getElementById("Name").value = Command.Name || "";
+      document.getElementById("UIC").value = Command.UIC || "";
+      document.getElementById("Address").value = Command.Address || "";
+      document.getElementById("City").value = Command.City || "";
+      document.getElementById("State").value = Command.State || "";
+      document.getElementById("Zip").value = Command.Zip || "";
+      document.getElementById("Phone").value = Command.Phone || "";
+      document.getElementById("POC").value = Command.POC || "";
 
-        function SubCommand() {
-            let Command = {
-            "Name": (document.getElementById("Name").value),
-            "Address": (document.getElementById("Address").value),
-            "City" :(document.getElementById("City").value),
-            "State" :(document.getElementById("State").value),
-            "Zip":(document.getElementById("Zip").value),
-            "Phone":(document.getElementById("Phone").value),
-            "POC": (document.getElementById("POC").value)
-            }
-            localStorage.setItem("Command", JSON.stringify(Command))
+      let RegionSelection = document.getElementById("Region");
+
+      for (var i, j = 0; (i = RegionSelection.options[j]); j++) {
+        if (i.value == Command.Region) {
+          RegionSelection.selectedIndex = j;
+          break;
         }
+      }
+
+      function SubCommand() {
+        let Command = {
+          "Name": document.getElementById("Name").value,
+          "UIC": document.getElementById("UIC").value,
+          "Address": document.getElementById("Address").value,
+          "City": document.getElementById("City").value,
+          "State": document.getElementById("State").value,
+          "Zip": document.getElementById("Zip").value,
+          "Phone": document.getElementById("Phone").value,
+          "POC": document.getElementById("POC").value,
+          "Region": document.getElementById("Region").value,
+        };
+        localStorage.setItem("Command", JSON.stringify(Command));
+      }
     </script>
   </body>
 </html>

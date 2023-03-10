@@ -1,982 +1,887 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head> </head>
 
-    <script src="/scripts/snippet-javascript-console.min.js?v=1"></script>
-</head>
+  <style>
+    ::-webkit-scrollbar {
+      display: none;
+    }
 
+    .hideoverflow {
+      display: inline-block;
+      vertical-align: top;
+      overflow: hidden;
+      border: solid #dcdfe3 1 px;
+    }
+    .hideoverflow select {
+      padding: 4px;
+      margin: -5x -20px -5px -5px;
+    }
 
-<style>
+    h {
+      font-size: 102px;
+      color: #e6f2ff;
+    }
 
-::-webkit-scrollbar {
-    display: none;
-}
+    td {
+      font-size: 14px;
+    }
 
-.hideoverflow {
-	display: inline-block;
-	vertical-align: top;
-	overflow: hidden;
-	border: solid #DCDFE3 1 px;
-		}
-.hideoverflow select {
-	padding: 4px;
-	margin: -5x -20px -5px -5px;
-		}
+    tr.name:hover {
+      background-color: #193259;
+      color: white;
+    }
 
-h {
-font-size: 102px;
-color: #e6f2ff;
-}
+    label {
+      text-align: center;
+    }
+  </style>
 
-td {
-font-size: 14px;
-}
+  <body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <h></h>
+    <form>
+      <div class="hideoverflow">
+        <table style="border: 1px solid black">
+          <tr>
+            <td>
+              <label for="select1">[FY]</label><br />
+              <select name="select2" id="select1" size="25" style="" onchange="line()">
+                <option value="" selected>--</option>
+                <option style="display: none" id="FYList" value="" selected>--</option>
+              </select>
+            </td>
 
-tr.name:hover {
-  background-color: #193259;
-    color: white;
-}
+            <td>-</td>
+            <td>
+              <label for="select2">[DOCUMENT NUMBER]</label><br />
+              <select name="select2" id="select2" size="25" style="width: 100%" onchange="line()">
+                <option value="" selected>--</option>
+                <option id="DocumentNumberList" value=" " style="display: none">-</option>
+              </select>
+            </td>
 
-label{
-text-align: center;
-}
+            <td>
+              <label for="select2">1st</label><br />
+              <select name="select2" id="select3" size="25" style="text-align: center; width: 40px" onchange="line()">
+                <option value="" selected>--</option>
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+                <option value="D">D</option>
+                <option value="E">E</option>
+                <option value="F">F</option>
+                <option value="G">G</option>
+                <option value="H">H</option>
+                <option value="I">I</option>
+                <option value="J">J</option>
+                <option value="K">K</option>
+                <option value="L">L</option>
+                <option value="M">M</option>
+                <option value="N">N</option>
+                <option value="O">O</option>
+                <option value="P">P</option>
+                <option value="Q">Q</option>
+                <option value="R">R</option>
+                <option value="S">S</option>
+                <option value="T">T</option>
+                <option value="U">U</option>
+                <option value="V">V</option>
+                <option value="W">W</option>
+                <option value="X">X</option>
+                <option value="Y">Y</option>
+                <option value="Z">Z</option>
+              </select>
+            </td>
 
+            <td>
+              <label for="select2">2nd</label><br />
+              <select name="select2" id="select4" size="25" style="text-align: center; width: 40px" onchange="line()">
+                <option value="" selected>--</option>
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+                <option value="D">D</option>
+                <option value="E">E</option>
+                <option value="F">F</option>
+                <option value="G">G</option>
+                <option value="H">H</option>
+                <option value="I">I</option>
+                <option value="J">J</option>
+                <option value="K">K</option>
+                <option value="L">L</option>
+                <option value="M">M</option>
+                <option value="N">N</option>
+                <option value="O">O</option>
+                <option value="P">P</option>
+                <option value="Q">Q</option>
+                <option value="R">R</option>
+                <option value="S">S</option>
+                <option value="T">T</option>
+                <option value="U">U</option>
+                <option value="V">V</option>
+                <option value="W">W</option>
+                <option value="X">X</option>
+                <option value="Y">Y</option>
+                <option value="Z">Z</option>
+              </select>
+            </td>
 
-</style>
+            <td>
+              <label for="select2">3rd</label><br />
+              <select name="select2" id="select5" size="25" style="text-align: center; width: 40px" onchange="line()">
+                <option value="" selected>--</option>
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+                <option value="D">D</option>
+                <option value="E">E</option>
+                <option value="F">F</option>
+                <option value="G">G</option>
+                <option value="H">H</option>
+                <option value="I">I</option>
+                <option value="J">J</option>
+                <option value="K">K</option>
+                <option value="L">L</option>
+                <option value="M">M</option>
+                <option value="N">N</option>
+                <option value="O">O</option>
+                <option value="P">P</option>
+                <option value="Q">Q</option>
+                <option value="R">R</option>
+                <option value="S">S</option>
+                <option value="T">T</option>
+                <option value="U">U</option>
+                <option value="V">V</option>
+                <option value="W">W</option>
+                <option value="X">X</option>
+                <option value="Y">Y</option>
+                <option value="Z">Z</option>
+              </select>
+            </td>
 
+            <td>
+              <label for="select2">PA</label><br />
+              <select name="select2" id="select6" size="25" style="text-align: center; width: 45px" onchange="line()">
+                <option value="" selected>--</option>
+                <option value="PC_">PC</option>
+                <option value="00_">00</option>
+                <option value="CI_">CI</option>
+                <option value="MD_">MD</option>
+                <option value="00_">Y5</option>
+                <option value="_">_</option>
+              </select>
+            </td>
 
+            <td>
+              <label for="select2">[DOCUMENT NAME]</label><br />
+              <select name="select2" id="select15" size="25" style="width: 100%" onchange="line()">
+                <option value="" selected>--</option>
+                <option value="KYLOC Not Received Over 10">1 KYLOC Not Received Over 10</option>
+                <option value="KYLOC Backorder Detail">2 KYLOC Backorder Detail</option>
+                <option value="KYLOC Deffered Turn-In">3 KYLOC Deffered Turn-In</option>
+                <option value="KYLOC Exspired EAOS">4 KYLOC Exspired EAOS</option>
+                <option value="Manual RPN DSL">5 Manual RPN DSL</option>
+                <option value="Manual RPN SOF">6 Manual RPN SOF</option>
+                <option value="Status Of Funds">7 Status Of Funds</option>
+                <option value="Document Status Log">8 Document Status Log</option>
+                <option value="RIMS-FM Credit Card Exspensing">9 RIMS-FM Credit Card Exspensing</option>
+                <option value="Follow-Up PD 01-03">10 Follow-Up PD 01-03</option>
+                <option value="Follow-Up PD 04-08">11 Follow-Up PD 04-08</option>
+                <option value="Follow-Up PD 09-15">12 Follow-Up PD 09-15</option>
+                <option value="Berthing Audit_">13 Berthing Audit</option>
+                <option value="Messing Audit_">14 Messing Audit</option>
+                <option value="DSL Dispurement Review">15 DSL Dispurement Review</option>
+                <option value="Insight On Demand (IOD)">16 Insight On Demand (IOD)</option>
+                <option value="Internal MOV">17 Internal MOV</option>
+                <option value="External MOV">18 External MOV</option>
+                <option value="Motor Equipment Utilization">19 Motor Equipment Utilization</option>
+                <option value="Route and Distance Statment">20 Route and Distance Statment</option>
+                <option value="RESFORTAC Missing Signature">21 RESFORTAC Missing Signature</option>
+                <option value="RESFORTAC Annual Inventory">22 RESFORTAC Annual Inventory</option>
+                <option value="DPAS Quarterly Inventory">23 DPAS Quarterly Inventory</option>
+                <option value="DPAS Annual Inventory">24 DPAS Annual Inventory</option>
+                <option value="Annual Market Survey for Berthing">25 Market Survey Berthing</option>
+                <option value="Annual Market Survey for Messing">26 Market Survey Messing</option>
+                <option value="Budget Call">27 Budget Call</option>
+                <option value="Mid-Year Review">28 Mid-Year Review</option>
+                <option value="Simi-Annual Review">29 Simi-Annual Review</option>
+                <option value="Berthing Utilization Record">30 Berthing Utilization Record</option>
+                <option value="Meal Signature Record">31 Meal Signature Record</option>
+                <option value="Recource Authorization Request">32 Recource Authorization Request</option>
+                <option value="KYLOC Order Request">33 KYLOC Order Request</option>
+                <option value="MOB Orders">34 MOB Orders</option>
+              </select>
+            </td>
 
-<body>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<h></h>
-<form>
-<div class="hideoverflow">
-<table style="border: 1px solid black;">
-<tr>
-  <td>
-      <label for="select1">[FY]</label><br>
-      <select name="select2" id="select1" size="25" style=""  onchange="line()">
-  <option value="" selected>           --            </option>
-  <option value="FY23_">            FY23         </option>
-  <option value="FY22_">            FY22         </option>
-  <option value="FY21_">            FY21         </option>
-  <option value="FY20_">            FY20         </option>
-  <option value="FY19_">            FY19      </option>
-  <option value="FY18_">            FY18             </option>
-  <option value="FY17_">            FY17             </option>
-  <option value="FY16_">            FY16           </option> 
-      </select>
-  </td>
+            <td>
+              <label for="select2">[DOCUMENT NAME]</label><br />
+              <select name="select2" id="select13" size="25" style="width: 100%" onchange="line()">
+                <option value="" selected>--</option>
+                <option value="Letter Of APT">1 Letter Of APT</option>
+                <option value="IOP Review">2 IOP Review</option>
+                <option value="DON Cert">3 DON Cert</option>
+                <option value="CLG 001">4 CLG 001</option>
+                <option value="CLG 006">5 CLG 006</option>
+                <option value="Ethics">6 Ethics</option>
+                <option value="CON 237">7 CON 237</option>
+                <option value="SF 1402">8 SF 1402</option>
+                <option value="OGE 450">9 OGE 450</option>
+                <option value="DD 577">10 DD 577</option>
+                <option value="FAC 047">11 FAC 047</option>
+              </select>
+            </td>
 
-  <td>
--
-  </td>
-  <td>
-      <label for="select2">[DOCUMENT NUMBER]</label><br>
-      <select name="select2" id="select2" size="25" style="width:100%"  onchange="line()">
-  <option value="" selected>           --            </option>
-  <option value="N6206822CC">            N6206822CC          </option>
-  <option value="N6206821CC">            N6206821CC          </option>
-  <option value="N6206820CC">            N6206820CC          </option>
-  <option value="N6206819CC">            N6206819CC          </option>
-  <option value="N6206818MDCC">          N6206818MDCC          </option>
-  <option value="N6206818RC45">          N6206818RC45          </option>
-  <option value="N6206817MDCC">          N6206817MDCC          </option>
-  <option value="N6206817RC45">          N6206817RC45          </option>
-  <option value="N6206816MDCC">          N6206816MDCC          </option>
-  <option value="N6206816RC45">          N6206816RC45          </option>
-  <option value="N0072R22CCG2068_">           RPN22          </option>
-  <option value="N0072R21CCG2068_">           RPN21          </option>
-  <option value="N0072R20CCG2068_">           RPN20          </option>
-  <option value="N0072R19CCG2068_">           RPN19          </option>
-  <option value="N0072R18MD73602_">           RPN18          </option>
-  <option value="N0072R17MD73602_">           RPN17          </option>
-  <option value="N0072R16MD73602_">           RPN16          </option>
-  <option value="Historical_">       		 Historical                       </option>
-      </select>
-  </td>
+            <td>-</td>
 
-  <td>
-      <label for="select2">1st</label><br>
-      <select name="select2" id="select3" size="25" style="text-align: center; width:40px"  onchange="line()">
-  <option value="" selected>    -- </option>
-  <option value="0">    0 </option>
-  <option value="1">    1 </option>
-  <option value="2">    2 </option>
-  <option value="3">    3 </option>
-  <option value="4">    4 </option>
-  <option value="5">    5 </option>
-  <option value="6">    6 </option>
-  <option value="7">    7 </option>
-  <option value="8">    8 </option>
-  <option value="9">    9 </option>
-      </select>
-  </td>
+            <td>
+              <label for="select2">Frequency</label><br />
+              <select name="select2" id="select11" size="25" style="" onchange="line()">
+                <option value="" selected>--</option>
+                <option value="_1st & 15th">1st & 15th</option>
+                <option value="_Weekly">Weekly</option>
+                <option value="_Monthly">Monthly</option>
+                <option value="_Quarterly">Quarterly</option>
+                <option value="_Annually">Annually</option>
+                <option value="_Biannually">Biannually</option>
+                <option value="_As Required">As Required</option>
+                <option value="_MOB">MOB</option>
+              </select>
+            </td>
 
-  <td>
-      <label for="select2">2nd</label><br>
-      <select name="select2" id="select4" size="25" style="text-align: center; width:40px"  onchange="line()">
-  <option value="" selected>    -- </option>
-  <option value="0">    0 </option>
-  <option value="1">    1 </option>
-  <option value="2">    2 </option>
-  <option value="3">    3 </option>
-  <option value="4">    4 </option>
-  <option value="5">    5 </option>
-  <option value="6">    6 </option>
-  <option value="7">    7 </option>
-  <option value="8">    8 </option>
-  <option value="9">    9 </option>
-      </select>
-  </td>
+            <td>
+              <label for="select2">Vendor</label><br />
+              <select name="select2" id="select7" size="25" style="width: 100%" onchange="line()">
+                <option value="" selected>--</option>
+                <option value="" style="display: none" id="VenderListStart"></option>
+              </select>
+            </td>
 
-  <td>
-      <label for="select2">3rd</label><br>
-      <select name="select2" id="select5" size="25" style="text-align: center; width:40px"  onchange="line()">
-  <option value="" selected>    -- </option>
-  <option value="0">    0 </option>
-  <option value="1">    1 </option>
-  <option value="2">    2 </option>
-  <option value="3">    3 </option>
-  <option value="4">    4 </option>
-  <option value="5">    5 </option>
-  <option value="6">    6 </option>
-  <option value="7">    7 </option>
-  <option value="8">    8 </option>
-  <option value="9">    9 </option>
-      </select>
-  </td>
+            <td>
+              <label for="select2">[DD</label><br />
+              <select name="select2" id="select8" size="25" style="width: 60px" onchange="line()">
+                <option value="" selected>--</option>
+                <option value="01">1</option>
+                <option value="02">2</option>
+                <option value="03">3</option>
+                <option value="04">4</option>
+                <option value="05">5</option>
+                <option value="06">6</option>
+                <option value="07">7</option>
+                <option value="08">8</option>
+                <option value="09">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+                <option value="21">21</option>
+                <option value="22">22</option>
+                <option value="23">23</option>
+                <option value="24">24</option>
+                <option value="25">25</option>
+                <option value="26">26</option>
+                <option value="27">27</option>
+                <option value="28">28</option>
+                <option value="29">29</option>
+                <option value="30">30</option>
+                <option value="31">31</option>
+              </select>
+            </td>
 
-  <td>
-      <label for="select2">PA</label><br>
-      <select name="select2" id="select6" size="25" style="text-align: center; width:45px" onchange="line()">
-  <option value="" selected>    -- </option>
-  <option value="PC_">    PC </option>
-  <option value="00_">    00 </option>
-  <option value="_">      _ </option>
-      </select>
-  </td>
+            <td>
+              <label for="select2">MM</label><br />
+              <select name="select2" id="select9" size="25" style="" onchange="line()">
+                <option value="" selected>--</option>
+                <option value="01">JAN</option>
+                <option value="02">FEB</option>
+                <option value="03">MAR</option>
+                <option value="04">APR</option>
+                <option value="05">MAY</option>
+                <option value="06">JUN</option>
+                <option value="07">JUL</option>
+                <option value="08">AUG</option>
+                <option value="09">SEP</option>
+                <option value="10">OCT</option>
+                <option value="11">NOV</option>
+                <option value="12">DEC</option>
+              </select>
+            </td>
 
-  <td>
-      <label for="select2">[DOCUMENT NAME]</label><br>
-      <select name="select2" id="select15" size="25" style="width:100%"  onchange="line()">
-  <option value="" selected>           --            </option>
-  <option value="KYLOC Not Received Over 10">          1  KYLOC Not Received Over 10          </option>
-  <option value="KYLOC Backorder Detail">              2  KYLOC Backorder Detail                       </option>
-  <option value="KYLOC Deffered Turn-In">              3  KYLOC Deffered Turn-In                          </option>
-  <option value="KYLOC Exspired EAOS">                 4  KYLOC Exspired EAOS                       </option>
-  <option value="Manual RPN DSL">                      5  Manual RPN DSL                        </option>
-  <option value="Manual RPN SOF">                      6  Manual RPN SOF                        </option>
-  <option value="Status Of Funds">                     7  Status Of Funds                       </option>
-  <option value="Document Status Log">                 8  Document Status Log                         </option>
-  <option value="RIMS-FM Credit Card Exspensing">      9  RIMS-FM Credit Card Exspensing                   </option>
-  <option value="Follow-Up PD 01-03">                  10 Follow-Up PD 01-03                      </option>
-  <option value="Follow-Up PD 04-08">                  11 Follow-Up PD 04-08                      </option>
-  <option value="Follow-Up PD 09-15">                  12 Follow-Up PD 09-15                                </option>
-  <option value="Berthing Audit_">                      13 Berthing Audit                                   </option>
-  <option value="Messing Audit_">                       14 Messing Audit                                    </option>
-  <option value="DSL Dispurement Review">              15 DSL Dispurement Review                          </option>
-  <option value="Insight On Demand (IOD)">             16 Insight On Demand (IOD)                           </option>
-  <option value="Internal MOV">                        17 Internal MOV                                     </option>
-  <option value="External MOV">                        18 External MOV                                     </option>
-  <option value="Motor Equipment Utilization">         19 Motor Equipment Utilization                     </option>
-  <option value="Route and Distance Statment">         20 Route and Distance Statment                     </option>
-  <option value="RESFORTAC Missing Signature">         21 RESFORTAC Missing Signature                     </option>
-  <option value="RESFORTAC Annual Inventory">          22 RESFORTAC Annual Inventory                    </option>
-  <option value="DPAS Quarterly Inventory">            23 DPAS Quarterly Inventory                            </option>
-  <option value="DPAS Annual Inventory">               24 DPAS Annual Inventory                                      </option>
-  <option value="Annual Market Survey for Berthing">   25 Market Survey Berthing                           </option>
-  <option value="Annual Market Survey for Messing">    26 Market Survey Messing                          </option>
-  <option value="Budget Call">                         27 Budget Call                                      </option>
-  <option value="Mid-Year Review">                     28 Mid-Year Review                                   </option>
-  <option value="Simi-Annual Review">                  29 Simi-Annual Review                                </option>
-  <option value="Berthing Utilization Record">         30 Berthing Utilization Record                    </option>
-  <option value="Meal Signature Record">               31 Meal Signature Record                         </option>
-  <option value="Recource Authorization Request">      32 Recource Authorization Request                       </option>
-  <option value="KYLOC Order Request">      	       33 KYLOC Order Request 			          </option>
-  <option value="MOB Orders">		      	       34 MOB Orders	 			          </option>
+            <td>
+              <label for="select2">YYYY]</label><br />
+              <select name="select2" id="select10" size="25" style="" onchange="line()">
+                <option value="" selected>--</option>
+                <option value="" id="YYYYList" style="display: none">-</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>
+              <label for="select2">[SSIC]</label><br />
+              <input type="text" id="select14" onkeyup="line()" placeholder="#" />
+            </td>
+          </tr>
+        </table>
+        <table>
+          <tr>
+            <td><input type="reset" value="Reset All Above" / style="color:blue; width:300px"></td>
+          </tr>
+        </table>
+      </div>
+    </form>
+    <form></form>
 
-      </select>
-  </td>
+    <table>
+      <tr>
+        <td>
+          <input type="text" class="form-control" placeholder="Combination Here" name="combination" id="combination" style="color: blue; width: 500px" />
+          <button onclick="myFunction()">Copy text</button>
+        </td>
+      </tr>
+    </table>
 
-  <td>
-      <label for="select2">[DOCUMENT NAME]</label><br>
-      <select name="select2" id="select13" size="25" style="width:100%"  onchange="line()">
-  <option value="" selected>    -- </option>
-  <option value="Letter Of APT">    1 Letter Of APT </option>
-  <option value="IOP Review">       2 IOP Review </option>
-  <option value="DON Cert">         3 DON Cert</option>
-  <option value="CLG 001">          4 CLG 001</option>
-  <option value="CLG 006">          5 CLG 006 </option>
-  <option value="Ethics">           6 Ethics </option>
-  <option value="CON 237">          7 CON 237 </option>
-  <option value="SF 1402">          8 SF 1402  </option>
-  <option value="OGE 450">          9 OGE 450 </option>
-  <option value="DD 577">           10 DD 577 </option>
-  <option value="FAC 047">          11 FAC 047 </option>
-      </select>
-  </td>
+    <br />
 
+    <b> <u>Sheet Name</u> : N4 HPE Naming </b>
+    <hr />
+    <table id="name-table" cellspacing="0" border="1">
+      <tr class="name">
+        <td style="min-width: 50px">CABINET NAME</td>
+        <td style="min-width: 50px">DRAWER NAME</td>
+        <td style="min-width: 50px">FOLDER NAME</td>
+        <td style="min-width: 50px">FILE NAME</td>
+        <td style="min-width: 50px">INSTR SECTION (1-3)</td>
+      </tr>
+      <tr class="name">
+        <td style="min-width: 50px">1000 MILITARY PERSONNEL</td>
+        <td style="min-width: 50px">1000_SUPPLY PERSONNEL</td>
+        <td style="min-width: 50px">1000_FY16</td>
+        <td style="min-width: 50px">[SUBJECT]_[DOCUMENT NAME/TYPE]_[YYYYMMDD]</td>
+        <td style="min-width: 50px">3</td>
+      </tr>
+      <tr class="name">
+        <td style="min-width: 50px">2000 INFORMATION TECHNOLOGY AND COM.</td>
+        <td style="min-width: 50px">2060_1_TELEPHONE SERVICE CONTRACT AND CORRESPONDENCE</td>
+        <td style="min-width: 50px">2060_1_FY16</td>
+        <td style="min-width: 50px">[FY]_[FORM #]_[DOCUMENT NAME]_[LAST][FIRST][SSN]_[YYYYMMDD]</td>
+        <td style="min-width: 50px">2</td>
+      </tr>
+      <tr class="name">
+        <td style="min-width: 50px">4000 LOGISTICS</td>
+        <td style="min-width: 50px">4000_1_GENERAL CORRESPONDENCE (INCOMING)</td>
+        <td style="min-width: 50px">4000_1_FY16</td>
+        <td style="min-width: 50px">[SUBJECT]_[DOCUMENT NAME/TYPE]_[YYYYMMDD]</td>
+        <td style="min-width: 50px">3</td>
+      </tr>
+      <tr class="name">
+        <td style="min-width: 50px">4000 LOGISTICS</td>
+        <td style="min-width: 50px">4000_2_GENERAL CORRESPONDENCE (OUTGOING)</td>
+        <td style="min-width: 50px">4000_2_FY16</td>
+        <td style="min-width: 50px">[SUBJECT]_[DOCUMENT NAME/TYPE]_[YYYYMMDD]</td>
+        <td style="min-width: 50px">3</td>
+      </tr>
+      <tr class="name">
+        <td style="min-width: 50px">4000 LOGISTICS</td>
+        <td style="min-width: 50px">4002_EQUIPMENT ON LOAN(TO OR BY THE NAVY RESERVE ACTIVITY)</td>
+        <td style="min-width: 50px">4002_FY16</td>
+        <td style="min-width: 50px">[DOCUMENT NUMBER]_[DOCUMENT NAME]_[SSIC #]_[YYYYMMDD]</td>
+        <td style="min-width: 50px">1</td>
+      </tr>
+      <tr class="name">
+        <td style="min-width: 50px">4000 LOGISTICS</td>
+        <td style="min-width: 50px">4027_1_PETROLEUM (FUEL OIL CONTRACT)</td>
+        <td style="min-width: 50px">4027_1_FY16</td>
+        <td style="min-width: 50px">[DOCUMENT NUMBER]_[DOCUMENT NAME]_[SSIC #]_[YYYYMMDD]</td>
+        <td style="min-width: 50px">1</td>
+      </tr>
+      <tr class="name">
+        <td style="min-width: 50px">4000 LOGISTICS</td>
+        <td style="min-width: 50px">4027_2_PETROLEUM (FUEL OIL) ANNUAL REGULATION AND PURCHASE ORDER</td>
+        <td style="min-width: 50px">4027_2_FY16</td>
+        <td style="min-width: 50px">[DOCUMENT NUMBER]_[DOCUMENT NAME]_[SSIC #]_[YYYYMMDD]</td>
+        <td style="min-width: 50px">1</td>
+      </tr>
+      <tr class="name">
+        <td style="min-width: 50px">4000 LOGISTICS</td>
+        <td style="min-width: 50px">4205_GCPC LETTERS OF AUTHORITY</td>
+        <td style="min-width: 50px">4205_FY16</td>
+        <td style="min-width: 50px">[FY]_[FORM #]_[DOCUMENT NAME]_[LAST][FIRST][SSN]_[YYYYMMDD]</td>
+        <td style="min-width: 50px">2</td>
+      </tr>
+      <tr class="name">
+        <td style="min-width: 50px">4000 LOGISTICS</td>
+        <td style="min-width: 50px">4340_DPAS INVENTORY</td>
+        <td style="min-width: 50px">4340_FY16</td>
+        <td style="min-width: 50px">[FY]_[FORM #]_[DOCUMENT NAME]_[LAST][FIRST][SSN]_[YYYYMMDD]</td>
+        <td style="min-width: 50px">2</td>
+      </tr>
+      <tr class="name">
+        <td style="min-width: 50px">4000 LOGISTICS</td>
+        <td style="min-width: 50px">4340_1_DPAS POC_DEPARTMENT LISTING</td>
+        <td style="min-width: 50px">4340_1_FY16</td>
+        <td style="min-width: 50px">[FY]_[FORM #]_[DOCUMENT NAME]_[LAST][FIRST][SSN]_[YYYYMMDD]</td>
+        <td style="min-width: 50px">2</td>
+      </tr>
+      <tr class="name">
+        <td style="min-width: 50px">4000 LOGISTICS</td>
+        <td style="min-width: 50px">4480_EXPENDITURE DOCUMENTS</td>
+        <td style="min-width: 50px">4480_FY16</td>
+        <td style="min-width: 50px">[DOCUMENT NUMBER]_[DOCUMENT NAME]_[SSIC #]_[YYYYMMDD]</td>
+        <td style="min-width: 50px">1</td>
+      </tr>
+      <tr class="name">
+        <td style="min-width: 50px">4000 LOGISTICS</td>
+        <td style="min-width: 50px">4430_MATERIAL RECEIPT(ORDERED BY OTHER ACTIVITIES)</td>
+        <td style="min-width: 50px">4430_FY16</td>
+        <td style="min-width: 50px">[DOCUMENT NUMBER]_[DOCUMENT NAME]_[SSIC #]_[YYYYMMDD]</td>
+        <td style="min-width: 50px">1</td>
+      </tr>
+      <tr class="name">
+        <td style="min-width: 50px">4000 LOGISTICS</td>
+        <td style="min-width: 50px">4610_SHIPMENTS_GBL</td>
+        <td style="min-width: 50px">4610_FY16</td>
+        <td style="min-width: 50px">[DOCUMENT NUMBER]_[DOCUMENT NAME]_[SSIC #]_[YYYYMMDD]</td>
+        <td style="min-width: 50px">1</td>
+      </tr>
+      <tr class="name">
+        <td style="min-width: 50px">4000 LOGISTICS</td>
+        <td style="min-width: 50px">4790_1_MAINTENANCE AND MATERIAL MANAGEMENT(3-M)</td>
+        <td style="min-width: 50px">4790_1_FY16</td>
+        <td style="min-width: 50px">[FY]_[FORM #]_[DOCUMENT NAME]_[LAST][FIRST][SSN]_[YYYYMMDD]</td>
+        <td style="min-width: 50px">2</td>
+      </tr>
+      <tr class="name">
+        <td style="min-width: 50px">4000 LOGISTICS</td>
+        <td style="min-width: 50px">4790_2_TECHNICAL TRAINING EQUIPMENT INSPECTION SUMMARY</td>
+        <td style="min-width: 50px">4790_2_FY16</td>
+        <td style="min-width: 50px">[FY]_[FORM #]_[DOCUMENT NAME]_[LAST][FIRST][SSN]_[YYYYMMDD]</td>
+        <td style="min-width: 50px">2</td>
+      </tr>
+      <tr class="name">
+        <td style="min-width: 50px">4000 LOGISTICS</td>
+        <td style="min-width: 50px">4790_3_EQUIPMENT MAINTENANCE REQUEST</td>
+        <td style="min-width: 50px">4790_3_FY16</td>
+        <td style="min-width: 50px">[DOCUMENT NUMBER]_[DOCUMENT NAME]_[SSIC #]_[YYYYMMDD]</td>
+        <td style="min-width: 50px">1</td>
+      </tr>
+      <tr class="name">
+        <td style="min-width: 50px">4000 LOGISTICS</td>
+        <td style="min-width: 50px">4340_GOVERNMENT PROPERTY</td>
+        <td style="min-width: 50px">4340_FY16</td>
+        <td style="min-width: 50px">[SUBJECT]_[DOCUMENT NAME/TYPE]_[YYYYMMDD]</td>
+        <td style="min-width: 50px">3</td>
+      </tr>
+      <tr class="name">
+        <td style="min-width: 50px">4000 LOGISTICS</td>
+        <td style="min-width: 50px">4020_FUEL</td>
+        <td style="min-width: 50px">4020_FY16</td>
+        <td style="min-width: 50px">[DOCUMENT NUMBER]_[DOCUMENT NAME]_[SSIC #]_[YYYYMMDD]</td>
+        <td style="min-width: 50px">1</td>
+      </tr>
+      <tr class="name">
+        <td style="min-width: 50px">4000 LOGISTICS</td>
+        <td style="min-width: 50px">4440_INVENTORY SCHEDULE</td>
+        <td style="min-width: 50px">4440_FY16</td>
+        <td style="min-width: 50px">[FY]_[FORM #]_[DOCUMENT NAME]_[LAST][FIRST][SSN]_[YYYYMMDD]</td>
+        <td style="min-width: 50px">2</td>
+      </tr>
+      <tr class="name">
+        <td style="min-width: 50px">4000 LOGISTICS</td>
+        <td style="min-width: 50px">4270_ACQUISITIONS</td>
+        <td style="min-width: 50px">4270_FY16</td>
+        <td style="min-width: 50px">[DOCUMENT NUMBER]_[DOCUMENT NAME]_[SSIC #]_[YYYYMMDD]</td>
+        <td style="min-width: 50px">1</td>
+      </tr>
+      <tr class="name">
+        <td style="min-width: 50px">4000 LOGISTICS</td>
+        <td style="min-width: 50px">4101_ENERGY CONSERVATION</td>
+        <td style="min-width: 50px">4101_FY16</td>
+        <td style="min-width: 50px">[FY]_[FORM #]_[DOCUMENT NAME]_[LAST][FIRST][SSN]_[YYYYMMDD]</td>
+        <td style="min-width: 50px">2</td>
+      </tr>
+      <tr class="name">
+        <td style="min-width: 50px">5000 GENERAL ADMINISTRATION AND MANAGEMENT</td>
+        <td style="min-width: 50px">5040_INSPECTION AND ASSIST VISIT</td>
+        <td style="min-width: 50px">5040_FY16</td>
+        <td style="min-width: 50px">[FY]_[FORM #]_[DOCUMENT NAME]_[LAST][FIRST][SSN]_[YYYYMMDD]</td>
+        <td style="min-width: 50px">2</td>
+      </tr>
+      <tr class="name">
+        <td style="min-width: 50px">5000 GENERAL ADMINISTRATION AND MANAGEMENT</td>
+        <td style="min-width: 50px">5100_SAFETY REPORTS</td>
+        <td style="min-width: 50px">5100_FY16</td>
+        <td style="min-width: 50px">[FY]_[FORM #]_[DOCUMENT NAME]_[LAST][FIRST][SSN]_[YYYYMMDD]</td>
+        <td style="min-width: 50px">2</td>
+      </tr>
+      <tr class="name">
+        <td style="min-width: 50px">5000 GENERAL ADMINISTRATION AND MANAGEMENT</td>
+        <td style="min-width: 50px">5212_SUPPLY RECORD DISPOSAL SCHEDULE</td>
+        <td style="min-width: 50px">5212_FY16</td>
+        <td style="min-width: 50px">[FY]_[FORM #]_[DOCUMENT NAME]_[LAST][FIRST][SSN]_[YYYYMMDD]</td>
+        <td style="min-width: 50px">2</td>
+      </tr>
+      <tr class="name">
+        <td style="min-width: 50px">5000 GENERAL ADMINISTRATION AND MANAGEMENT</td>
+        <td style="min-width: 50px">5214_REPORTS TICKLER (SUPPLY REPORTS)</td>
+        <td style="min-width: 50px">5214_FY16</td>
+        <td style="min-width: 50px">[FY]_[FORM #]_[DOCUMENT NAME]_[LAST][FIRST][SSN]_[YYYYMMDD]</td>
+        <td style="min-width: 50px">2</td>
+      </tr>
+      <tr class="name">
+        <td style="min-width: 50px">5000 GENERAL ADMINISTRATION AND MANAGEMENT</td>
+        <td style="min-width: 50px">5216_1_CORRESPONDENCE MANAGEMENT</td>
+        <td style="min-width: 50px">5216_1_FY16</td>
+        <td style="min-width: 50px">[SUBJECT]_[DOCUMENT NAME/TYPE]_[YYYYMMDD]</td>
+        <td style="min-width: 50px">3</td>
+      </tr>
+      <tr class="name">
+        <td style="min-width: 50px">5000 GENERAL ADMINISTRATION AND MANAGEMENT</td>
+        <td style="min-width: 50px">5600_PRINTING, DUPLICATION, AND REPRODUCTION</td>
+        <td style="min-width: 50px">5600_FY16</td>
+        <td style="min-width: 50px">[DOCUMENT NUMBER]_[DOCUMENT NAME]_[SSIC #]_[YYYYMMDD]</td>
+        <td style="min-width: 50px">1</td>
+      </tr>
+      <tr class="name">
+        <td style="min-width: 50px">5000 GENERAL ADMINISTRATION AND MANAGEMENT</td>
+        <td style="min-width: 50px">5371_STANDARDS OF CONDUCT (PROCUREMENT)</td>
+        <td style="min-width: 50px">5371_FY16</td>
+        <td style="min-width: 50px">[FY]_[FORM #]_[DOCUMENT NAME]_[LAST][FIRST][SSN]_[YYYYMMDD]</td>
+        <td style="min-width: 50px">2</td>
+      </tr>
+      <tr class="name">
+        <td style="min-width: 50px">5000 GENERAL ADMINISTRATION AND MANAGEMENT</td>
+        <td style="min-width: 50px">5750_HISTORICAL MATTERS</td>
+        <td style="min-width: 50px">5750_FY16</td>
+        <td style="min-width: 50px">[SUBJECT]_[DOCUMENT NAME/TYPE]_[YYYYMMDD]</td>
+        <td style="min-width: 50px">3</td>
+      </tr>
+      <tr class="name">
+        <td style="min-width: 50px">7000 FINANCIAL MANAGEMENT RECORDS</td>
+        <td style="min-width: 50px">7043_PROCUREMENT CORRESPONDANCE</td>
+        <td style="min-width: 50px">7043_FY16</td>
+        <td style="min-width: 50px">[FY]_[FORM #]_[DOCUMENT NAME]_[LAST][FIRST][SSN]_[YYYYMMDD]</td>
+        <td style="min-width: 50px">2</td>
+      </tr>
+      <tr class="name">
+        <td style="min-width: 50px">7000 FINANCIAL MANAGEMENT RECORDS</td>
+        <td style="min-width: 50px">7043_1_PURCHASE_DELIVERY ORDERS-GCPC</td>
+        <td style="min-width: 50px">7043_1_FY16</td>
+        <td style="min-width: 50px">[DOCUMENT NUMBER]_[DOCUMENT NAME]_[SSIC #]_[YYYYMMDD]</td>
+        <td style="min-width: 50px">1</td>
+      </tr>
+      <tr class="name">
+        <td style="min-width: 50px">7000 FINANCIAL MANAGEMENT RECORDS</td>
+        <td style="min-width: 50px">7000_1_GENERAL CORRESPONDANCE (INCOMING)</td>
+        <td style="min-width: 50px">7000_1_FY16</td>
+        <td style="min-width: 50px">[FY]_[FORM #]_[DOCUMENT NAME]_[LAST][FIRST][SSN]_[YYYYMMDD]</td>
+        <td style="min-width: 50px">2</td>
+      </tr>
+      <tr class="name">
+        <td style="min-width: 50px">7000 FINANCIAL MANAGEMENT RECORDS</td>
+        <td style="min-width: 50px">7000_2_GENERAL CORRESPONDANCE (OUTGOING)</td>
+        <td style="min-width: 50px">7000_2_FY16</td>
+        <td style="min-width: 50px">[FY]_[FORM #]_[DOCUMENT NAME]_[LAST][FIRST][SSN]_[YYYYMMDD]</td>
+        <td style="min-width: 50px">2</td>
+      </tr>
+      <tr class="name">
+        <td style="min-width: 50px">7000 FINANCIAL MANAGEMENT RECORDS</td>
+        <td style="min-width: 50px">7050_HOST-TENANT ANNUAL COST REVIEW</td>
+        <td style="min-width: 50px">7050_FY16</td>
+        <td style="min-width: 50px">[FY]_[FORM #]_[DOCUMENT NAME]_[LAST][FIRST][SSN]_[YYYYMMDD]</td>
+        <td style="min-width: 50px">2</td>
+      </tr>
+      <tr class="name">
+        <td style="min-width: 50px">7000 FINANCIAL MANAGEMENT RECORDS</td>
+        <td style="min-width: 50px">7100_NON-CHARGEABLE LISTING</td>
+        <td style="min-width: 50px">7100_FY16</td>
+        <td style="min-width: 50px">[DOCUMENT NUMBER]_[DOCUMENT NAME]_[SSIC #]_[YYYYMMDD]</td>
+        <td style="min-width: 50px">1</td>
+      </tr>
+      <tr class="name">
+        <td style="min-width: 50px">7000 FINANCIAL MANAGEMENT RECORDS</td>
+        <td style="min-width: 50px">7110_1_BUDGET REQUEST (O&MNR AND RPN)</td>
+        <td style="min-width: 50px">7110_1_FY16</td>
+        <td style="min-width: 50px">[FY]_[FORM #]_[DOCUMENT NAME]_[LAST][FIRST][SSN]_[YYYYMMDD]</td>
+        <td style="min-width: 50px">2</td>
+      </tr>
+      <tr class="name">
+        <td style="min-width: 50px">7000 FINANCIAL MANAGEMENT RECORDS</td>
+        <td style="min-width: 50px">7110_2_MID-YEAR REVIEW (O&MNR AND RPN)</td>
+        <td style="min-width: 50px">7110_2_FY16</td>
+        <td style="min-width: 50px">[FY]_[FORM #]_[DOCUMENT NAME]_[LAST][FIRST][SSN]_[YYYYMMDD]</td>
+        <td style="min-width: 50px">2</td>
+      </tr>
+      <tr class="name">
+        <td style="min-width: 50px">7000 FINANCIAL MANAGEMENT RECORDS</td>
+        <td style="min-width: 50px">7110_3_RESOURCES REQUEST(OUTSTANDNG AND COMPLETED)</td>
+        <td style="min-width: 50px">7110_3_FY16</td>
+        <td style="min-width: 50px">[FY]_[FORM #]_[DOCUMENT NAME]_[LAST][FIRST][SSN]_[YYYYMMDD]</td>
+        <td style="min-width: 50px">2</td>
+      </tr>
+      <tr class="name">
+        <td style="min-width: 50px">7000 FINANCIAL MANAGEMENT RECORDS</td>
+        <td style="min-width: 50px">7300_INTER-SERVICE SUPPORT AGREEMENT (ONE FOR EACH AGREEMENT)</td>
+        <td style="min-width: 50px">7300_FY16</td>
+        <td style="min-width: 50px">[FY]_[FORM #]_[DOCUMENT NAME]_[LAST][FIRST][SSN]_[YYYYMMDD]</td>
+        <td style="min-width: 50px">2</td>
+      </tr>
+      <tr class="name">
+        <td style="min-width: 50px">7000 FINANCIAL MANAGEMENT RECORDS</td>
+        <td style="min-width: 50px">7303_1_FUNDING GRANT AND COST CENTER</td>
+        <td style="min-width: 50px">7303_1_FY16</td>
+        <td style="min-width: 50px">[FY]_[FORM #]_[DOCUMENT NAME]_[LAST][FIRST][SSN]_[YYYYMMDD]</td>
+        <td style="min-width: 50px">2</td>
+      </tr>
+      <tr class="name">
+        <td style="min-width: 50px">7000 FINANCIAL MANAGEMENT RECORDS</td>
+        <td style="min-width: 50px">7330_STATUS OF FUNDS AND COST CENTER</td>
+        <td style="min-width: 50px">7330_FY16</td>
+        <td style="min-width: 50px">[FY]_[FORM #]_[DOCUMENT NAME]_[LAST][FIRST][SSN]_[YYYYMMDD]</td>
+        <td style="min-width: 50px">2</td>
+      </tr>
+      <tr class="name">
+        <td style="min-width: 50px">7000 FINANCIAL MANAGEMENT RECORDS</td>
+        <td style="min-width: 50px">7330_1_DOCUMENT STATUS LOG AND COST CENTER</td>
+        <td style="min-width: 50px">7330_1_FY16</td>
+        <td style="min-width: 50px">[FY]_[FORM #]_[DOCUMENT NAME]_[LAST][FIRST][SSN]_[YYYYMMDD]</td>
+        <td style="min-width: 50px">2</td>
+      </tr>
+      <tr class="name">
+        <td style="min-width: 50px">7000 FINANCIAL MANAGEMENT RECORDS</td>
+        <td style="min-width: 50px">7500_AUDITS</td>
+        <td style="min-width: 50px">7500_FY16</td>
+        <td style="min-width: 50px">[FY]_[FORM #]_[DOCUMENT NAME]_[LAST][FIRST][SSN]_[YYYYMMDD]</td>
+        <td style="min-width: 50px">2</td>
+      </tr>
+      <tr class="name">
+        <td style="min-width: 50px">7000 FINANCIAL MANAGEMENT RECORDS</td>
+        <td style="min-width: 50px">7596_REAL ESTATE AGREEMENTS_LEASE</td>
+        <td style="min-width: 50px">7596_FY16</td>
+        <td style="min-width: 50px">[FY]_[FORM #]_[DOCUMENT NAME]_[LAST][FIRST][SSN]_[YYYYMMDD]</td>
+        <td style="min-width: 50px">2</td>
+      </tr>
+      <tr class="name">
+        <td style="min-width: 50px">8000 ORDNANCE MATERIAL</td>
+        <td style="min-width: 50px">8010_AMMUNITION CORRESPONDENCE</td>
+        <td style="min-width: 50px">8010_FY16</td>
+        <td style="min-width: 50px">[FY]_[FORM #]_[DOCUMENT NAME]_[LAST][FIRST][SSN]_[YYYYMMDD]</td>
+        <td style="min-width: 50px">2</td>
+      </tr>
+      <tr class="name">
+        <td style="min-width: 50px">8000 ORDNANCE MATERIAL</td>
+        <td style="min-width: 50px">8010_1_AMMUNITIONS REPORTS</td>
+        <td style="min-width: 50px">8010_1_FY16</td>
+        <td style="min-width: 50px">[FY]_[FORM #]_[DOCUMENT NAME]_[LAST][FIRST][SSN]_[YYYYMMDD]</td>
+        <td style="min-width: 50px">2</td>
+      </tr>
+      <tr class="name">
+        <td style="min-width: 50px">10000 GENERAL MATERIAL RECORDS</td>
+        <td style="min-width: 50px">10700_AUDIOVISUAL</td>
+        <td style="min-width: 50px">10700_FY16</td>
+        <td style="min-width: 50px">[FY]_[FORM #]_[DOCUMENT NAME]_[LAST][FIRST][SSN]_[YYYYMMDD]</td>
+        <td style="min-width: 50px">2</td>
+      </tr>
+      <tr class="name">
+        <td style="min-width: 50px">11000 STRUCTURE AND FACILITIES RECORDS</td>
+        <td style="min-width: 50px">11011_1_LICENSE FOR USE OF REAL PROPERTY (NON-FEDERAL 11011_29)</td>
+        <td style="min-width: 50px">11011_1_FY16</td>
+        <td style="min-width: 50px">[FY]_[FORM #]_[DOCUMENT NAME]_[LAST][FIRST][SSN]_[YYYYMMDD]</td>
+        <td style="min-width: 50px">2</td>
+      </tr>
+      <tr class="name">
+        <td style="min-width: 50px">11000 STRUCTURE AND FACILITIES RECORDS</td>
+        <td style="min-width: 50px">11011_2_LICENSE FOR USE OF REAL PROPERTY (OTHER FEDERAL AGENCIES NAVFAC 11011_30)</td>
+        <td style="min-width: 50px">11011_2_FY16</td>
+        <td style="min-width: 50px">[FY]_[FORM #]_[DOCUMENT NAME]_[LAST][FIRST][SSN]_[YYYYMMDD]</td>
+        <td style="min-width: 50px">2</td>
+      </tr>
+      <tr class="name">
+        <td style="min-width: 50px">11000 STRUCTURE AND FACILITIES RECORDS</td>
+        <td style="min-width: 50px">11014_FACILITIES MAINTENANCE REQUEST</td>
+        <td style="min-width: 50px">11014_FY16</td>
+        <td style="min-width: 50px">[FY]_[FORM #]_[DOCUMENT NAME]_[LAST][FIRST][SSN]_[YYYYMMDD]</td>
+        <td style="min-width: 50px">2</td>
+      </tr>
+      <tr class="name">
+        <td style="min-width: 50px">11000 STRUCTURE AND FACILITIES RECORDS</td>
+        <td style="min-width: 50px">11000_ANNUAL INSPECTION SUMMARY (TYPE A)</td>
+        <td style="min-width: 50px">11000_FY16</td>
+        <td style="min-width: 50px">[FY]_[FORM #]_[DOCUMENT NAME]_[LAST][FIRST][SSN]_[YYYYMMDD]</td>
+        <td style="min-width: 50px">2</td>
+      </tr>
+      <tr class="name">
+        <td style="min-width: 50px">11000 STRUCTURE AND FACILITIES RECORDS</td>
+        <td style="min-width: 50px">11011_BACHELOR LEASED HOUSING(ONE FOR ONE; IE. 114000-1)</td>
+        <td style="min-width: 50px">11011_FY16</td>
+        <td style="min-width: 50px">[FY]_[FORM #]_[DOCUMENT NAME]_[LAST][FIRST][SSN]_[YYYYMMDD]</td>
+        <td style="min-width: 50px">2</td>
+      </tr>
+      <tr class="name">
+        <td style="min-width: 50px">11000 STRUCTURE AND FACILITIES RECORDS</td>
+        <td style="min-width: 50px">11240_2_VEHICLES</td>
+        <td style="min-width: 50px">11240_2_FY16</td>
+        <td style="min-width: 50px">[FY]_[FORM #]_[DOCUMENT NAME]_[LAST][FIRST][SSN]_[YYYYMMDD]</td>
+        <td style="min-width: 50px">2</td>
+      </tr>
+      <tr class="name">
+        <td style="min-width: 50px">11000 STRUCTURE AND FACILITIES RECORDS</td>
+        <td style="min-width: 50px">11300_GENERAL CORRESPONDANCE UTILITIES</td>
+        <td style="min-width: 50px">11300_FY16</td>
+        <td style="min-width: 50px">[FY]_[FORM #]_[DOCUMENT NAME]_[LAST][FIRST][SSN]_[YYYYMMDD]</td>
+        <td style="min-width: 50px">2</td>
+      </tr>
+      <tr class="name">
+        <td style="min-width: 50px"></td>
+        <td style="min-width: 50px"></td>
+        <td style="min-width: 50px"></td>
+        <td style="min-width: 50px"></td>
+        <td style="min-width: 50px"></td>
+      </tr>
+      <tr class="name">
+        <td style="min-width: 50px"></td>
+        <td style="min-width: 50px"></td>
+        <td style="min-width: 50px"></td>
+        <td style="min-width: 50px"></td>
+        <td style="min-width: 50px"></td>
+      </tr>
+    </table>
 
+    <script>
+      let Venders = JSON.parse(localStorage.getItem("Vendors"));
+      Venders.map((items) => {
+        document.getElementById("VenderListStart").insertAdjacentHTML("afterend", "<option value=" + items.Name + ">" + items.Name + "</option>");
+      });
+      let year = new Date();
+      let YYYY = year.getFullYear();
 
-  <td>
--
-  <td>
-      <label for="select2">Frequency</label><br>
-      <select name="select2" id="select11" size="25" style=""  onchange="line()">
-  <option value="" selected>    --  </option>
-  <option value="_1st & 15th">      1st & 15th  </option>
-  <option value="_Weekly">          Weekly  </option>
-  <option value="_Monthly">         Monthly  </option>
-  <option value="_Quarterly">       Quarterly  </option>
-  <option value="_Annually">        Annually  </option>
-  <option value="_Biannually">      Biannually  </option>
-  <option value="_As Required">     As Required  </option>
-  <option value="_MOB">             MOB  </option>
-      </select> 
-  </td>
--
-  </td>
-  <td>
-      <label for="select2">Vendor</label><br>
-      <select name="select2" id="select7" size="25" style="width:100%" onchange="line()">
-  <option value="" selected>    -- </option>
-  <option value="BJ Stamps">                           1 BJ Stamps                          </option>
-  <option value="BSC Source">                          2 BSC Source                          </option>
-  <option value="Dish Network">                        3 Dish Network                          </option>
-  <option value="DLA">                                 4 DLA                          </option>
-  <option value="FedEx">                               5 FedEx                          </option>
-  <option value="IOS Group">                           6 ISO Group                          </option>
-  <option value="Quality Inn">                         7 Quality Inn                          </option>
-  <option value="Roll N Pin">                          8 Roll N Pin                          </option>
-  <option value="Sheraton">                            9 Sheraton                          </option>
-  <option value="Verizon">                             10 Verizon                          </option>
-  <option value="Alterations">                         11 Alterations                          </option>
-  <option value="GSA Advantage">                       12 GSA Advantage                          </option>
-  <option value="McKesson">                            13 McKesson                          </option>
-  <option value="NEX">                                 14 NEX                          </option>
-  <option value="Best Western">                        15 Best Western                          </option>
-  <option value="AIB Exsprress">                       16 AIB Exsprress                          </option>
-  <option value="SD Safety Council">                   17 SD Safety Council                          </option>
-  <option value="Midest Special Instruments">          18 Midest Special Instruments                          </option>
-  <option value="Aswell Trophy">                       19 Aswell Trophy                          </option>
-  <option value="Sleep Inn">                           20 Sleep Inn                          </option>
-  <option value="Moore Medical">                       21 Moore Medical                          </option>
-  <option value="Artifact Condition Report_">          22 Artifact Condition Report                       </option>
-  <option value="DLA">          		       23 DLA           	            </option>
-  <option value="FEDMALL">    			       24 FEDMALL	                       </option>
-  <option value="Crackd Pot">		               25 Crack'd Pot                       </option>
-  <option value="B&H">			               26 B & H                       </option>
-      </select>
-  </td>
-  <td>
--
-  </td>
+      for (let i = 1; i < 5; i++) {
+        document.getElementById("YYYYList").insertAdjacentHTML("afterend", "<option value=_" + (YYYY - 5 + i) + " >" + (YYYY - 5 + i) + "</option>");
+      }
+      for (let i = 0; i < 2; i++) {
+        document.getElementById("YYYYList").insertAdjacentHTML("afterend", "<option value=_" + (YYYY + i) + " >" + (YYYY + i) + "</option>");
+      }
 
+      year = year.getFullYear() - 2000;
+      let Command = JSON.parse(localStorage.getItem("Command"));
+      for (let i = 1; i < 5; i++) {
+        document.getElementById("DocumentNumberList").insertAdjacentHTML("afterend", "<option value=" + Command.UIC + (year - 5 + i) + "MD >" + Command.UIC + (year - 5 + i) + "MD</option>");
+      }
+      for (let i = 0; i < 2; i++) {
+        document.getElementById("DocumentNumberList").insertAdjacentHTML("afterend", "<option value=" + Command.UIC + (year + i) + "MD >" + Command.UIC + (year + i) + "MD</option>");
+      }
+      for (let i = 1; i < 5; i++) {
+        document.getElementById("DocumentNumberList").insertAdjacentHTML("afterend", "<option value=" + Command.UIC + (year - 5 + i) + "CC >" + Command.UIC + (year - 5 + i) + "CC</option>");
+      }
+      for (let i = 0; i < 2; i++) {
+        document.getElementById("DocumentNumberList").insertAdjacentHTML("afterend", "<option value=" + Command.UIC + (year + i) + "CC >" + Command.UIC + (year + i) + "CC</option>");
+      }
 
-  <td>
-      <label for="select2">[LAST][FIRST][SSN]</label><br>
-      <select name="select2" id="select12" size="25" style="width:100%" onchange="line()">
-  <option value="" selected>    -- </option>
-  <option value="_HeidelbergerTravis6099">    Heidelberger </option>
-  <option value="_EmmertDaniel6634">    Emmert </option>
-  <option value="_SuedekumJustin2349">    Suedekum </option>
-  <option value="">    -- </option>
-  <option value="_AndreaAaron8999">         15 Andrea            </option>
-  <option value="_AndersonJason7456">       16 Anderson           </option>
-  <option value="_AustinAaron6217">         17 Austin A         </option>
-  <option value="_AustinRebecca8249">       18 Austin R            </option>
-  <option value="_AxsomGerald8048">         19 Axsom           </option>
-  <option value="_BackerStephanie0136">     20 Backer           </option>
-  <option value="_BairdMatthew9473">        21 Baird        </option>
-  <option value="_BernierJesse4505">        22 Bernier           </option>
-  <option value="_BrownBlake8466">          23 Brown            </option>
-  <option value="_ButtolphThomas0042">      24 Buttolph           </option>
-  <option value="_CampbellMarcus5383">      25 Campbell           </option>
-  <option value="_CarlsonBricelyn9935">     26 Carlson B            </option>
-  <option value="_CarlsonPartick9306">      27 Carlson P          </option>
-  <option value="_CheskieJeffery2370">      28 Cheskie         </option>
-  <option value="_ClymerJohn5578">          29 Clymer          </option>
-  <option value="_CoomesJohn7221">          30 Coomes          </option>
-  <option value="_DohertyCody6642">         31 Doherty         </option>
-  <option value="_EspeySamuel5285">         32 Espey           </option>
-  <option value="_EvansRichard7754">        33 Evans          </option>
-  <option value="_FatoneJason3452">         34 Fatone          </option>
-  <option value="_FormanJaedon3849">        35 Forman             </option>
-  <option value="_FreerkEric2913">          36 Freerk           </option>
-  <option value="_GibbsSabrina4476">        37 Gibbs           </option>
-  <option value="_GobleAngela4926">         38 Goble             </option>
-  <option value="_GormleyJoseph0853">       39 Gormley           </option>
-  <option value="_GraysonDominic7038">      40 Grayson            </option>
-  <option value="_GreberWesley3705">        41 Greber            </option>
-  <option value="_HeapBilly0452">           42 Heap            </option>
-  <option value="_HeerenKirsten9210">       43 Heeren            </option>
-  <option value="_HegartyBrett4964">        44 Hegarty         </option>
-  <option value="_HerdingLaridee1006">      45 Herding           </option>
-  <option value="_HerreraTyler4428">        46 Herrera           </option> 
-  <option value="_HoffmanFrank4379">        47 Hoffman            </option>
-  <option value="_JuniusJosephine3490">     48 Junius             </option>
-  <option value="_KeattsJamie7179">         49 Keatts     </option>
-  <option value="_LarsonJoshua8533">        50 Larson           </option>
-  <option value="_LovejoyRudolph6731">      51 Lovejoy            </option>
-  <option value="_LuschenSamantha2272">     52 Luschen          </option>
-  <option value="_MalonAnthony5897">        53 Malon           </option>
-  <option value="_MatthiesJacob0311">       54 Matthies          </option>
-  <option value="_MerkwanKara3430">         55 Merkwan           </option> 
-  <option value="_MoellerConnor5841">       56 Moeller          </option>
-  <option value="_MontanoIsrael4023">       57 Montano          </option>
-  <option value="_MooreNathaniel2977">      58 Moore          </option>
-  <option value="_MosherMatthew5783">       59 Mosher             </option>
-  <option value="_MossefinKaren3519">       60 Mossefin           </option>
-  <option value="_NixonJeffery3012">        61 Nixon             </option>
-  <option value="_NorrisCharles1339">       62 Norris           </option>
-  <option value="_OlandezRicardoedward5648">63 Olandez          </option>
-  <option value="_PalmerDejuan1080">        64 Palmer          </option>
-  <option value="_ParsonDarrel5578">        65 Parson          </option>
-  <option value="_PatrickShaina8689">       66 Patrick          </option>
-  <option value="_PedersonPaul6130">        67 Pederson P           </option>
-  <option value="_PedersonWendy8382">       68 Pederson W          </option>
-  <option value="_PeschongClaire4390">      69 Peschong C           </option>
-  <option value="_PeschongJonathan0619">    70 Peschong J        </option>
-  <option value="_PetersonChristopher2902"> 71 Peterson           </option>
-  <option value="_RyanLincoln1141">         72 Ryan            </option>
-  <option value="_SchuchRenae3539">         73 Schuch          </option>
-  <option value="_SchuelkeRussell4453">     74 Schuelke           </option>
-  <option value="_SeasJesse5281">           75 Seas       </option>
-  <option value="_SeegristKori7965">        76 Seegrist           </option>
-  <option value="_SoldatkeSarah1491">       77 Soldatke           </option>
-  <option value="_SparrLogan6747">          78 Sparr          </option>
-  <option value="_SteinleJeremy8107">       79 Steinle          </option>
-  <option value="_StengrimThomas4527">      80 Stengrim            </option>
-  <option value="_SweetwoodJeremy7998">     81 Sweetwood         </option>
-  <option value="_TrevillyanMichael4717">   82 Trevillyan              </option>
-  <option value="_UnderbergJeffery2903">    83 Underberg            </option>
-  <option value="_WieseTimothy4972">        84 Wiese             </option>
-      </select>
+      for (let i = 1; i < 5; i++) {
+        document.getElementById("FYList").insertAdjacentHTML("afterend", "<option value=FY" + (year - 5 + i) + "_ >FY" + (year - 5 + i) + "</option>");
+      }
+      for (let i = 0; i < 2; i++) {
+        document.getElementById("FYList").insertAdjacentHTML("afterend", "<option value=FY" + (year + i) + "_ >FY" + (year + i) + "</option>");
+      }
 
-  </td>
+      function myFunction() {
+        var copyText = document.getElementById("combination");
+        copyText.select();
+        copyText.setSelectionRange(0, 99999);
+        document.execCommand("copy");
+      }
 
-  <td>
--
-  <td>
+      function line() {
+        var sel1 = $("#select1 option:selected").val();
+        var sel2 = $("#select2 option:selected").val();
+        var sel3 = $("#select3 option:selected").val();
+        var sel4 = $("#select4 option:selected").val();
+        var sel5 = $("#select5 option:selected").val();
+        var sel6 = $("#select6 option:selected").val();
+        var sel7 = $("#select7 option:selected").val();
+        var sel8 = $("#select8 option:selected").val();
+        var sel9 = $("#select9 option:selected").val();
+        var sel10 = $("#select10 option:selected").val();
+        var sel11 = $("#select11 option:selected").val();
+        // var sel12 = $("#select12 option:selected").val();
+        var sel13 = $("#select13 option:selected").val();
+        var sel14 = document.getElementById("select14").value;
+        document.getElementById("select14").innerHTML = sel14;
+        var sel15 = $("#select15 option:selected").val();
+        $("#combination").val(sel1 + sel2 + sel13 + sel3 + sel4 + sel5 + sel6 + sel15 + sel11 + sel7 + sel14 + sel10 + sel9 + sel8);
+      }
 
-  <td>
-      <label for="select2">[DD</label><br>
-      <select name="select2" id="select8" size="25" style="width:60px" onchange="line()">
-  <option value="" selected>   -- </option> 
-  <option value="01">    1 </option>
-  <option value="02">    2 </option>
-  <option value="03">    3 </option>
-  <option value="04">    4 </option>
-  <option value="05">    5 </option>
-  <option value="06">    6 </option>
-  <option value="07">    7 </option>
-  <option value="08">    8 </option>
-  <option value="09">    9 </option>
-  <option value="10">   10 </option>
-  <option value="11">   11 </option>
-  <option value="12">   12 </option>
-  <option value="13">   13 </option>
-  <option value="14">   14 </option>
-  <option value="15">   15 </option>
-  <option value="16">   16 </option>
-  <option value="17">   17 </option>
-  <option value="18">   18 </option>
-  <option value="19">   19 </option>
-  <option value="20">   20 </option>
-  <option value="21">   21 </option>
-  <option value="22">   22 </option>
-  <option value="23">   23 </option>
-  <option value="24">   24 </option>
-  <option value="25">   25 </option>
-  <option value="26">   26 </option>
-  <option value="27">   27 </option>
-  <option value="28">   28 </option>
-  <option value="29">   29 </option>
-  <option value="30">   30 </option>
-  <option value="31">   31 </option> 
-      </select>
-  </td>
+      highlight_row();
+      function highlight_row() {
+        var table = document.getElementById("name-table");
+        var cells = table.getElementsByTagName("td");
 
-
-  <td>
-      <label for="select2">MM</label><br>
-      <select name="select2" id="select9" size="25" style="" onchange="line()">
-  <option value="" selected>   -- </option> 
-  <option value="01">         JAN  </option>
-  <option value="02">         FEB  </option>
-  <option value="03">         MAR  </option>
-  <option value="04">         APR  </option>
-  <option value="05">         MAY  </option>
-  <option value="06">         JUN  </option>
-  <option value="07">         JUL  </option>
-  <option value="08">         AUG  </option>
-  <option value="09">         SEP  </option>
-  <option value="10">         OCT  </option>
-  <option value="11">         NOV  </option>
-  <option value="12">         DEC  </option>
-      </select>
-  </td>
-
-
-  <td>
-      <label for="select2">YYYY]</label><br>
-      <select name="select2" id="select10" size="25" style=""  onchange="line()">
-  <option value="" selected>   -- </option>
-  <option value="_2024">    2024  </option>
-  <option value="_2023">    2023  </option>
-  <option value="_2022">    2022  </option> 
-  <option value="_2021">    2021  </option>
-  <option value="_2020">    2020  </option>
-  <option value="_2019">    2019  </option>
-  <option value="_2018">    2018  </option>
-  <option value="_2017">    2017  </option>
-  <option value="_2016">    2016  </option>
-      </select>
-  </td>
-</tr>
-<tr>
-<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
-   <td>
-      <label for="select2">[SSIC]</label><br>
-<input type="text" id="select14" onkeyup="line()" placeholder="#">
-   </td>
-</tr>
-</table>
-<table>
-<tr>
-  <td>
-<input type="reset" value="Reset All Above" /  style="color:blue; width:300px">
-  </td>  
-</tr>
-</table>
-</div>
-
-</form>
-<form>
-
-</form>
-
-<table>
-<tr>
-<td>
-
-<input type="text" class="form-control" placeholder="Combination Here" name="combination" id="combination" style="color:blue; width:500px">
-<button onclick="myFunction()">Copy text</button>
-</td>
-</tr>
-</table>
-
-
-
-<br>
-
-
-
-			<b>
-				<u>Sheet Name</u> :  N4 HPE Naming
-			</b>
-			<hr>
-				<table id="name-table" cellspacing=0 border=1>
-					<tr class="name">
-						<td style=min-width:50px>CABINET NAME</td>
-						<td style=min-width:50px>DRAWER NAME</td>
-						<td style=min-width:50px>FOLDER NAME</td>
-						<td style=min-width:50px>FILE NAME</td>
-						<td style=min-width:50px>INSTR SECTION (1-3)</td>
-					</tr>
-					<tr class="name">
-						<td style=min-width:50px>1000 MILITARY PERSONNEL</td>
-						<td style=min-width:50px>1000_SUPPLY PERSONNEL</td>
-						<td style=min-width:50px>1000_FY16</td>
-						<td style=min-width:50px>[SUBJECT]_[DOCUMENT NAME/TYPE]_[YYYYMMDD]</td>
-						<td style=min-width:50px>3</td>
-					</tr>
-					<tr class="name">
-						<td style=min-width:50px>2000 INFORMATION TECHNOLOGY AND COM.</td>
-						<td style=min-width:50px>2060_1_TELEPHONE SERVICE CONTRACT AND CORRESPONDENCE</td>
-						<td style=min-width:50px>2060_1_FY16</td>
-						<td style=min-width:50px>[FY]_[FORM #]_[DOCUMENT NAME]_[LAST][FIRST][SSN]_[YYYYMMDD] </td>
-						<td style=min-width:50px>2</td>
-					</tr>
-					<tr class="name">
-						<td style=min-width:50px>4000 LOGISTICS</td>
-						<td style=min-width:50px>4000_1_GENERAL CORRESPONDENCE (INCOMING)</td>
-						<td style=min-width:50px>4000_1_FY16</td>
-						<td style=min-width:50px>[SUBJECT]_[DOCUMENT NAME/TYPE]_[YYYYMMDD]</td>
-						<td style=min-width:50px>3</td>
-					</tr>
-					<tr class="name">
-						<td style=min-width:50px>4000 LOGISTICS</td>
-						<td style=min-width:50px>4000_2_GENERAL CORRESPONDENCE (OUTGOING)</td>
-						<td style=min-width:50px>4000_2_FY16</td>
-						<td style=min-width:50px>[SUBJECT]_[DOCUMENT NAME/TYPE]_[YYYYMMDD]</td>
-						<td style=min-width:50px>3</td>
-					</tr>
-					<tr class="name">
-						<td style=min-width:50px>4000 LOGISTICS</td>
-						<td style=min-width:50px>4002_EQUIPMENT ON LOAN(TO OR BY THE NAVY RESERVE ACTIVITY)</td>
-						<td style=min-width:50px>4002_FY16</td>
-						<td style=min-width:50px>[DOCUMENT NUMBER]_[DOCUMENT NAME]_[SSIC #]_[YYYYMMDD] </td>
-						<td style=min-width:50px>1</td>
-					</tr>
-					<tr class="name">
-						<td style=min-width:50px>4000 LOGISTICS</td>
-						<td style=min-width:50px>4027_1_PETROLEUM (FUEL OIL CONTRACT)</td>
-						<td style=min-width:50px>4027_1_FY16</td>
-						<td style=min-width:50px>[DOCUMENT NUMBER]_[DOCUMENT NAME]_[SSIC #]_[YYYYMMDD] </td>
-						<td style=min-width:50px>1</td>
-					</tr>
-					<tr class="name">
-						<td style=min-width:50px>4000 LOGISTICS</td>
-						<td style=min-width:50px>4027_2_PETROLEUM (FUEL OIL) ANNUAL REGULATION AND PURCHASE ORDER</td>
-						<td style=min-width:50px>4027_2_FY16</td>
-						<td style=min-width:50px>[DOCUMENT NUMBER]_[DOCUMENT NAME]_[SSIC #]_[YYYYMMDD] </td>
-						<td style=min-width:50px>1</td>
-					</tr>
-					<tr class="name">
-						<td style=min-width:50px>4000 LOGISTICS</td>
-						<td style=min-width:50px>4205_GCPC LETTERS OF AUTHORITY </td>
-						<td style=min-width:50px>4205_FY16</td>
-						<td style=min-width:50px>[FY]_[FORM #]_[DOCUMENT NAME]_[LAST][FIRST][SSN]_[YYYYMMDD] </td>
-						<td style=min-width:50px>2</td>
-					</tr>
-					<tr class="name">
-						<td style=min-width:50px>4000 LOGISTICS</td>
-						<td style=min-width:50px>4340_DPAS INVENTORY</td>
-						<td style=min-width:50px>4340_FY16</td>
-						<td style=min-width:50px>[FY]_[FORM #]_[DOCUMENT NAME]_[LAST][FIRST][SSN]_[YYYYMMDD] </td>
-						<td style=min-width:50px>2</td>
-					</tr>
-					<tr class="name">
-						<td style=min-width:50px>4000 LOGISTICS</td>
-						<td style=min-width:50px>4340_1_DPAS POC_DEPARTMENT LISTING </td>
-						<td style=min-width:50px>4340_1_FY16</td>
-						<td style=min-width:50px>[FY]_[FORM #]_[DOCUMENT NAME]_[LAST][FIRST][SSN]_[YYYYMMDD] </td>
-						<td style=min-width:50px>2</td>
-					</tr>
-					<tr class="name">
-						<td style=min-width:50px>4000 LOGISTICS</td>
-						<td style=min-width:50px>4480_EXPENDITURE DOCUMENTS</td>
-						<td style=min-width:50px>4480_FY16</td>
-						<td style=min-width:50px>[DOCUMENT NUMBER]_[DOCUMENT NAME]_[SSIC #]_[YYYYMMDD] </td>
-						<td style=min-width:50px>1</td>
-					</tr>
-					<tr class="name">
-						<td style=min-width:50px>4000 LOGISTICS</td>
-						<td style=min-width:50px>4430_MATERIAL RECEIPT(ORDERED BY OTHER ACTIVITIES) </td>
-						<td style=min-width:50px>4430_FY16</td>
-						<td style=min-width:50px>[DOCUMENT NUMBER]_[DOCUMENT NAME]_[SSIC #]_[YYYYMMDD] </td>
-						<td style=min-width:50px>1</td>
-					</tr>
-					<tr class="name">
-						<td style=min-width:50px>4000 LOGISTICS</td>
-						<td style=min-width:50px>4610_SHIPMENTS_GBL</td>
-						<td style=min-width:50px>4610_FY16</td>
-						<td style=min-width:50px>[DOCUMENT NUMBER]_[DOCUMENT NAME]_[SSIC #]_[YYYYMMDD] </td>
-						<td style=min-width:50px>1</td>
-					</tr>
-					<tr class="name">
-						<td style=min-width:50px>4000 LOGISTICS</td>
-						<td style=min-width:50px>4790_1_MAINTENANCE AND MATERIAL MANAGEMENT(3-M)</td>
-						<td style=min-width:50px>4790_1_FY16</td>
-						<td style=min-width:50px>[FY]_[FORM #]_[DOCUMENT NAME]_[LAST][FIRST][SSN]_[YYYYMMDD] </td>
-						<td style=min-width:50px>2</td>
-					</tr>
-					<tr class="name">
-						<td style=min-width:50px>4000 LOGISTICS</td>
-						<td style=min-width:50px>4790_2_TECHNICAL TRAINING EQUIPMENT INSPECTION SUMMARY </td>
-						<td style=min-width:50px>4790_2_FY16</td>
-						<td style=min-width:50px>[FY]_[FORM #]_[DOCUMENT NAME]_[LAST][FIRST][SSN]_[YYYYMMDD] </td>
-						<td style=min-width:50px>2</td>
-					</tr>
-					<tr class="name">
-						<td style=min-width:50px>4000 LOGISTICS</td>
-						<td style=min-width:50px>4790_3_EQUIPMENT MAINTENANCE REQUEST </td>
-						<td style=min-width:50px>4790_3_FY16</td>
-						<td style=min-width:50px>[DOCUMENT NUMBER]_[DOCUMENT NAME]_[SSIC #]_[YYYYMMDD] </td>
-						<td style=min-width:50px>1</td>
-					</tr>
-					<tr class="name">
-						<td style=min-width:50px>4000 LOGISTICS</td>
-						<td style=min-width:50px>4340_GOVERNMENT PROPERTY </td>
-						<td style=min-width:50px>4340_FY16</td>
-						<td style=min-width:50px>[SUBJECT]_[DOCUMENT NAME/TYPE]_[YYYYMMDD] </td>
-						<td style=min-width:50px>3</td>
-					</tr>
-					<tr class="name">
-						<td style=min-width:50px>4000 LOGISTICS</td>
-						<td style=min-width:50px>4020_FUEL</td>
-						<td style=min-width:50px>4020_FY16</td>
-						<td style=min-width:50px>[DOCUMENT NUMBER]_[DOCUMENT NAME]_[SSIC #]_[YYYYMMDD] </td>
-						<td style=min-width:50px>1</td>
-					</tr>
-					<tr class="name">
-						<td style=min-width:50px>4000 LOGISTICS</td>
-						<td style=min-width:50px>4440_INVENTORY SCHEDULE </td>
-						<td style=min-width:50px>4440_FY16</td>
-						<td style=min-width:50px>[FY]_[FORM #]_[DOCUMENT NAME]_[LAST][FIRST][SSN]_[YYYYMMDD] </td>
-						<td style=min-width:50px>2</td>
-					</tr>
-					<tr class="name">
-						<td style=min-width:50px>4000 LOGISTICS</td>
-						<td style=min-width:50px>4270_ACQUISITIONS </td>
-						<td style=min-width:50px>4270_FY16</td>
-						<td style=min-width:50px>[DOCUMENT NUMBER]_[DOCUMENT NAME]_[SSIC #]_[YYYYMMDD] </td>
-						<td style=min-width:50px>1</td>
-					</tr>
-					<tr class="name">
-						<td style=min-width:50px>4000 LOGISTICS</td>
-						<td style=min-width:50px>4101_ENERGY CONSERVATION </td>
-						<td style=min-width:50px>4101_FY16</td>
-						<td style=min-width:50px>[FY]_[FORM #]_[DOCUMENT NAME]_[LAST][FIRST][SSN]_[YYYYMMDD] </td>
-						<td style=min-width:50px>2</td>
-					</tr>
-					<tr class="name">
-						<td style=min-width:50px>5000 GENERAL ADMINISTRATION AND MANAGEMENT</td>
-						<td style=min-width:50px>5040_INSPECTION AND ASSIST VISIT</td>
-						<td style=min-width:50px>5040_FY16</td>
-						<td style=min-width:50px>[FY]_[FORM #]_[DOCUMENT NAME]_[LAST][FIRST][SSN]_[YYYYMMDD] </td>
-						<td style=min-width:50px>2</td>
-					</tr>
-					<tr class="name">
-						<td style=min-width:50px>5000 GENERAL ADMINISTRATION AND MANAGEMENT</td>
-						<td style=min-width:50px>5100_SAFETY REPORTS</td>
-						<td style=min-width:50px>5100_FY16</td>
-						<td style=min-width:50px>[FY]_[FORM #]_[DOCUMENT NAME]_[LAST][FIRST][SSN]_[YYYYMMDD] </td>
-						<td style=min-width:50px>2</td>
-					</tr>
-					<tr class="name">
-						<td style=min-width:50px>5000 GENERAL ADMINISTRATION AND MANAGEMENT</td>
-						<td style=min-width:50px>5212_SUPPLY RECORD DISPOSAL SCHEDULE </td>
-						<td style=min-width:50px>5212_FY16</td>
-						<td style=min-width:50px>[FY]_[FORM #]_[DOCUMENT NAME]_[LAST][FIRST][SSN]_[YYYYMMDD] </td>
-						<td style=min-width:50px>2</td>
-					</tr>
-					<tr class="name">
-						<td style=min-width:50px>5000 GENERAL ADMINISTRATION AND MANAGEMENT</td>
-						<td style=min-width:50px>5214_REPORTS TICKLER (SUPPLY REPORTS)</td>
-						<td style=min-width:50px>5214_FY16</td>
-						<td style=min-width:50px>[FY]_[FORM #]_[DOCUMENT NAME]_[LAST][FIRST][SSN]_[YYYYMMDD] </td>
-						<td style=min-width:50px>2</td>
-					</tr>
-					<tr class="name">
-						<td style=min-width:50px>5000 GENERAL ADMINISTRATION AND MANAGEMENT</td>
-						<td style=min-width:50px>5216_1_CORRESPONDENCE MANAGEMENT </td>
-						<td style=min-width:50px>5216_1_FY16</td>
-						<td style=min-width:50px>[SUBJECT]_[DOCUMENT NAME/TYPE]_[YYYYMMDD] </td>
-						<td style=min-width:50px>3</td>
-					</tr>
-					<tr class="name">
-						<td style=min-width:50px>5000 GENERAL ADMINISTRATION AND MANAGEMENT</td>
-						<td style=min-width:50px>5600_PRINTING, DUPLICATION, AND REPRODUCTION</td>
-						<td style=min-width:50px>5600_FY16</td>
-						<td style=min-width:50px>[DOCUMENT NUMBER]_[DOCUMENT NAME]_[SSIC #]_[YYYYMMDD] </td>
-						<td style=min-width:50px>1</td>
-					</tr>
-					<tr class="name">
-						<td style=min-width:50px>5000 GENERAL ADMINISTRATION AND MANAGEMENT</td>
-						<td style=min-width:50px>5371_STANDARDS OF CONDUCT (PROCUREMENT)</td>
-						<td style=min-width:50px>5371_FY16</td>
-						<td style=min-width:50px>[FY]_[FORM #]_[DOCUMENT NAME]_[LAST][FIRST][SSN]_[YYYYMMDD] </td>
-						<td style=min-width:50px>2</td>
-					</tr>
-					<tr class="name">
-						<td style=min-width:50px>5000 GENERAL ADMINISTRATION AND MANAGEMENT</td>
-						<td style=min-width:50px>5750_HISTORICAL MATTERS</td>
-						<td style=min-width:50px>5750_FY16</td>
-						<td style=min-width:50px>[SUBJECT]_[DOCUMENT NAME/TYPE]_[YYYYMMDD] </td>
-						<td style=min-width:50px>3</td>
-					</tr>
-					<tr class="name">
-						<td style=min-width:50px>7000 FINANCIAL MANAGEMENT RECORDS</td>
-						<td style=min-width:50px>7043_PROCUREMENT CORRESPONDANCE</td>
-						<td style=min-width:50px>7043_FY16</td>
-						<td style=min-width:50px>[FY]_[FORM #]_[DOCUMENT NAME]_[LAST][FIRST][SSN]_[YYYYMMDD] </td>
-						<td style=min-width:50px>2</td>
-					</tr>
-					<tr class="name">
-						<td style=min-width:50px>7000 FINANCIAL MANAGEMENT RECORDS</td>
-						<td style=min-width:50px>7043_1_PURCHASE_DELIVERY ORDERS-GCPC </td>
-						<td style=min-width:50px>7043_1_FY16</td>
-						<td style=min-width:50px>[DOCUMENT NUMBER]_[DOCUMENT NAME]_[SSIC #]_[YYYYMMDD] </td>
-						<td style=min-width:50px>1</td>
-					</tr>
-					<tr class="name">
-						<td style=min-width:50px>7000 FINANCIAL MANAGEMENT RECORDS</td>
-						<td style=min-width:50px>7000_1_GENERAL CORRESPONDANCE (INCOMING)</td>
-						<td style=min-width:50px>7000_1_FY16</td>
-						<td style=min-width:50px>[FY]_[FORM #]_[DOCUMENT NAME]_[LAST][FIRST][SSN]_[YYYYMMDD] </td>
-						<td style=min-width:50px>2</td>
-					</tr>
-					<tr class="name">
-						<td style=min-width:50px>7000 FINANCIAL MANAGEMENT RECORDS</td>
-						<td style=min-width:50px>7000_2_GENERAL CORRESPONDANCE (OUTGOING)</td>
-						<td style=min-width:50px>7000_2_FY16</td>
-						<td style=min-width:50px>[FY]_[FORM #]_[DOCUMENT NAME]_[LAST][FIRST][SSN]_[YYYYMMDD] </td>
-						<td style=min-width:50px>2</td>
-					</tr>
-					<tr class="name">
-						<td style=min-width:50px>7000 FINANCIAL MANAGEMENT RECORDS</td>
-						<td style=min-width:50px>7050_HOST-TENANT ANNUAL COST REVIEW </td>
-						<td style=min-width:50px>7050_FY16</td>
-						<td style=min-width:50px>[FY]_[FORM #]_[DOCUMENT NAME]_[LAST][FIRST][SSN]_[YYYYMMDD] </td>
-						<td style=min-width:50px>2</td>
-					</tr>
-					<tr class="name">
-						<td style=min-width:50px>7000 FINANCIAL MANAGEMENT RECORDS</td>
-						<td style=min-width:50px>7100_NON-CHARGEABLE LISTING</td>
-						<td style=min-width:50px>7100_FY16</td>
-						<td style=min-width:50px>[DOCUMENT NUMBER]_[DOCUMENT NAME]_[SSIC #]_[YYYYMMDD] </td>
-						<td style=min-width:50px>1</td>
-					</tr>
-					<tr class="name">
-						<td style=min-width:50px>7000 FINANCIAL MANAGEMENT RECORDS</td>
-						<td style=min-width:50px>7110_1_BUDGET REQUEST (O&MNR AND RPN)</td>
-						<td style=min-width:50px>7110_1_FY16</td>
-						<td style=min-width:50px>[FY]_[FORM #]_[DOCUMENT NAME]_[LAST][FIRST][SSN]_[YYYYMMDD] </td>
-						<td style=min-width:50px>2</td>
-					</tr>
-					<tr class="name">
-						<td style=min-width:50px>7000 FINANCIAL MANAGEMENT RECORDS</td>
-						<td style=min-width:50px>7110_2_MID-YEAR REVIEW (O&MNR AND RPN)</td>
-						<td style=min-width:50px>7110_2_FY16</td>
-						<td style=min-width:50px>[FY]_[FORM #]_[DOCUMENT NAME]_[LAST][FIRST][SSN]_[YYYYMMDD] </td>
-						<td style=min-width:50px>2</td>
-					</tr>
-					<tr class="name">
-						<td style=min-width:50px>7000 FINANCIAL MANAGEMENT RECORDS</td>
-						<td style=min-width:50px>7110_3_RESOURCES REQUEST(OUTSTANDNG AND COMPLETED)</td>
-						<td style=min-width:50px>7110_3_FY16</td>
-						<td style=min-width:50px>[FY]_[FORM #]_[DOCUMENT NAME]_[LAST][FIRST][SSN]_[YYYYMMDD] </td>
-						<td style=min-width:50px>2</td>
-					</tr>
-					<tr class="name">
-						<td style=min-width:50px>7000 FINANCIAL MANAGEMENT RECORDS</td>
-						<td style=min-width:50px>7300_INTER-SERVICE SUPPORT AGREEMENT (ONE FOR EACH AGREEMENT)</td>
-						<td style=min-width:50px>7300_FY16</td>
-						<td style=min-width:50px>[FY]_[FORM #]_[DOCUMENT NAME]_[LAST][FIRST][SSN]_[YYYYMMDD] </td>
-						<td style=min-width:50px>2</td>
-					</tr>
-					<tr class="name">
-						<td style=min-width:50px>7000 FINANCIAL MANAGEMENT RECORDS</td>
-						<td style=min-width:50px>7303_1_FUNDING GRANT AND COST CENTER </td>
-						<td style=min-width:50px>7303_1_FY16</td>
-						<td style=min-width:50px>[FY]_[FORM #]_[DOCUMENT NAME]_[LAST][FIRST][SSN]_[YYYYMMDD] </td>
-						<td style=min-width:50px>2</td>
-					</tr>
-					<tr class="name">
-						<td style=min-width:50px>7000 FINANCIAL MANAGEMENT RECORDS</td>
-						<td style=min-width:50px>7330_STATUS OF FUNDS AND COST CENTER </td>
-						<td style=min-width:50px>7330_FY16</td>
-						<td style=min-width:50px>[FY]_[FORM #]_[DOCUMENT NAME]_[LAST][FIRST][SSN]_[YYYYMMDD] </td>
-						<td style=min-width:50px>2</td>
-					</tr>
-					<tr class="name">
-						<td style=min-width:50px>7000 FINANCIAL MANAGEMENT RECORDS</td>
-						<td style=min-width:50px>7330_1_DOCUMENT STATUS LOG AND COST CENTER </td>
-						<td style=min-width:50px>7330_1_FY16</td>
-						<td style=min-width:50px>[FY]_[FORM #]_[DOCUMENT NAME]_[LAST][FIRST][SSN]_[YYYYMMDD] </td>
-						<td style=min-width:50px>2</td>
-					</tr>
-					<tr class="name">
-						<td style=min-width:50px>7000 FINANCIAL MANAGEMENT RECORDS</td>
-						<td style=min-width:50px>7500_AUDITS </td>
-						<td style=min-width:50px>7500_FY16</td>
-						<td style=min-width:50px>[FY]_[FORM #]_[DOCUMENT NAME]_[LAST][FIRST][SSN]_[YYYYMMDD] </td>
-						<td style=min-width:50px>2</td>
-					</tr>
-					<tr class="name">
-						<td style=min-width:50px>7000 FINANCIAL MANAGEMENT RECORDS</td>
-						<td style=min-width:50px>7596_REAL ESTATE AGREEMENTS_LEASE </td>
-						<td style=min-width:50px>7596_FY16</td>
-						<td style=min-width:50px>[FY]_[FORM #]_[DOCUMENT NAME]_[LAST][FIRST][SSN]_[YYYYMMDD] </td>
-						<td style=min-width:50px>2</td>
-					</tr>
-					<tr class="name">
-						<td style=min-width:50px>8000 ORDNANCE MATERIAL</td>
-						<td style=min-width:50px>8010_AMMUNITION CORRESPONDENCE </td>
-						<td style=min-width:50px>8010_FY16</td>
-						<td style=min-width:50px>[FY]_[FORM #]_[DOCUMENT NAME]_[LAST][FIRST][SSN]_[YYYYMMDD] </td>
-						<td style=min-width:50px>2</td>
-					</tr>
-					<tr class="name">
-						<td style=min-width:50px>8000 ORDNANCE MATERIAL</td>
-						<td style=min-width:50px>8010_1_AMMUNITIONS REPORTS </td>
-						<td style=min-width:50px>8010_1_FY16</td>
-						<td style=min-width:50px>[FY]_[FORM #]_[DOCUMENT NAME]_[LAST][FIRST][SSN]_[YYYYMMDD] </td>
-						<td style=min-width:50px>2</td>
-					</tr>
-					<tr class="name">
-						<td style=min-width:50px>10000 GENERAL MATERIAL RECORDS</td>
-						<td style=min-width:50px>10700_AUDIOVISUAL </td>
-						<td style=min-width:50px>10700_FY16</td>
-						<td style=min-width:50px>[FY]_[FORM #]_[DOCUMENT NAME]_[LAST][FIRST][SSN]_[YYYYMMDD] </td>
-						<td style=min-width:50px>2</td>
-					</tr>
-					<tr class="name">
-						<td style=min-width:50px>11000 STRUCTURE AND FACILITIES RECORDS</td>
-						<td style=min-width:50px>11011_1_LICENSE FOR USE OF REAL PROPERTY (NON-FEDERAL 11011_29)</td>
-						<td style=min-width:50px>11011_1_FY16</td>
-						<td style=min-width:50px>[FY]_[FORM #]_[DOCUMENT NAME]_[LAST][FIRST][SSN]_[YYYYMMDD] </td>
-						<td style=min-width:50px>2</td>
-					</tr>
-					<tr class="name">
-						<td style=min-width:50px>11000 STRUCTURE AND FACILITIES RECORDS</td>
-						<td style=min-width:50px>11011_2_LICENSE FOR USE OF REAL PROPERTY (OTHER FEDERAL AGENCIES NAVFAC 11011_30)</td>
-						<td style=min-width:50px>11011_2_FY16</td>
-						<td style=min-width:50px>[FY]_[FORM #]_[DOCUMENT NAME]_[LAST][FIRST][SSN]_[YYYYMMDD] </td>
-						<td style=min-width:50px>2</td>
-					</tr>
-					<tr class="name">
-						<td style=min-width:50px>11000 STRUCTURE AND FACILITIES RECORDS</td>
-						<td style=min-width:50px>11014_FACILITIES MAINTENANCE REQUEST </td>
-						<td style=min-width:50px>11014_FY16</td>
-						<td style=min-width:50px>[FY]_[FORM #]_[DOCUMENT NAME]_[LAST][FIRST][SSN]_[YYYYMMDD] </td>
-						<td style=min-width:50px>2</td>
-					</tr>
-					<tr class="name">
-						<td style=min-width:50px>11000 STRUCTURE AND FACILITIES RECORDS</td>
-						<td style=min-width:50px>11000_ANNUAL INSPECTION SUMMARY (TYPE A)</td>
-						<td style=min-width:50px>11000_FY16</td>
-						<td style=min-width:50px>[FY]_[FORM #]_[DOCUMENT NAME]_[LAST][FIRST][SSN]_[YYYYMMDD] </td>
-						<td style=min-width:50px>2</td>
-					</tr>
-					<tr class="name">
-						<td style=min-width:50px>11000 STRUCTURE AND FACILITIES RECORDS</td>
-						<td style=min-width:50px>11011_BACHELOR LEASED HOUSING(ONE FOR ONE; IE. 114000-1)</td>
-						<td style=min-width:50px>11011_FY16</td>
-						<td style=min-width:50px>[FY]_[FORM #]_[DOCUMENT NAME]_[LAST][FIRST][SSN]_[YYYYMMDD] </td>
-						<td style=min-width:50px>2</td>
-					</tr>
-					<tr class="name">
-						<td style=min-width:50px>11000 STRUCTURE AND FACILITIES RECORDS</td>
-						<td style=min-width:50px>11240_2_VEHICLES </td>
-						<td style=min-width:50px>11240_2_FY16</td>
-						<td style=min-width:50px>[FY]_[FORM #]_[DOCUMENT NAME]_[LAST][FIRST][SSN]_[YYYYMMDD] </td>
-						<td style=min-width:50px>2</td>
-					</tr>
-					<tr class="name">
-						<td style=min-width:50px>11000 STRUCTURE AND FACILITIES RECORDS</td>
-						<td style=min-width:50px>11300_GENERAL CORRESPONDANCE UTILITIES </td>
-						<td style=min-width:50px>11300_FY16</td>
-						<td style=min-width:50px>[FY]_[FORM #]_[DOCUMENT NAME]_[LAST][FIRST][SSN]_[YYYYMMDD] </td>
-						<td style=min-width:50px>2</td>
-					</tr>
-					<tr class="name">
-						<td style=min-width:50px></td>
-						<td style=min-width:50px></td>
-						<td style=min-width:50px></td>
-						<td style=min-width:50px></td>
-						<td style=min-width:50px></td>
-					</tr>
-					<tr class="name">
-						<td style=min-width:50px></td>
-						<td style=min-width:50px></td>
-						<td style=min-width:50px></td>
-						<td style=min-width:50px></td>
-						<td style=min-width:50px></td>
-					</tr>
-				</table>
-
-
-
-
-
-
-
-
-
-
-
-
-    <script type="text/javascript">
-
-function myFunction() {
-  var copyText = document.getElementById("combination");
-  copyText.select();
-  copyText.setSelectionRange(0, 99999)
-  document.execCommand("copy");
-}
-
-
-function line() {
-    var sel1 = $('#select1 option:selected').val();
-    var sel2 = $('#select2 option:selected').val();
-    var sel3 = $('#select3 option:selected').val();
-    var sel4 = $('#select4 option:selected').val();
-    var sel5 = $('#select5 option:selected').val();
-    var sel6 = $('#select6 option:selected').val();
-    var sel7 = $('#select7 option:selected').val();
-    var sel8 = $('#select8 option:selected').val();
-    var sel9 = $('#select9 option:selected').val();
-    var sel10 = $('#select10 option:selected').val();
-    var sel11 = $('#select11 option:selected').val();
-    var sel12 = $('#select12 option:selected').val();
-    var sel13 = $('#select13 option:selected').val();
-    var sel14 = document.getElementById("select14").value;
-    document.getElementById("select14").innerHTML = sel14;
-    var sel15 = $('#select15 option:selected').val();
-    $('#combination').val(sel1+sel2+sel13+sel3+sel4+sel5+sel6+sel15+sel11+sel7+sel14+sel12+sel10+sel9+sel8)
-}
-
-
-highlight_row();
-function highlight_row() {
-    var table = document.getElementById('name-table');
-    var cells = table.getElementsByTagName('td');
-
-    for (var i = 0; i < cells.length; i++) {
-        // Take each cell
-        var cell = cells[i];
-        // do something on onclick event for cell
-        cell.onclick = function () {
+        for (var i = 0; i < cells.length; i++) {
+          // Take each cell
+          var cell = cells[i];
+          // do something on onclick event for cell
+          cell.onclick = function () {
             // Get the row id where the cell exists
             var rowId = this.parentNode.rowIndex;
 
-            var rowsNotSelected = table.getElementsByTagName('tr');
+            var rowsNotSelected = table.getElementsByTagName("tr");
             for (var row = 0; row < rowsNotSelected.length; row++) {
-                rowsNotSelected[row].style.backgroundColor = "";
-                rowsNotSelected[row].classList.remove('selected');
+              rowsNotSelected[row].style.backgroundColor = "";
+              rowsNotSelected[row].classList.remove("selected");
             }
-            var rowSelected = table.getElementsByTagName('tr')[rowId];
+            var rowSelected = table.getElementsByTagName("tr")[rowId];
             rowSelected.style.backgroundColor = "yellow";
             rowSelected.className += " selected";
 
-            msg = 'The ID of the company is: ' + rowSelected.cells[0].innerHTML;
-            msg += '\nThe cell value is: ' + this.innerHTML;
+            msg = "The ID of the company is: " + rowSelected.cells[0].innerHTML;
+            msg += "\nThe cell value is: " + this.innerHTML;
             alert(msg);
+          };
         }
-    }
-
-}
+      }
     </script>
-</body>
+  </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

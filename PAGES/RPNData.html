@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <form class="FlexColCenterCenter" onSubmit="handleSubmit(event)">
+        <fieldset class="IPRFieldSet">
+          <legend>Data for RPN Documents</legend>
+
+          <div class="Grid22RPNData">
+            <label class="RNPDataLabel">
+              <span>ACRN</span>
+            </label>
+            <input name="ACRN" type="text" id="dataACRN" />
+          </div>
+          <div class="Grid22RPNData">
+            <label class="RNPDataLabel">
+              <span>GA</span>
+            </label>
+            <input name="GA" type="text" id="dataGA" />
+          </div>
+          <div class="Grid22RPNData">
+            <label class="RNPDataLabel">
+              <span>BFYEFY</span>
+            </label>
+            <input name="BFYEFY" type="text" id="dataBFYEFY" />
+          </div>
+          <div class="Grid22RPNData">
+            <label class="RNPDataLabel">
+              <span>APPN</span>
+            </label>
+            <input name="APPN" type="text" id="dataAPPN" />
+          </div>
+          <div class="Grid22RPNData">
+            <label class="RNPDataLabel">
+              <span>SBHD</span>
+            </label>
+            <input name="SBHD" type="text" id="dataSBHD" />
+          </div>
+          <div class="Grid22RPNData">
+            <label class="RNPDataLabel">
+              <span>OBJCLASS</span>
+            </label>
+            <input name="OBJCLASS" type="text" id="dataOBJCLASS" />
+          </div>
+          <div class="Grid22RPNData">
+            <label class="RNPDataLabel">
+              <span>BCN</span>
+            </label>
+            <input name="BCN" type="text" id="dataBCN" />
+          </div>
+          <div class="Grid22RPNData">
+            <label class="RNPDataLabel">
+              <span>BLANK</span>
+            </label>
+            <input name="BLANK" type="text" id="dataBLANK" />
+          </div>
+          <div class="Grid22RPNData">
+            <label class="RNPDataLabel">
+              <span>SA</span>
+            </label>
+            <input name="SA" type="text" id="dataSA" />
+          </div>
+          <div class="Grid22RPNData">
+            <label class="RNPDataLabel">
+              <span>AAA</span>
+            </label>
+            <input name="AAA" type="text" id="dataAAA" />
+          </div>
+          <div class="Grid22RPNData">
+            <label class="RNPDataLabel">
+              <span>TT</span>
+            </label>
+            <input name="TT" type="text" id="dataTT" />
+          </div>
+          <div class="Grid22RPNData">
+            <label class="RNPDataLabel">
+              <span>PAA</span>
+            </label>
+            <input name="PAA" type="text" id="dataPAA" />
+          </div>
+          <div class="Grid22RPNData">
+            <label class="RNPDataLabel">
+              <span>COSTCOST</span>
+            </label>
+            <input name="COSTCOST" type="text" id="dataCOSTCOST" />
+          </div>
+          <div class="Grid22RPNData">
+            <label class="RNPDataLabel">
+              <span>Document Number</span>
+            </label>
+            <input name="DOC" type="text" id="dataDOC" />
+          </div>
+
+          <input type="submit" value="Submit" name="submit" />
+        </fieldset>
+      </form>
+    </div>
+
+    <script defer>
+      let data;
+      if (localStorage.getItem("RPN") === null) {
+        data = {
+          ACRN: " ",
+          GA: " ",
+          BFYEFY: " ",
+          APPN: " ",
+          SBHD: " ",
+          OBJCLASS: " ",
+          BCN: " ",
+          BLANK: " ",
+          SA: " ",
+          AAA: " ",
+          TT: " ",
+          PAA: " ",
+          COSTCOST: " ",
+          DOC: "",
+        };
+      } else {
+        data = JSON.parse(localStorage.getItem("RPN"));
+      }
+      console.log(data);
+
+      document.getElementById("dataACRN").defaultValue = data.ACRN;
+      document.getElementById("dataGA").defaultValue = data.GA;
+      document.getElementById("dataBFYEFY").defaultValue = data.BFYEFY;
+      document.getElementById("dataAPPN").defaultValue = data.APPN;
+      document.getElementById("dataSBHD").defaultValue = data.SBHD;
+      document.getElementById("dataOBJCLASS").defaultValue = data.OBJCLASS;
+      document.getElementById("dataBCN").defaultValue = data.BCN;
+      document.getElementById("dataBLANK").defaultValue = data.BLANK;
+      document.getElementById("dataSA").defaultValue = data.SA;
+      document.getElementById("dataAAA").defaultValue = data.AAA;
+      document.getElementById("dataTT").defaultValue = data.TT;
+      document.getElementById("dataPAA").defaultValue = data.PAA;
+      document.getElementById("dataCOSTCOST").defaultValue = data.COSTCOST;
+      document.getElementById("dataDOC").defaultValue = data.DOC;
+
+      function handleSubmit(e) {
+        e.preventDefault();
+
+        data.ACRN = e.target.elements.ACRN.value;
+        data.GA = e.target.elements.GA.value;
+        data.BFYEFY = e.target.elements.BFYEFY.value;
+        data.APPN = e.target.elements.APPN.value;
+        data.SBHD = e.target.elements.SBHD.value;
+        data.OBJCLASS = e.target.elements.OBJCLASS.value;
+        data.BCN = e.target.elements.BCN.value;
+        data.BLANK = e.target.elements.BLANK.value;
+        data.SA = e.target.elements.SA.value;
+        data.AAA = e.target.elements.AAA.value;
+        data.TT = e.target.elements.TT.value;
+        data.PAA = e.target.elements.PAA.value;
+        data.COSTCOST = e.target.elements.COSTCOST.value;
+        data.DOC = e.target.elements.DOC.value;
+
+        let testData = data;
+        localStorage.setItem("RPN", JSON.stringify(testData));
+
+        navigate(0);
+      }
+    </script>
+  </body>
+</html>

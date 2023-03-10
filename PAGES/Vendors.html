@@ -32,7 +32,7 @@
           </div>
           <div style="display: flex; flex-direction: column; justify-content: center; align-items: end">
             <div style="display: flex; flex-direction: row; gap: 0.5rem"><label>Justification</label><textarea id="Justification" type="text" cols="16" rows="4"></textarea></div>
-            <div style="display: flex; flex-direction: row; gap: 0.5rem"><label>RPN</label><input type="radio" id="RPN" /> <input type="submit" /></div>
+            <div style="display: flex; flex-direction: row; gap: 0.5rem"><label>RPN</label><input type="checkbox" id="RPN" /> <input type="submit" /></div>
           </div>
         </div>
       </form>
@@ -63,7 +63,7 @@
           "Total": document.getElementById("Total").value,
           "Description": document.getElementById("Description").value,
           "Justification": document.getElementById("Justification").value,
-          "RPN": document.getElementById("RPN").value,
+          "RPN": document.getElementById("RPN").checked,
         };
         currentVendors.push(newVendor);
         localStorage.setItem("Vendors", JSON.stringify(currentVendors));
@@ -92,11 +92,25 @@
               "Total": document.getElementById("Total" + ID).value,
               "Description": document.getElementById("Description" + ID).value,
               "Justification": document.getElementById("Justification" + ID).value,
-              "RPN": document.getElementById("RPN" + ID).value,
+              "RPN": document.getElementById("RPN" + ID).checked,
             };
           }
         }
         localStorage.setItem("Vendors", JSON.stringify(currentVendors));
+      }
+
+      function DeleteLine(event) {
+        let ID = event.target.getAttribute("IDInput");
+        let currentPass = JSON.parse(localStorage.getItem("Vendors")) || [];
+        let tempPass = [];
+        currentPass.map((items) => {
+          if (items.ID !== ID) {
+            tempPass.push(items);
+          }
+          console.log(tempPass);
+        });
+        localStorage.setItem("Vendors", JSON.stringify(tempPass));
+        window.location.reload();
       }
 
       function ListVendor(html) {
@@ -107,31 +121,40 @@
 
       // <form onsubmit="UpdateItem(event, ${ID})">
       function AddToVendor(data, index) {
+        let Check;
+        if (data.RPN === true) {
+          Check = `<input type="checkbox" name="RPN${data.ID}" id="RPN${data.ID}" checked="${data.RPN}" />`;
+        } else {
+          Check = `<input type="checkbox" name="RPN${data.ID}" id="RPN${data.ID}" />`;
+        }
         let text = `
         <form onsubmit="UpdateItem(event)" dataID="${data.ID}">
+            <fieldset>
+                <legend>\"${data.Name}"\</legend>
         <div style="display: flex; flex-direction: row; justify-content: center; align-items: center; gap: 0.5rem">
           <div style="display: flex; flex-direction: column; justify-content: center; align-items: end">
-            <div style="display: flex; flex-direction: row; gap: 0.5rem"><label>Vendor Name</label><input id="Name${data.ID}" type="text" value=${data.Name} /></div>
-            <div style="display: flex; flex-direction: row; gap: 0.5rem"><label>Vendor POC</label><input id="POC${data.ID}" type="text" value=${data.POC}  /></div>
-            <div style="display: flex; flex-direction: row; gap: 0.5rem"><label>Address</label><input id="Address${data.ID}" type="text" value=${data.Address} /></div>
-            <div style="display: flex; flex-direction: row; gap: 0.5rem"><label>City</label><input id="City${data.ID}" type="text" value=${data.City} /></div>
-            <div style="display: flex; flex-direction: row; gap: 0.5rem"><label>State</label><input id="State${data.ID}" type="text" value=${data.State} /></div>
-            <div style="display: flex; flex-direction: row; gap: 0.5rem"><label>Zip</label><input id="Zip${data.ID}" type="text" value=${data.Zip} /></div>
-            <div style="display: flex; flex-direction: row; gap: 0.5rem"><label>Phone</label><input id="Phone${data.ID}" type="text" value=${data.Phone} /></div>
+            <div style="display: flex; flex-direction: row; gap: 0.5rem"><label>Vendor Name</label><input id="Name${data.ID}" type="text" value=\"${data.Name}"\ /></div>
+            <div style="display: flex; flex-direction: row; gap: 0.5rem"><label>Vendor POC</label><input id="POC${data.ID}" type="text" value=\"${data.POC}"\  /></div>
+            <div style="display: flex; flex-direction: row; gap: 0.5rem"><label>Address</label><input id="Address${data.ID}" type="text" value=\"${data.Address}"\ /></div>
+            <div style="display: flex; flex-direction: row; gap: 0.5rem"><label>City</label><input id="City${data.ID}" type="text" value=\"${data.City}"\ /></div>
+            <div style="display: flex; flex-direction: row; gap: 0.5rem"><label>State</label><input id="State${data.ID}" type="text" value=\"${data.State}"\ /></div>
+            <div style="display: flex; flex-direction: row; gap: 0.5rem"><label>Zip</label><input id="Zip${data.ID}" type="text" value=\"${data.Zip}"\ /></div>
+            <div style="display: flex; flex-direction: row; gap: 0.5rem"><label>Phone</label><input id="Phone${data.ID}" type="text" value=\"${data.Phone}"\ /></div>
           </div>
           <div style="display: flex; flex-direction: column; justify-content: center; align-items: end">
-            <div style="display: flex; flex-direction: row; gap: 0.5rem"><label>Web</label><input id="Web${data.ID}" type="text" value=${data.Web} /></div>
-            <div style="display: flex; flex-direction: row; gap: 0.5rem"><label>UP</label><input id="UP${data.ID}" type="text" value=${data.UP} /></div>
-            <div style="display: flex; flex-direction: row; gap: 0.5rem"><label>QT</label><input id="QT${data.ID}" type="text" value=${data.QT} /></div>
-            <div style="display: flex; flex-direction: row; gap: 0.5rem"><label>UI</label><input id="UI${data.ID}" type="text" value=${data.UI} /></div>
-            <div style="display: flex; flex-direction: row; gap: 0.5rem"><label>Total</label><input id="Total${data.ID}" type="text" value=${data.Total} /></div>
+            <div style="display: flex; flex-direction: row; gap: 0.5rem"><label>Web</label><input id="Web${data.ID}" type="text" value=\"${data.Web}"\ /></div>
+            <div style="display: flex; flex-direction: row; gap: 0.5rem"><label>UP</label><input id="UP${data.ID}" type="text" value=\"${data.UP}"\ /></div>
+            <div style="display: flex; flex-direction: row; gap: 0.5rem"><label>QT</label><input id="QT${data.ID}" type="text" value=\"${data.QT}"\ /></div>
+            <div style="display: flex; flex-direction: row; gap: 0.5rem"><label>UI</label><input id="UI${data.ID}" type="text" value=\"${data.UI}"\ /></div>
+            <div style="display: flex; flex-direction: row; gap: 0.5rem"><label>Total</label><input id="Total${data.ID}" type="text" value=\"${data.Total}"\ /></div>
             <div style="display: flex; flex-direction: row; gap: 0.5rem"><label>Description</label><textarea id="Description${data.ID}" type="text" cols="16" rows="3">${data.Description}</textarea></div>
           </div>
           <div style="display: flex; flex-direction: column; justify-content: center; align-items: end">
             <div style="display: flex; flex-direction: row; gap: 0.5rem"><label>Justification</label><textarea id="Justification${data.ID}" type="text" cols="16" rows="4">${data.Justification}</textarea></div>
-            <div style="display: flex; flex-direction: row; gap: 0.5rem"><label>RPN</label><input type="radio" id="RPN${data.ID}"  /> <input type="submit" /></div>
+            <div style="display: flex; flex-direction: row; gap: 0.5rem"><label>RPN</label>${Check} <input type="submit" value="Update" /> <button type="button" IDInput="${data.ID}" onclick="DeleteLine(event)">Delete</button> </div>
           </div>
         </div>
+        </fieldset>
     </form>
       `;
 
